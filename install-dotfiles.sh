@@ -4,17 +4,17 @@
 # .bashrc .zshrc .zshenv .inputrc etc...
 
 function link() {
-	source=~/dotfiles/$1
-	dotfile=~/$2
+  source=~/dotfiles/$1
+  dotfile=~/$2
 
-	# if file exists and isn't a symlink, skip it
-	if [ -e "${dotfile}" -a ! "${dotfile}" ]
-	then
-		echo "${dotfile} already exists"
-	else
+  # if file exists and isn't a symlink, skip it
+  if [ -e "${dotfile}" -a ! "${dotfile}" ]
+  then
+    echo "${dotfile} already exists"
+  else
     rm ${dotfile}
-		ln -sfv ${source} ${dotfile}
-	fi
+    ln -sfv ${source} ${dotfile}
+  fi
 }
 
 # symlink various config files
@@ -37,6 +37,7 @@ source ~/.bash_profile
 echo "Installing vcprompt command..."
 curl http://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > ~/dotfiles/bin/vcprompt
 
+echo "Updating git submodules"
 git submodule init
 git submodule update
 
