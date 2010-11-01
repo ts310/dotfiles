@@ -34,8 +34,10 @@ link bin .bin
 # reload source
 source ~/.bash_profile
 
+echo "installing vcprompt command..."
+curl http://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > ~/dotfiles/bin/vcprompt
+
 git submodule init
 git submodule update
 
 echo "Done!"
-

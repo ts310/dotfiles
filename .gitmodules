@@ -28,9 +28,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = http://github.com/ervandew/supertab.git
-[submodule "vim/bundle/checksyntax"]
-	path = vim/bundle/checksyntax
-	url = http://github.com/tomtom/checksyntax_vim.git
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = http://github.com/tpope/vim-repeat.git
@@ -61,3 +58,6 @@
 [submodule "vim/bundle/delimitMate"]
 	path = vim/bundle/delimitMate
 	url = http://github.com/Raimondi/delimitMate.git
+[submodule "vim/bundle/checksyntax-vim"]
+	path = vim/bundle/checksyntax-vim
+	url = http://github.com/tomtom/checksyntax_vim.git
