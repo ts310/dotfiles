@@ -1,0 +1,14 @@
+# XCode
+
+# Analyze release build
+alias sx="xcodebuild clean && ~/src/checker/scan-build -k -V xcodebuild"
+
+# Analyze test build
+alias sxt="xcodebuild -target Test clean && ~/src/checker/scan-build -k -V xcodebuild -target Test"
+
+# Call with -target Foo
+function sxx() { 
+  xcodebuild $* clean && ~/src/checker/scan-build -k -V xcodebuild $* 
+}
+
+alias ox="open *.xcodeproj"

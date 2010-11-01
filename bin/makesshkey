@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f ~/.ssh/id_rsa.pub ]
+then
+  echo "Key is already installed!"
+else
+  ssh-keygen -t rsa
+fi
+

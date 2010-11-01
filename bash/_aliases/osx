@@ -1,0 +1,13 @@
+# osx
+
+function oa {
+  open -a $1
+}
+
+alias o='open .'
+
+#alias ff='open -a Firefox'
+
+alias chrome='open -a Google\ Chrome.app --args -enable-apps'
+
+alias xcode='open /Xcode4/Applications/Xcode.app'

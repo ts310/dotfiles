@@ -1,0 +1,11 @@
+#!/bin/sh -
+
+newFile=${1%.c}
+
+# Compile the program with -o option to specify the name of the binary
+gcc $1 -o $newFile
+
+# If there were no compilation errors, run the program
+if [[ $? -eq 0 ]]; then
+  ./"$newFile"
+fi

@@ -1,0 +1,7 @@
+. ~/dotfiles/bash/_aliases/base
+. ~/dotfiles/bash/_aliases/editor
+. ~/dotfiles/bash/_aliases/git
+. ~/dotfiles/bash/_aliases/xcode
+. ~/dotfiles/bash/_aliases/ruby
+. ~/dotfiles/bash/_aliases/server
+. ~/dotfiles/bash/_aliases/osx

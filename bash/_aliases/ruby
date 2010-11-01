@@ -1,0 +1,18 @@
+# Ruby
+alias r="rake"
+
+# Rails
+alias mr='mongrel_rails start'
+alias ms='mongrel_rails stop'
+alias rp='touch tmp/restart.txt'
+alias sc='./script/console'
+alias sg='./script/generate'
+alias sp='./script/plugin'
+alias ss='./script/server'
+alias tl='tail -f log/*.log'
+alias ts='thin start'
+
+# TDD / BDD
+alias aa='autotest'
+alias aaf='autotest -f' # Don't run all at start
+alias aas="./script/autospec"
