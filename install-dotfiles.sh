@@ -36,6 +36,7 @@ source ~/.bash_profile
 
 echo "Installing vcprompt command..."
 curl http://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > ~/dotfiles/bin/vcprompt
+chmod +x ~/.bin/vcprompt
 
 echo "Updating git submodules"
 git submodule init
