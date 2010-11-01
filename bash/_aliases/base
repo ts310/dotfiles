@@ -1,7 +1,7 @@
 # Command Enhancements
 
 # Utility
-alias reload='source ~/bin/dotfiles/bash/aliases'
+alias reload='source ~/dotfiles/bash/aliases'
 
 alias vim='vim -N'
 
@@ -13,10 +13,10 @@ function ea() {
     file="base"
   fi
 
-  vim ~/bin/dotfiles/bash/_aliases/$file && reload
+  vim ~/dotfiles/bash/_aliases/$file && reload
 }
 
-alias ee="vim ~/bin/dotfiles/bash/env"
+alias ee="vim ~/dotfiles/bash/env"
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
