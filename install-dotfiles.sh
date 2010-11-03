@@ -27,6 +27,7 @@ link inputrc .inputrc
 link zshrc .zshrc
 link vimrc .vimrc
 link gvimrc .gvimrc
+link gemrc .gemrc
 link vim  .vim
 link gitignore .gitignore
 link bin .bin
