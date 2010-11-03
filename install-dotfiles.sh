@@ -12,7 +12,11 @@ function link() {
   then
     echo "${dotfile} already exists"
   else
-    rm ${dotfile}
+    if [ -e "${dotfile}" ]
+    then 
+      echo "Removing ${dotfile}..."
+      rm ${dotfile}
+    fi
     ln -sfv ${source} ${dotfile}
   fi
 }
