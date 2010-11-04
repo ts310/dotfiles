@@ -39,9 +39,14 @@ link bin .bin
 # reload source
 source ~/.bash_profile
 
-echo "Installing vcprompt command..."
-curl http://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > ~/dotfiles/bin/vcprompt
-chmod +x ~/.bin/vcprompt
+if [ -e ~/.bin/vcprompt ]
+then
+  echo "vcprompt command is found"
+else
+  echo "Please install vcprompt command"
+  #curl http://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > ~/dotfiles/bin/vcprompt
+  #chmod +x ~/.bin/vcprompt
+fi
 
 echo "Updating git submodules"
 git submodule init
