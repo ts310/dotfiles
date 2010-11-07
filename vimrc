@@ -430,7 +430,7 @@ endif
 
 " Color scheme (terminal)
 " set background=light
-colorscheme! molokai
+" colorscheme! molokai
 
 " Popup menu color
 "hi Pmenu guibg=#666666
@@ -480,17 +480,13 @@ nmap y9 y$
 " y0 yank till begginig of the line
 nmap y0 y^
 
-" Auto close brackets
-"inoremap { {}<LEFT>
-"inoremap [ []<LEFT>
-"inoremap ( ()<LEFT>
-"inoremap " ""<LEFT>
-"inoremap ' ''<LEFT>
-"vnoremap { "zdi^V{<C-R>z}<ESC>
-"vnoremap [ "zdi^V[<C-R>z]<ESC>
-"vnoremap ( "zdi^V(<C-R>z)<ESC>
-"vnoremap " "zdi^V"<C-R>z^V"<ESC>
-"vnoremap ' "zdi'<C-R>z'<ESC>
+" Auto close brackets stays inside the brackets
+imap {} {}<Left>
+imap [] []<Left>
+imap () ()<Left>
+imap "" ""<Left>
+imap '' ''<Left>
+imap <> <><Left>
 
 " Auto remove line end white space upon save
 autocmd BufWritePre * :%s/\s\+$//ge
