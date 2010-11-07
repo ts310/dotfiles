@@ -1,102 +1,41 @@
-" ------------------------------------------
-" Vim configuration
-" ------------------------------------------
-
+"-------------------------------------------------------------------------------
+" Vim cheatsheet
 " Folding cheet sheet
-
+"-------------------------------------------------------------------------------
 " zR    open all folds
 " zM    close all folds
 " za    toggle fold at cursor position
 " zj    move down to start of next fold
 " zk    move up to end of previous fold
 
-
-" Manage plugins.
-
-runtime macros/matchit.vim
-call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-let g:GetLatestVimScripts_allowautoinstall=1
-
-
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-
+"-------------------------------------------------------------------------------
+" Basic configuration
+"-------------------------------------------------------------------------------
 set nocompatible
-
-filetype off
-filetype plugin indent on
-
-" Security
-set modelines=0
-
-" Tabs/spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-" Basic options
 set encoding=utf-8
-set scrolloff=7
-set autoindent
-set smartindent
+set scrolloff=5
 set showmode
 set showcmd
 set hidden
-set wildmenu
-set wildmode=list:longest
-set cmdheight=2
-set cursorline
-set ttyfast
-set ruler
-set backspace=indent,eol,start
-set number
-"set numberwidth=5
-set laststatus=2
 set visualbell
+set vb t_vb=
+set browsedir=buffer
+set backspace=indent,eol,start
+set modelines=0
 
-"function TSCheckVersion()
-    "echo version
-"endfunction
-
-if version >= 703 
-    "set relativenumber
-    set colorcolumn=85
-endif
+" Shortcut for edit/source vim runtime configuration
+command! Ev edit $MYVIMRC
+command! Rv source $MYVIMRC
 
 " Backups
 set nobackup
 set noswapfile
 
-set history=1000
-
-" Leader
-let mapleader = ","
-
-" Searching
-nnoremap / /\v
-vnoremap / /\v
-set ignorecase
-set smartcase
-set incsearch
-set showmatch
-set hlsearch
-set gdefault
-map <leader><space> :noh<CR>
-runtime macros/matchit.vim
-nmap <tab> %
-vmap <tab> %
-
 " Soft/hard wrapping
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-"set formatoptions=cqt
-
-" Use the same symbols as TextMate for tabstops and EOLs
-"set list
-set listchars=tab:▸\ ,eol:¬
+set formatoptions=cqt
 
 " Save on losing focus
 "au focuslost * :wa
@@ -104,6 +43,33 @@ set listchars=tab:▸\ ,eol:¬
 " Replace : with ;
 nnoremap ; :
 
+let mapleader=","
+
+" Faster Esc
+"inoremap <Esc> <nop>
+inoremap jj <ESC>
+
+"-------------------------------------------------------------------------------
+" Mouse
+"-------------------------------------------------------------------------------
+set mouse=a
+set guioptions+=a
+set ttymouse=xterm2
+
+"-------------------------------------------------------------------------------
+" Loading plugins
+"-------------------------------------------------------------------------------
+filetype off
+syntax off
+filetype indent off
+call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+"set helpfile=$VIMRUNTIME/doc/help.txt
+filetype plugin on
+
+"-------------------------------------------------------------------------------
+" Navigation / Move
+"-------------------------------------------------------------------------------
 " Force vim style navigation
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
@@ -118,6 +84,427 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 
+" insert mode
+imap  <C-e> <END>
+imap  <C-a> <HOME>
+
+" Enable vim navigation in insert mode
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-h> <Left>
+imap <C-l> <Right>
+
+" Move to last cursor position
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+" Move last edit position
+nnoremap gb '[
+nnoremap gp ']
+
+" Move between matching bracket
+nnoremap [ %
+nnoremap ] %
+nmap <tab> %
+vmap <tab> %
+
+" Select last edit text object
+nnoremap gc  `[v`]
+vnoremap gc ;<C-u>normal gc<Enter>
+onoremap gc ;<C-u>normal gc<Enter>
+
+" Yank under cursor
+nnoremap vy vawy
+
+set virtualedit+=block
+
+"-------------------------------------------------------------------------------
+" Window/Buffers
+"-------------------------------------------------------------------------------
+" Easy window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Cycle window
+nnoremap <C-tab> <C-w><C-w>
+
+" New vertical split window and gain foucus
+"nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>v :vsp<CR><C-w>l
+nnoremap <leader>h :split<CR><C-w>j
+
+" Use the arrows to switch buffers
+map <D-A-right> :bn<CR>
+map <D-A-left> :bp<CR>
+
+" Close the current buffer
+map <leader>q :Bclose<CR>
+
+command! Bclose call <SID>BufcloseCloseIt()
+
+function! <SID>BufcloseCloseIt()
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
+endfunction
+
+"-------------------------------------------------------------------------------
+" Apperance
+"-------------------------------------------------------------------------------
+set showmatch
+set number
+set list
+set display=uhex
+if version >= 703
+    "set relativenumber
+    set colorcolumn=85
+endif
+
+highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+match ZenkakuSpace /　/
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
+set cursorline
+augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
+augroup END
+
+:hi clear CursorLine
+:hi CursorLine gui=underline
+highlight CursorLine ctermbg=black guibg=black
+
+:set lazyredraw
+:set ttyfast
+
+"-------------------------------------------------------------------------------
+" StatusLine
+"-------------------------------------------------------------------------------
+set laststatus=2
+set ruler
+
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+"if winwidth(0) >= 120
+"set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetB()}]\ %l,%c%V%8P
+"else
+"set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
+"endif
+
+augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+    autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+augroup END
+
+function! GetB()
+    let c = matchstr(getline('.'), '.', col('.') - 1)
+    let c = iconv(c, &enc, &fenc)
+    return String2Hex(c)
+endfunction
+
+" help eval-examples
+
+" The function Nr2Hex() returns the Hex string of a number.
+func! Nr2Hex(nr)
+    let n = a:nr
+    let r = ""
+    while n
+        let r = '0123456789ABCDEF'[n % 16] . r
+        let n = n / 16
+    endwhile
+    return r
+endfunc
+
+" The function String2Hex() converts each character in a string to a two
+" character Hex string.
+func! String2Hex(str)
+    let out = ''
+    let ix = 0
+    while ix < strlen(a:str)
+        let out = out . Nr2Hex(char2nr(a:str[ix]))
+        let ix = ix + 1
+    endwhile
+    return out
+endfunc
+
+"-------------------------------------------------------------------------------
+" Clip borad management
+"-------------------------------------------------------------------------------
+set clipboard+=unnamed
+set clipboard=unnamed
+"imap <C-K> <ESC>"*pa
+
+"-------------------------------------------------------------------------------
+" Indent
+"-------------------------------------------------------------------------------
+set autoindent
+"set paste
+set smartindent
+set cindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" Enable osx style indent
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
+if has("autocmd")
+    filetype plugin on
+    filetype indent on
+
+    "autocmd FileType php filetype indent off
+    autocmd FileType html :set indentexpr=
+    autocmd FileType xhtml :set indentexpr=
+
+    au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType vim setlocal ts=2 sts=2 sw=2 expandtab
+
+    au FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType css setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+
+    " Treat .rss files as XML
+    au BufNewFile,BufRead *.rss setfiletype xml
+
+    au FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+
+    au FileType ruby setlocal foldmethod=syntax
+    au FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+    au FileType php  setlocal foldmethod=syntax shiftwidth=4 tabstop=4 expandtab
+
+    " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
+    au BufNewFile,BufRead *_spec.rb compiler rspec
+
+    " Actionscript
+    au BufNewFile,BufRead *.as set filetype=actionscript
+    au FileType actionscript setlocal ts=2 sts=2 sw=2 expandtab
+    "au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
+endif
+
+"-------------------------------------------------------------------------------
+" Complete / History
+"-------------------------------------------------------------------------------
+set wildmenu
+set wildchar=<tab>
+set wildmode=list:full
+"set wildmode=list:longest
+set history=1000
+set complete+=k
+set cmdheight=2
+set laststatus=2
+
+" imap <c-space> <c-x><c-o>
+
+function! InsertTabWrapper()
+    if pumvisible()
+        return "\<c-n>"
+    endif
+    let col = col('.') - 1
+    if !col || getline('.')[col -1] !~ '\k\|<\|/'
+        return "\<tab>"
+    elseif exists('&omnifunc') && &omnifunc == ''
+        return "\<c-n>"
+    else
+        return "\<c-x>\<c-o>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+"-------------------------------------------------------------------------------
+" Tags
+"-------------------------------------------------------------------------------
+" set tags
+if has("autochdir")
+    set autochdir
+    set tags=tags;
+else
+    set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
+endif
+
+nnoremap t <Nop>
+nnoremap tt <C-]>
+nnoremap tj ;<C-u>tag<CR>
+nnoremap tk ;<C-u>pop<CR>
+nnoremap tl ;<C-u>tags<CR>
+
+"-------------------------------------------------------------------------------
+" Tabs
+"-------------------------------------------------------------------------------
+" nnoremap <C-t> <Nop>
+" nnoremap <C-t>n ;<C-u>tabnew<CR>
+" nnoremap <C-t>c ;<C-u>tabclose<CR>
+" nnoremap <C-t>o ;<C-u>tabonly<CR>
+" nnoremap <C-t>j ;<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
+" nnoremap <C-t>k gT
+
+"-------------------------------------------------------------------------------
+" Search
+"-------------------------------------------------------------------------------
+set wrapscan
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set showmatch
+set gdefault
+nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+map <leader><space> :noh<CR>
+nnoremap / /\v
+vnoremap / /\v
+
+vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
+
+nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
+
+" Open help
+nnoremap <C-i>  :<C-u>help<Space>
+
+" Open help under the cursor
+nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
+
+" :Gb <args> GrepBuffer
+command! -nargs=1 Gb :GrepBuffer <args>
+
+" GrepBuffer under cursor
+nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
+
+" In visual mode when you press * or # to search for the current selection
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
+
+" From an idea by Michael Naumann
+function! VisualSearch(direction) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+"-------------------------------------------------------------------------------
+" Colors
+"-------------------------------------------------------------------------------
+" Terminal colors
+if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
+    set t_Co=16
+    set t_Sf=[3%dm
+    set t_Sb=[4%dm
+elseif &term =~ "xterm-color"
+    set t_Co=8
+    set t_Sf=[3%dm
+    set t_Sb=[4%dm
+endif
+
+" Popup menu color
+"hi Pmenu guibg=#666666
+"hi PmenuSel guibg=#8cd0d3 guifg=#666666
+"hi PmenuSbar guibg=#333333
+
+syntax enable
+
+"hi Pmenu ctermbg=white ctermfg=darkgray
+"hi PmenuSel ctermbg=blue ctermfg=white
+"hi PmenuSbar ctermbg=0 ctermfg=9
+
+"-------------------------------------------------------------------------------
+" Editing
+"-------------------------------------------------------------------------------
+" Turn off IME apart from Insert mode
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+" Add word to register under cursor
+nmap ye ;let @"=expand("<cword>")<CR>
+" Visual mode p replace with register
+vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
+" Use whitespace for tab
+set expandtab
+
+" After comma add space automatically
+inoremap , ,<Space>
+" Automatically insert closing tag for XML
+augroup MyXML
+    autocmd!
+    autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
+" Enable word/line deletion undo in insert mode
+inoremap <C-u>  <C-g>u<C-u>
+inoremap <C-w>  <C-g>u<C-w>
+
+" :Pt change indent mode
+command! Pt :set paste!
+
+" y9 yank till end of the line
+nmap y9 y$
+" y0 yank till begginig of the line
+nmap y0 y^
+
+" Auto close brackets
+"inoremap { {}<LEFT>
+"inoremap [ []<LEFT>
+"inoremap ( ()<LEFT>
+"inoremap " ""<LEFT>
+"inoremap ' ''<LEFT>
+"vnoremap { "zdi^V{<C-R>z}<ESC>
+"vnoremap [ "zdi^V[<C-R>z]<ESC>
+"vnoremap ( "zdi^V(<C-R>z)<ESC>
+"vnoremap " "zdi^V"<C-R>z^V"<ESC>
+"vnoremap ' "zdi'<C-R>z'<ESC>
+
+" Auto remove line end white space upon save
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" Replace tab with whitespace upon save
+autocmd BufWritePre * :%s/\t/  /ge
+
+" Insert dates
+inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
+inoremap <expr> ,dd strftime('%Y/%m/%d')
+inoremap <expr> ,dt strftime('%H:%M:%S')
+
+"-------------------------------------------------------------------------------
+" Misc stuff
+"-------------------------------------------------------------------------------
 " Strip all trading whitespace in current while
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
@@ -127,210 +514,8 @@ nnoremap <leader>f Vatzf
 " Sort css properties alphabetically
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
-" Edit ~/.vimrc file
-"nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
-
-" Source ~/.vimrc
-"nnoremap <leader>sv :source $MYVIMRC<CR>
-"nnoremap <leader>svg :source $MYGVIMRC<CR>
-
-" Source the vimrc after saving it
-"au bufwritepost .vimrc source $MYVIMRC
-
-" New vertical split window and gain foucus
-"nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>v :vsp<CR><C-w>l
-nnoremap <leader>h :split<CR><C-w>j
-
-" Easy buffer navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Cycle window
-nnoremap <C-tab> <C-w><C-w>
-
-" Maximize current window
-"map <F5> <C-W>_<C-W><Bar>
-
-" Enable osx style indent
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
-
-" Quick save
-nmap <leader>s :w<CR>
-
 " Shortcut to rapidly toggle `set list`
 nmap <leader>i :set list!<CR>
-
-" Shortcut to buffers
-"nnoremap <leader>b :buffers<CR>:buffer<Space>
-
-" Xcode header to implementation shortcut
-vmap <D-A-Up> :e %:p:s,.h$,.X123X,:s,.m$,.h,:s,.X123X$,.m,<CR>
-
-" Forgot sudo
-cmap w!! w !sudo tee % >/dev/null
-
-" Close the current buffer
-map <leader>q :Bclose<CR>
-
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
-
-" Close all the buffers
-"map <leader>X :1,300 bd!<CR>
-
-" Use the arrows to switch buffers
-map <D-A-right> :bn<CR>
-map <D-A-left> :bp<CR>
-
-" Tab configuration
-"map <leader>tt :tabnew<CR>
-"map <leader>te :tabedit
-"map <leader>tc :tabclose<CR>
-"map <leader>to :tabonly<CR>
-"map <leader>tn :tabnext<CR>
-"map <leader>tp :tabprevious<CR>
-"map <leader>tf :tabfirst<CR>
-"map <leader>tl :tablast<CR>
-"map <leader>tm :tabmove
-
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
-" Enable syntax
-syntax on
-
-" Color scheme (terminal)
-"set background=light
-"colorscheme pyte
-"colorscheme derek
-"colorscheme wombat
-"colorscheme vividchalk
-
-" Syntax of these languages is fussy over tabs Vs spaces
-au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-" Customisations based on house-style (arbitrary)
-au FileType html setlocal ts=2 sts=2 sw=2 expandtab
-au FileType css setlocal ts=2 sts=2 sw=2 expandtab
-au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-
-" Treat .rss files as XML
-au BufNewFile,BufRead *.rss setfiletype xml
-
-" Style for each languages
-au FileType sh setlocal ts=2 sts=2 sw=2 expandtab
-
-" Automatic fold settings for specific files. Uncomment to use.
-au FileType ruby setlocal foldmethod=syntax
-"au FileType html setlocal foldmethod=indent shiftwidth=4 tabstop=4 expandtab
-au FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-au FileType php  setlocal foldmethod=syntax shiftwidth=4 tabstop=4 expandtab
-
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-au BufNewFile,BufRead *_spec.rb compiler rspec
-
-" Actionscript
-au BufNewFile,BufRead *.as set filetype=actionscript
-au FileType actionscript setlocal ts=2 sts=2 sw=2 expandtab
-"au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
-
-" Toggle fold state between closed and opened.
-" If there is no fold at current line, just moves forward.
-" If it is present, reverse it's state.
-function! ToggleFold()
-  if foldlevel('.') == 0
-    normal! l
-  else
-    if foldclosed('.') < 0
-      . foldclose
-    else
-      . foldopen
-    endif
-  endif
-  " Clear status line
-  echo
-endfun
-
-" Map this function to Space key.
-noremap <space> :call ToggleFold()<CR>
-
-" Open url with browser
-function! Browser()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-  echo s:uri
-  if s:uri != ""
-	  exec "!open \"" . s:uri . "\""
-  else
-	  echo "No URI found in line."
-  endif
-endfunction
-
-" In visual mode when you press * or # to search for the current selection
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
-
-function! CmdLine(str)
-  exe "menu Foo.Bar :" . a:str
-  emenu Foo.Bar
-  unmenu Foo
-endfunction
-
-" From an idea by Michael Naumann
-function! VisualSearch(direction) range
-  let l:saved_reg = @"
-  execute "normal! vgvy"
-
-  let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-  if a:direction == 'b'
-    execute "normal ?" . l:pattern . "^M"
-  elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-  elseif a:direction == 'f'
-    execute "normal /" . l:pattern . "^M"
-  endif
-
-  let @/ = l:pattern
-  let @" = l:saved_reg
-endfunction
-
-" HTML tag closing
-inoremap <C-.> <Space><BS><Esc>:call InsertCloseTag()<CR>
-
-" Faster Esc
-"inoremap <Esc> <nop>
-inoremap jj <ESC>
-
-" Sort CSS
-map <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
-
-" Clean whitespace
-map <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
 " Formatting, TextMate-style
 map <leader>Q gqip
@@ -338,79 +523,8 @@ map <leader>Q gqip
 " Make shortcut
 "nmap <leader>m :make<CR>
 
-" Show only line number in active window
-"au WinEnter * setlocal number
-"au WinLeave * setlocal nonumber
-
 " Disable help key
 map <F1> <nop>
-
-" ------------------------------------------------------------
-"  Plugins
-" ------------------------------------------------------------
-" NERDTree
-" Toggle nerdtree window
-map <leader>n :NERDTreeToggle<CR>
-map <F1> :NERDTreeToggle<CR>
-map <F2> :NERDTreeFind<CR>
-let NERDTreeWinSize = 30
-
-" NERDCommenter
-" I turn this off to make it simple
-"let NERDCreateDefaultMappings=0 
-map <D-/> :call NERDComment(0, "toggle")<CR> 
-
-" TlistTag
-" Exuberant ctags!
-map <leader>5 :TlistToggle<CR>
-"nmap <leader>m :TlistToggle<CR>
-"let Tlist_Ctags_Cmd = /usr/local/bin/ctags
-"let Tlist_Exit_OnlyWindow = 1
-"let Tlist_Close_On_Select = 1
-"let Tlist_Use_Right_Window = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Compact_Format = 1
-let Tlist_WinWidth = 30
-let Tlist_Enable_Fold_Column = 0
-
-" Ack
-map <leader>a :Ack
-
-" Fuzzy finder
-nnoremap <leader>1 :FufBuffer<CR>
-nnoremap <leader>l :FufBuffer<CR>
-nnoremap <leader>2 :FufFile<CR>
-
-" Yankring
-nnoremap <silent> <F3> :YRShow<CR>
-nnoremap <silent> <leader>y :YRShow<CR>
-let g:yankring_history_dir='$HOME/.vim/tmp/'
-
-" Fugitive
-" git diff
-nmap <leader>d :Gdiff<CR>
-
-" Rainbows!
-nmap <leader>R :RainbowParenthesesToggle<CR>
-
-" Command-T options
-let g:CommandTMaxHeight=30
-"let g:CommandTMatchWindowAtTop=1
-nmap <silent> <leader>t :CommandT<CR>
-
-" Buffer explorer plugin
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-map <leader>o :BufExplorer<CR>
-
-" sparkup plugin
-let g:sparkupExecuteMapping = '<D-e>'
-let g:sparkupNextMapping = '<D-n>'
-
-" requires NERDCommenter plugin
-vmap <D-/> ,c<space>gv
-map <D-/> ,c<space>
 
 " Move current line down/up
 map <C-Down> ddp
@@ -423,3 +537,59 @@ vmap <C-Up> x<Up>P`[V`]
 " Move visual selection back/forwards
 vmap <C-Left> x<BS>P`[v`]
 vmap <C-Right> x<Space>P`[v`]
+
+"-------------------------------------------------------------------------------
+" Plugins
+"-------------------------------------------------------------------------------
+
+" NerdTree
+"-------------------------------------------------------------------------------
+map <leader>n :NERDTreeToggle<CR>
+map <F1> :NERDTreeToggle<CR>
+map <F2> :NERDTreeFind<CR>
+let NERDTreeWinSize = 30
+
+" NERDCommenter
+"-------------------------------------------------------------------------------
+" I turn this off to make it simple
+" let NERDCreateDefaultMappings=0
+let NERDSpaceDelims = 1
+let NERDShutUp=1
+map <Leader>x, c<space>
+
+" Enable textmate style comment toggle
+map <D-/> :call NERDComment(0, "toggle")<CR>
+
+" Ack
+"-------------------------------------------------------------------------------
+map <leader>a :Ack
+
+" Yankring
+"-------------------------------------------------------------------------------
+nnoremap <silent> <leader>y :YRShow<CR>
+let g:yankring_history_dir='$HOME/.vim/tmp/'
+
+" Fugitive
+"-------------------------------------------------------------------------------
+nmap <Space>gd :Gdiff<CR>
+
+" Rainbows!
+"-------------------------------------------------------------------------------
+nmap <leader>R :RainbowParenthesesToggle<CR>
+
+" Command-T options
+"-------------------------------------------------------------------------------
+let g:CommandTMaxHeight=30
+nmap <silent> <leader>t :CommandT<CR>
+
+" Buffer explorer plugin
+"-------------------------------------------------------------------------------
+let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+map <leader>o :BufExplorer<CR>
+
+" sparkup plugin
+"-------------------------------------------------------------------------------
+let g:sparkupExecuteMapping = '<D-e>'
+let g:sparkupNextMapping = '<D-n>'
+
