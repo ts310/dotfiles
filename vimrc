@@ -577,6 +577,8 @@ let g:yankring_history_dir='$HOME/.vim/tmp/'
 " Fugitive
 "-------------------------------------------------------------------------------
 nmap <Space>gd :Gdiff<CR>
+nmap <Space>gc :Gcommit<CR>
+nmap <Space>gw :Gwrite<CR>
 
 "-------------------------------------------------------------------------------
 " Rainbows!
@@ -595,6 +597,11 @@ nmap <silent> <leader>t :CommandT<CR>
 let g:bufExplorerDefaultHelp=0
 let g:bufExplorerShowRelativePath=1
 map <leader>o :BufExplorer<CR>
+
+"-------------------------------------------------------------------------------
+" Fuzzy finder
+"-------------------------------------------------------------------------------
+nnoremap <leader>l :FufBuffer<CR>
 
 "-------------------------------------------------------------------------------
 " sparkup plugin
