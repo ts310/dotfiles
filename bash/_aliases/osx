@@ -9,6 +9,6 @@ alias xcode='open /Xcode4/Applications/Xcode.app'
 function uptodate() {
     brew update
     brew outdated
-    rvm update --head
+    rvm get head
     rvm reload
 }
