@@ -71,14 +71,14 @@ filetype plugin on
 " Navigation / Move
 "-------------------------------------------------------------------------------
 " Force vim style navigation
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" nnoremap <left> <nop>
+" nnoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 
 " Natural behavior with wordwrap on
 nnoremap j gj
@@ -258,13 +258,13 @@ endfunc
 "-------------------------------------------------------------------------------
 set clipboard+=unnamed
 set clipboard=unnamed
-"imap <C-K> <ESC>"*pa
+" imap <C-K> <ESC>"*pa
 
 "-------------------------------------------------------------------------------
 " Indent
 "-------------------------------------------------------------------------------
 set autoindent
-"set paste
+" set paste
 set smartindent
 set cindent
 set tabstop=4
@@ -282,7 +282,7 @@ if has("autocmd")
     filetype plugin on
     filetype indent on
 
-    "au FileType php filetype indent off
+    " au FileType php filetype indent off
     au FileType html :set indentexpr=
     au FileType xhtml :set indentexpr=
 
@@ -307,7 +307,7 @@ if has("autocmd")
 
     au BufNewFile,BufRead *.as set filetype=actionscript
     au FileType actionscript setlocal ts=2 sts=2 sw=2 et
-    "au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
+    " au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
 endif
 
 "-------------------------------------------------------------------------------
