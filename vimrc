@@ -579,6 +579,7 @@ let g:yankring_history_dir='$HOME/.vim/tmp/'
 nmap <Space>gd :Gdiff<CR>
 nmap <Space>gc :Gcommit<CR>
 nmap <Space>gw :Gwrite<CR>
+nmap <Space>gs :Gstatus<CR>
 
 "-------------------------------------------------------------------------------
 " Rainbows!
