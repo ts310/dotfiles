@@ -160,6 +160,16 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 "-------------------------------------------------------------------------------
+" Tabs
+"-------------------------------------------------------------------------------
+" nnoremap <C-t> <Nop>
+" nnoremap <C-t>n ;<C-u>tabnew<CR>
+" nnoremap <C-t>c ;<C-u>tabclose<CR>
+" nnoremap <C-t>o ;<C-u>tabonly<CR>
+" nnoremap <C-t>j ;<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
+" nnoremap <C-t>k gT
+
+"-------------------------------------------------------------------------------
 " Apperance
 "-------------------------------------------------------------------------------
 set showmatch
@@ -257,9 +267,9 @@ set autoindent
 "set paste
 set smartindent
 set cindent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 " Enable osx style indent
@@ -272,33 +282,31 @@ if has("autocmd")
     filetype plugin on
     filetype indent on
 
-    "autocmd FileType php filetype indent off
-    autocmd FileType html :set indentexpr=
-    autocmd FileType xhtml :set indentexpr=
+    "au FileType php filetype indent off
+    au FileType html :set indentexpr=
+    au FileType xhtml :set indentexpr=
 
-    au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-    au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType vim setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType make setlocal ts=8 sts=8 sw=8 noto
+    au FileType yaml setlocal ts=2 sts=2 sw=2 et
+    au FileType vim setlocal ts=2 sts=2 sw=2 et
 
-    au FileType html setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType css setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType html setlocal ts=2 sts=2 sw=2 et
+    au FileType css setlocal ts=2 sts=2 sw=2 et
+    au FileType javascript setlocal ts=2 sts=2 sw=2 et
 
-    " Treat .rss files as XML
     au BufNewFile,BufRead *.rss setfiletype xml
 
-    au FileType sh setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType sh setlocal ts=2 sts=2 sw=2 et
 
     au FileType ruby setlocal foldmethod=syntax
-    au FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-    au FileType php  setlocal foldmethod=syntax shiftwidth=4 tabstop=4 expandtab
+    au FileType css  setlocal foldmethod=indent sw=2 ts=2
+    au FileType php  setlocal foldmethod=syntax sw=4 ts=4 et
 
     " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
     au BufNewFile,BufRead *_spec.rb compiler rspec
 
-    " Actionscript
     au BufNewFile,BufRead *.as set filetype=actionscript
-    au FileType actionscript setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType actionscript setlocal ts=2 sts=2 sw=2 et
     "au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
 endif
 
@@ -308,7 +316,6 @@ endif
 set wildmenu
 set wildchar=<tab>
 set wildmode=list:full
-"set wildmode=list:longest
 set history=1000
 set complete+=k
 set cmdheight=2
@@ -348,15 +355,6 @@ nnoremap tj ;<C-u>tag<CR>
 nnoremap tk ;<C-u>pop<CR>
 nnoremap tl ;<C-u>tags<CR>
 
-"-------------------------------------------------------------------------------
-" Tabs
-"-------------------------------------------------------------------------------
-" nnoremap <C-t> <Nop>
-" nnoremap <C-t>n ;<C-u>tabnew<CR>
-" nnoremap <C-t>c ;<C-u>tabclose<CR>
-" nnoremap <C-t>o ;<C-u>tabonly<CR>
-" nnoremap <C-t>j ;<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
-" nnoremap <C-t>k gT
 
 "-------------------------------------------------------------------------------
 " Search
@@ -547,8 +545,8 @@ vmap <C-Right> x<Space>P`[v`]
 "-------------------------------------------------------------------------------
 map <leader>n :NERDTreeToggle<CR>
 map <F1> :NERDTreeToggle<CR>
-map <F2> :NERDTreeFind<CR>
-let NERDTreeWinSize = 30
+" map <F2> :NERDTreeFind<CR>
+" let NERDTreeWinSize = 30
 
 "-------------------------------------------------------------------------------
 " NERDCommenter
@@ -589,7 +587,7 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 "-------------------------------------------------------------------------------
 " Command-T options
 "-------------------------------------------------------------------------------
-let g:CommandTMaxHeight=30
+" let g:CommandTMaxHeight=30
 nmap <silent> <leader>t :CommandT<CR>
 
 "-------------------------------------------------------------------------------
