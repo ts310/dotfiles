@@ -64,3 +64,6 @@
 [submodule "vim/bundle/vim-align"]
 	path = vim/bundle/vim-align
 	url = https://github.com/clones/vim-align.git
+[submodule "vim/bundle/SQLUtilities"]
+	path = vim/bundle/SQLUtilities
+	url = https://github.com/vim-scripts/SQLUtilities.git
