@@ -177,7 +177,7 @@ set number
 set list
 set display=uhex
 if version >= 703
-    "set relativenumber
+    " set relativenumber
     set colorcolumn=85
 endif
 
@@ -355,7 +355,6 @@ nnoremap tj ;<C-u>tag<CR>
 nnoremap tk ;<C-u>pop<CR>
 nnoremap tl ;<C-u>tags<CR>
 
-
 "-------------------------------------------------------------------------------
 " Search
 "-------------------------------------------------------------------------------
@@ -428,6 +427,10 @@ elseif &term =~ "xterm-color"
     set t_Sf=[3%dm
     set t_Sb=[4%dm
 endif
+
+" Color scheme (terminal)
+" set background=light
+colorscheme! molokai
 
 " Popup menu color
 "hi Pmenu guibg=#666666
@@ -535,6 +538,15 @@ vmap <C-Up> x<Up>P`[V`]
 " Move visual selection back/forwards
 vmap <C-Left> x<BS>P`[v`]
 vmap <C-Right> x<Space>P`[v`]
+
+" Shortcut to buffers
+"nnoremap <leader>b :buffers<CR>:buffer<Space>
+
+" Xcode header to implementation shortcut
+vmap <D-A-Up> :e %:p:s,.h$,.X123X,:s,.m$,.h,:s,.X123X$,.m,<CR>
+
+" Forgot sudo
+cmap w!! w !sudo tee % >/dev/null
 
 "-------------------------------------------------------------------------------
 " Plugins
