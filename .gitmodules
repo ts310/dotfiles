@@ -61,3 +61,6 @@
 [submodule "vim/bundle/checksyntax-vim"]
 	path = vim/bundle/checksyntax-vim
 	url = git://github.com/tomtom/checksyntax_vim.git
+[submodule "vim/bundle/vim-align"]
+	path = vim/bundle/vim-align
+	url = https://github.com/clones/vim-align.git
