@@ -11,21 +11,19 @@
 "-------------------------------------------------------------------------------
 " Basic configuration
 "-------------------------------------------------------------------------------
-set nocompatible
+set nocompatible " Not compatible with vi
 set encoding=utf-8
 set scrolloff=5
-set showmode
-set showcmd
-set hidden
-set visualbell
-set vb t_vb=
+set showmode " Show current mode 'Insert',  'Visual' etc
+set showcmd  " Show (partial) command in the last line of the screen
+set hidden " Enable buffers
 set browsedir=buffer
 set backspace=indent,eol,start
-set modelines=0
+set modelines=0 " No modeline
 
-" Shortcut for edit/source vim runtime configuration
-command! Ev edit $MYVIMRC
-command! Rv source $MYVIMRC
+" Do not make beep sound
+set visualbell
+set vb t_vb=
 
 " Backups
 set nobackup
@@ -37,17 +35,11 @@ set textwidth=79
 set formatoptions=qrn1
 set formatoptions=cqt
 
-" Save on losing focus
-"au focuslost * :wa
-
 " Replace : with ;
 nnoremap ; :
 
+" Replace mapleader key
 let mapleader=","
-
-" Faster Esc
-"inoremap <Esc> <nop>
-inoremap jj <ESC>
 
 "-------------------------------------------------------------------------------
 " Mouse
@@ -57,18 +49,19 @@ set guioptions+=a
 set ttymouse=xterm2
 
 "-------------------------------------------------------------------------------
-" Loading plugins
+" Pathogen
 "-------------------------------------------------------------------------------
 filetype off
-syntax off
 filetype indent off
+syntax off
 call pathogen#runtime_append_all_bundles()
 "call pathogen#helptags()
 "set helpfile=$VIMRUNTIME/doc/help.txt
 filetype plugin on
+filetype indent on
 
 "-------------------------------------------------------------------------------
-" Navigation / Move
+" Navigation / Movement
 "-------------------------------------------------------------------------------
 " Force vim style navigation
 " nnoremap <up> <nop>
@@ -118,7 +111,7 @@ nnoremap vy vawy
 set virtualedit+=block
 
 "-------------------------------------------------------------------------------
-" Window/Buffers
+" Windows Buffers
 "-------------------------------------------------------------------------------
 " Easy window navigation
 nnoremap <C-h> <C-w>h
@@ -126,11 +119,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Cycle window
+" Cycle window with ctrl tab
 nnoremap <C-tab> <C-w><C-w>
 
-" New vertical split window and gain foucus
-"nnoremap <leader>v <C-w>v<C-w>l
+" New vertical or horizontal split window and gain foucus
 nnoremap <leader>v :vsp<CR><C-w>l
 nnoremap <leader>h :split<CR><C-w>j
 
@@ -144,19 +136,19 @@ map <leader>q :Bclose<CR>
 command! Bclose call <SID>BufcloseCloseIt()
 
 function! <SID>BufcloseCloseIt()
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
-    if bufnr("%") == l:currentBufNum
-        new
-    endif
-    if buflisted(l:currentBufNum)
-        execute("bdelete! ".l:currentBufNum)
-    endif
+  let l:currentBufNum = bufnr("%")
+  let l:alternateBufNum = bufnr("#")
+  if buflisted(l:alternateBufNum)
+    buffer #
+  else
+    bnext
+  endif
+  if bufnr("%") == l:currentBufNum
+    new
+  endif
+  if buflisted(l:currentBufNum)
+    execute("bdelete! ".l:currentBufNum)
+  endif
 endfunction
 
 "-------------------------------------------------------------------------------
@@ -170,14 +162,14 @@ endfunction
 " nnoremap <C-t>k gT
 
 "-------------------------------------------------------------------------------
-" Apperance
+" Appearance
 "-------------------------------------------------------------------------------
 set showmatch
 set number
 set display=uhex
 if version >= 703
-    " set relativenumber
-    set colorcolumn=85
+  " set relativenumber
+  set colorcolumn=85
 endif
 
 " :set lazyredraw
@@ -188,9 +180,9 @@ match ZenkakuSpace /　/
 
 set cursorline
 augroup cch
-    autocmd! cch
-    autocmd WinLeave * set nocursorline
-    autocmd WinEnter,BufRead * set cursorline
+  autocmd! cch
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter,BufRead * set cursorline
 augroup END
 
 :hi clear CursorLine
@@ -226,59 +218,58 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 "endif
 
 augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-    autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+  autocmd!
+  autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+  autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
 augroup END
 
 function! GetB()
-    let c = matchstr(getline('.'), '.', col('.') - 1)
-    let c = iconv(c, &enc, &fenc)
-    return String2Hex(c)
+  let c = matchstr(getline('.'), '.', col('.') - 1)
+  let c = iconv(c, &enc, &fenc)
+  return String2Hex(c)
 endfunction
-
-" help eval-examples
 
 " The function Nr2Hex() returns the Hex string of a number.
 func! Nr2Hex(nr)
-    let n = a:nr
-    let r = ""
-    while n
-        let r = '0123456789ABCDEF'[n % 16] . r
-        let n = n / 16
-    endwhile
-    return r
+  let n = a:nr
+  let r = ""
+  while n
+    let r = '0123456789ABCDEF'[n % 16] . r
+    let n = n / 16
+  endwhile
+  return r
 endfunc
 
 " The function String2Hex() converts each character in a string to a two
 " character Hex string.
 func! String2Hex(str)
-    let out = ''
-    let ix = 0
-    while ix < strlen(a:str)
-        let out = out . Nr2Hex(char2nr(a:str[ix]))
-        let ix = ix + 1
-    endwhile
-    return out
+  let out = ''
+  let ix = 0
+  while ix < strlen(a:str)
+    let out = out . Nr2Hex(char2nr(a:str[ix]))
+    let ix = ix + 1
+  endwhile
+  return out
 endfunc
 
 "-------------------------------------------------------------------------------
 " Clip borad management
 "-------------------------------------------------------------------------------
+" Use os's clipboard
 set clipboard+=unnamed
-set clipboard=unnamed
+
 " imap <C-K> <ESC>"*pa
 
 "-------------------------------------------------------------------------------
-" Indent
+" Indentation
 "-------------------------------------------------------------------------------
 set autoindent
 " set paste
 set smartindent
 set cindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Enable osx style indent
@@ -288,42 +279,38 @@ vmap <D-[> <gv
 vmap <D-]> >gv
 
 if has("autocmd")
-    filetype plugin on
-    filetype indent on
+  " au FileType php filetype indent off
+  au FileType html :set indentexpr=
+  au FileType xhtml :set indentexpr=
 
-    " au FileType php filetype indent off
-    au FileType html :set indentexpr=
-    au FileType xhtml :set indentexpr=
+  au FileType make setlocal ts=8 sts=8 sw=8 noto
+  au FileType yaml setlocal ts=2 sts=2 sw=2 et
+  au FileType php setlocal ts=4 sts=4 sw=4 et
+  au FileType vim setlocal ts=2 sts=2 sw=2 et
+  au FileType html setlocal ts=2 sts=2 sw=2 et
+  au FileType css setlocal ts=2 sts=2 sw=2 et
+  au FileType javascript setlocal ts=2 sts=2 sw=2 et
+  au FileType sh setlocal ts=2 sts=2 sw=2 et
 
-    au FileType make setlocal ts=8 sts=8 sw=8 noto
-    au FileType yaml setlocal ts=2 sts=2 sw=2 et
-    au FileType vim setlocal ts=2 sts=2 sw=2 et
+  au BufNewFile,BufRead *.rss setfiletype xml
 
-    au FileType html setlocal ts=2 sts=2 sw=2 et
-    au FileType css setlocal ts=2 sts=2 sw=2 et
-    au FileType javascript setlocal ts=2 sts=2 sw=2 et
+  au FileType ruby setlocal foldmethod=syntax
+  au FileType css  setlocal foldmethod=indent sw=2 ts=2
+  au FileType php  setlocal foldmethod=syntax sw=4 ts=4 et
 
-    au BufNewFile,BufRead *.rss setfiletype xml
+  " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
+  au BufNewFile,BufRead *_spec.rb compiler rspec
 
-    au FileType sh setlocal ts=2 sts=2 sw=2 et
-
-    au FileType ruby setlocal foldmethod=syntax
-    au FileType css  setlocal foldmethod=indent sw=2 ts=2
-    au FileType php  setlocal foldmethod=syntax sw=4 ts=4 et
-
-    " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-    au BufNewFile,BufRead *_spec.rb compiler rspec
-
-    au BufNewFile,BufRead *.as set filetype=actionscript
-    au FileType actionscript setlocal ts=2 sts=2 sw=2 et
-    " au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
+  au BufNewFile,BufRead *.as set filetype=actionscript
+  au FileType actionscript setlocal ts=2 sts=2 sw=2 et
+  " au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
 endif
 
 "-------------------------------------------------------------------------------
 " Complete / History
 "-------------------------------------------------------------------------------
 set wildmenu
-set wildchar=<tab>
+set wildchar=<Tab>
 set wildmode=list:full
 set history=1000
 set complete+=k
@@ -333,17 +320,17 @@ set laststatus=2
 " imap <c-space> <c-x><c-o>
 
 function! InsertTabWrapper()
-    if pumvisible()
-        return "\<c-n>"
-    endif
-    let col = col('.') - 1
-    if !col || getline('.')[col -1] !~ '\k\|<\|/'
-        return "\<tab>"
-    elseif exists('&omnifunc') && &omnifunc == ''
-        return "\<c-n>"
-    else
-        return "\<c-x>\<c-o>"
-    endif
+  if pumvisible()
+    return "\<c-n>"
+  endif
+  let col = col('.') - 1
+  if !col || getline('.')[col -1] !~ '\k\|<\|/'
+    return "\<tab>"
+  elseif exists('&omnifunc') && &omnifunc == ''
+    return "\<c-n>"
+  else
+    return "\<c-x>\<c-o>"
+  endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
@@ -352,10 +339,10 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 "-------------------------------------------------------------------------------
 " set tags
 if has("autochdir")
-    set autochdir
-    set tags=tags;
+  set autochdir
+  set tags=tags;
 else
-    set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
+  set tags=./tags,./../tags,./*/tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags
 endif
 
 nnoremap t <Nop>
@@ -384,11 +371,8 @@ vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 
 nnoremap <expr> s* ':%substitute/\<' . expand('<cword>') . '\>/'
 
-" Open help
-nnoremap <C-i>  :<C-u>help<Space>
-
-" Open help under the cursor
-nnoremap <C-i><C-i> :<C-u>help<Space><C-r><C-w><Enter>
+" Open help for the word under the cursor
+nnoremap <C-i> :<C-u>help<Space><C-r><C-w><Enter>
 
 " :Gb <args> GrepBuffer
 command! -nargs=1 Gb :GrepBuffer <args>
@@ -401,26 +385,26 @@ vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 
 function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
+  exe "menu Foo.Bar :" . a:str
+  emenu Foo.Bar
+  unmenu Foo
 endfunction
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
-    let @/ = l:pattern
-    let @" = l:saved_reg
+  let l:saved_reg = @"
+  execute "normal! vgvy"
+  let l:pattern = escape(@", '\\/.*$^~[]')
+  let l:pattern = substitute(l:pattern, "\n$", "", "")
+  if a:direction == 'b'
+    execute "normal ?" . l:pattern . "^M"
+  elseif a:direction == 'gv'
+    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+  elseif a:direction == 'f'
+    execute "normal /" . l:pattern . "^M"
+  endif
+  let @/ = l:pattern
+  let @" = l:saved_reg
 endfunction
 
 "-------------------------------------------------------------------------------
@@ -428,13 +412,13 @@ endfunction
 "-------------------------------------------------------------------------------
 " Terminal colors
 if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
-    set t_Co=16
-    set t_Sf=[3%dm
-    set t_Sb=[4%dm
+  set t_Co=16
+  set t_Sf=[3%dm
+  set t_Sb=[4%dm
 elseif &term =~ "xterm-color"
-    set t_Co=8
-    set t_Sf=[3%dm
-    set t_Sb=[4%dm
+  set t_Co=8
+  set t_Sf=[3%dm
+  set t_Sb=[4%dm
 endif
 
 " Color scheme (terminal)
@@ -467,8 +451,8 @@ set expandtab
 inoremap , ,<Space>
 " Automatically insert closing tag for XML
 augroup MyXML
-    autocmd!
-    autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 " Enable word/line deletion undo in insert mode
@@ -511,6 +495,10 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 "-------------------------------------------------------------------------------
 " Misc stuff
 "-------------------------------------------------------------------------------
+" Faster Esc
+"inoremap <Esc> <nop>
+inoremap jj <ESC>
+
 " Strip all trading whitespace in current while
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
@@ -528,6 +516,9 @@ map <leader>Q gqip
 
 " Make shortcut
 "nmap <leader>m :make<CR>
+
+" Save on losing focus
+"au focuslost * :wa
 
 " Disable help key
 map <F1> <nop>
@@ -552,6 +543,10 @@ vmap <D-A-Up> :e %:p:s,.h$,.X123X,:s,.m$,.h,:s,.X123X$,.m,<CR>
 
 " Forgot sudo
 cmap w!! w !sudo tee % >/dev/null
+
+" Shortcut for edit/source vim runtime configuration in command
+command! Ev edit $MYVIMRC
+command! Rv source $MYVIMRC
 
 "-------------------------------------------------------------------------------
 " Plugins
