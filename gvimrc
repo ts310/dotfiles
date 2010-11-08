@@ -1,6 +1,6 @@
-" ----------------------------------------
+"-------------------------------------------------------------------------------
 "  GUI
-" ----------------------------------------
+"-------------------------------------------------------------------------------
 " Encoding
 set encoding=utf-8
 
@@ -8,11 +8,7 @@ set encoding=utf-8
 set antialias
 
 " Theme
-"colorscheme pyte
 colorscheme molokai
-"colorscheme mustang
-"colorscheme wombat
-"colorscheme ir_black
 
 " Scrollbars
 set go-=T
@@ -24,26 +20,26 @@ set go-=R
 " Cursor
 highlight SpellBad term=underline gui=undercurl guisp=Orange
 
-" ---------------------------------------
+"-------------------------------------------------------------------------------
 " MacVIM
-" ---------------------------------------
+"-------------------------------------------------------------------------------
 if has("gui_macvim")
-    
-    set guifont=Monaco:h13
-    "set guifont=Menlo:h12
 
-    " Disable macvim menu key
-    macmenu File.New\ Tab key=<nop>
-    macmenu File.Print key=<nop>
+  set guifont=Monaco:h13
+  "set guifont=Menlo:h12
 
-    " PeepOpen
-    map <leader>p <Plug>PeepOpen
-    map <D-p> <Plug>PeepOpen
-    
-    " CommandT
-    map <D-t> :CommandT<CR>
+  " Disable macvim menu key
+  macmenu File.New\ Tab key=<nop>
+  macmenu File.Print key=<nop>
 
-    " Buffer explorer
-    macmenu File.Open\.\.\. key=<nop>
-    map <D-o> :BufExplorer<CR>
+  " PeepOpen
+  map <leader>p <Plug>PeepOpen
+  map <D-p> <Plug>PeepOpen
+
+  " CommandT
+  map <D-t> :CommandT<CR>
+
+  " Buffer explorer
+  macmenu File.Open\.\.\. key=<nop>
+  map <D-o> :BufExplorer<CR>
 end
