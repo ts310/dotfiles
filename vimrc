@@ -180,13 +180,11 @@ if version >= 703
     set colorcolumn=85
 endif
 
+" :set lazyredraw
+:set ttyfast
+
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
-
-" Show invisible characters
-" set list
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
 
 set cursorline
 augroup cch
@@ -199,8 +197,18 @@ augroup END
 :hi CursorLine gui=underline
 highlight CursorLine ctermbg=black guibg=black
 
-" :set lazyredraw
-:set ttyfast
+"-------------------------------------------------------------------------------
+" Invisible characters
+"-------------------------------------------------------------------------------
+" Show invisible characters
+" set list
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
+" Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
 "-------------------------------------------------------------------------------
 " StatusLine
