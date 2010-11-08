@@ -174,7 +174,6 @@ endfunction
 "-------------------------------------------------------------------------------
 set showmatch
 set number
-set list
 set display=uhex
 if version >= 703
     " set relativenumber
@@ -184,6 +183,8 @@ endif
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
+" Show invisible characters
+" set list
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
