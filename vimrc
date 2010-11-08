@@ -87,8 +87,10 @@ imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 
-" Move to last cursor position
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+if has("autocmd")
+  " Move to last cursor position
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+endif
 
 " Move last edit position
 nnoremap gb '[
@@ -441,6 +443,7 @@ syntax enable
 "-------------------------------------------------------------------------------
 " Add word to register under cursor
 nmap ye ;let @"=expand("<cword>")<CR>
+
 " Visual mode p replace with register
 vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
@@ -449,6 +452,7 @@ set expandtab
 
 " After comma add space automatically
 inoremap , ,<Space>
+
 " Automatically insert closing tag for XML
 augroup MyXML
   autocmd!
@@ -475,11 +479,13 @@ imap "" ""<Left>
 imap '' ''<Left>
 imap <> <><Left>
 
-" Auto remove line end white space upon save
-autocmd BufWritePre * :%s/\s\+$//ge
+if has("autocmd")
+  " Auto remove line end white space upon save
+  au BufWritePre * :%s/\s\+$//ge
 
-" Replace tab with whitespace upon save
-autocmd BufWritePre * :%s/\t/  /ge
+  " Replace tab with whitespace upon save
+  au BufWritePre * :%s/\t/  /ge
+endif
 
 " Insert dates
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
