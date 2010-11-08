@@ -55,8 +55,8 @@ filetype off
 filetype indent off
 syntax off
 call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-"set helpfile=$VIMRUNTIME/doc/help.txt
+" call pathogen#helptags()
+" set helpfile=$VIMRUNTIME/doc/help.txt
 filetype plugin on
 filetype indent on
 
