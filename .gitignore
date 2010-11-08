@@ -1,4 +1,5 @@
 .DS_Store
 bin/vcprompt
+bin/vmrun
 vim/.*
 vim/tmp/
