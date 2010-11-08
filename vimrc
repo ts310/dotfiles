@@ -198,7 +198,7 @@ augroup END
 :hi CursorLine gui=underline
 highlight CursorLine ctermbg=black guibg=black
 
-:set lazyredraw
+" :set lazyredraw
 :set ttyfast
 
 "-------------------------------------------------------------------------------
