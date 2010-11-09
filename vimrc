@@ -482,6 +482,29 @@ set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 "-------------------------------------------------------------------------------
+" Folding
+"-------------------------------------------------------------------------------
+" Toggle fold state between closed and opened.
+" If there is no fold at current line, just moves forward.
+" If it is present, reverse it's state.
+function! ToggleFold()
+  if foldlevel('.') == 0
+    normal! l
+  else
+    if foldclosed('.') < 0
+      . foldclose
+    else
+      . foldopen
+    endif
+  endif
+  " Clear status line
+  echo
+endfun
+
+" Map this function to Space key.
+noremap <space> :call ToggleFold()<CR>
+
+"-------------------------------------------------------------------------------
 " Misc stuff
 "-------------------------------------------------------------------------------
 " Faster Esc
