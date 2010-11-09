@@ -625,6 +625,7 @@ map <leader>o :BufExplorer<CR>
 " Fuzzy finder
 "-------------------------------------------------------------------------------
 nnoremap <leader>l :FufBuffer<CR>
+nnoremap <leader>ll :FufFile<CR>
 
 "-------------------------------------------------------------------------------
 " sparkup plugin
