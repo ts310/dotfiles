@@ -632,3 +632,8 @@ nnoremap <leader>l :FufBuffer<CR>
 let g:sparkupExecuteMapping = '<D-e>'
 let g:sparkupNextMapping = '<D-n>'
 
+"-------------------------------------------------------------------------------
+" Zen coding
+"-------------------------------------------------------------------------------
+let g:user_zen_expandabbr_key = '<c-e>'
+let g:use_zen_complete_tag = 1
