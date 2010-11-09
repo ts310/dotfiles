@@ -285,14 +285,15 @@ if has("autocmd")
   au FileType html :set indentexpr=
   au FileType xhtml :set indentexpr=
 
-  au FileType make setlocal ts=8 sts=8 sw=8 noto
-  au FileType yaml setlocal ts=2 sts=2 sw=2 et
-  au FileType php setlocal ts=4 sts=4 sw=4 et
-  au FileType vim setlocal ts=2 sts=2 sw=2 et
-  au FileType html setlocal ts=2 sts=2 sw=2 et
-  au FileType css setlocal ts=2 sts=2 sw=2 et
-  au FileType javascript setlocal ts=2 sts=2 sw=2 et
-  au FileType sh setlocal ts=2 sts=2 sw=2 et
+  au FileType make         setlocal ts=8 sts=8 sw=8 noto
+  au FileType yaml         setlocal ts=2 sts=2 sw=2 et
+  au FileType php          setlocal ts=4 sts=4 sw=4 et
+  au FileType vim          setlocal ts=2 sts=2 sw=2 et
+  au FileType html         setlocal ts=2 sts=2 sw=2 et
+  au FileType css          setlocal ts=2 sts=2 sw=2 et
+  au FileType javascript   setlocal ts=2 sts=2 sw=2 et
+  au FileType sh           setlocal ts=2 sts=2 sw=2 et
+  au FileType actionscript setlocal ts=2 sts=2 sw=2 et
 
   au BufNewFile,BufRead *.rss setfiletype xml
 
@@ -304,7 +305,6 @@ if has("autocmd")
   au BufNewFile,BufRead *_spec.rb compiler rspec
 
   au BufNewFile,BufRead *.as set filetype=actionscript
-  au FileType actionscript setlocal ts=2 sts=2 sw=2 et
   " au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
 endif
 
