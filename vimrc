@@ -319,23 +319,6 @@ set complete+=k
 set cmdheight=2
 set laststatus=2
 
-" imap <c-space> <c-x><c-o>
-
-function! InsertTabWrapper()
-  if pumvisible()
-    return "\<c-n>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col -1] !~ '\k\|<\|/'
-    return "\<tab>"
-  elseif exists('&omnifunc') && &omnifunc == ''
-    return "\<c-n>"
-  else
-    return "\<c-x>\<c-o>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
 "-------------------------------------------------------------------------------
 " Tags
 "-------------------------------------------------------------------------------
