@@ -175,27 +175,27 @@ if version >= 703
 endif
 
 " :set lazyredraw
-:set ttyfast
+set ttyfast
 
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+hi ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
 set cursorline
 augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
+  au! cch
+  au WinLeave * set nocursorline
+  au WinEnter,BufRead * set cursorline
 augroup END
 
-:hi clear CursorLine
-:hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+hi clear CursorLine
+hi CursorLine gui=underline
+hi CursorLine ctermbg=black guibg=black
 
 "-------------------------------------------------------------------------------
 " Invisible characters
 "-------------------------------------------------------------------------------
 " Show invisible characters
-" set list
+set list
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -434,7 +434,7 @@ vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 set expandtab
 
 " After comma add space automatically
-inoremap , ,<Space>
+" inoremap , ,<Space>
 
 " Automatically insert closing tag for XML
 augroup MyXML
@@ -598,10 +598,14 @@ let g:yankring_history_dir='$HOME/.vim/tmp/'
 "-------------------------------------------------------------------------------
 " Fugitive
 "-------------------------------------------------------------------------------
-nmap <Space>gd :Gdiff<CR>
-nmap <Space>gc :Gcommit<CR>
-nmap <Space>gw :Gwrite<CR>
-nmap <Space>gs :Gstatus<CR>
+" nmap <Space>gd :Gdiff<CR>
+" nmap <Space>gc :Gcommit<CR>
+" nmap <Space>gw :Gwrite<CR>
+" nmap <Space>gs :Gstatus<CR>
+command! Gd :Gdiff
+command! Gc :Gcommit
+command! Gw :Gwrite
+command! Gs :Gstatus
 
 "-------------------------------------------------------------------------------
 " Rainbows!
@@ -636,5 +640,5 @@ let g:sparkupNextMapping = '<D-n>'
 "-------------------------------------------------------------------------------
 " Zen coding
 "-------------------------------------------------------------------------------
-let g:user_zen_expandabbr_key = '<c-e>'
+let g:user_zen_leader_key = '<c-e>'
 let g:use_zen_complete_tag = 1
