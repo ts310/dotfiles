@@ -464,10 +464,10 @@ imap <> <><Left>
 
 if has("autocmd")
   " Auto remove line end white space upon save
-  au BufWritePre * :%s/\s\+$//ge
+  " au BufWritePre * :%s/\s\+$//ge
 
   " Replace tab with whitespace upon save
-  au BufWritePre * :%s/\t/  /ge
+  " au BufWritePre * :%s/\t/  /ge
 endif
 
 " Insert dates
