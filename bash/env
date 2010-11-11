@@ -32,3 +32,6 @@ export PATH=$PATH:~/.bin
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]
   then source "$HOME/.rvm/scripts/rvm"
 fi
+
+# Prevent double file (._) file on OSX
+export COPYFILE_DISABLE=true
