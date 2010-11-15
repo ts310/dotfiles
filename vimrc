@@ -175,27 +175,27 @@ if version >= 703
 endif
 
 " :set lazyredraw
-:set ttyfast
+set ttyfast
 
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+hi ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /　/
 
 set cursorline
 augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
+  au! cch
+  au WinLeave * set nocursorline
+  au WinEnter,BufRead * set cursorline
 augroup END
 
-:hi clear CursorLine
-:hi CursorLine gui=underline
-highlight CursorLine ctermbg=black guibg=black
+hi clear CursorLine
+hi CursorLine gui=underline
+hi CursorLine ctermbg=black guibg=black
 
 "-------------------------------------------------------------------------------
 " Invisible characters
 "-------------------------------------------------------------------------------
 " Show invisible characters
-" set list
+set list
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -285,14 +285,15 @@ if has("autocmd")
   au FileType html :set indentexpr=
   au FileType xhtml :set indentexpr=
 
-  au FileType make setlocal ts=8 sts=8 sw=8 noto
-  au FileType yaml setlocal ts=2 sts=2 sw=2 et
-  au FileType php setlocal ts=4 sts=4 sw=4 et
-  au FileType vim setlocal ts=2 sts=2 sw=2 et
-  au FileType html setlocal ts=2 sts=2 sw=2 et
-  au FileType css setlocal ts=2 sts=2 sw=2 et
-  au FileType javascript setlocal ts=2 sts=2 sw=2 et
-  au FileType sh setlocal ts=2 sts=2 sw=2 et
+  au FileType make         setlocal ts=8 sts=8 sw=8 noto
+  au FileType yaml         setlocal ts=2 sts=2 sw=2 et
+  au FileType php          setlocal ts=4 sts=4 sw=4 et
+  au FileType vim          setlocal ts=2 sts=2 sw=2 et
+  au FileType html         setlocal ts=2 sts=2 sw=2 et
+  au FileType css          setlocal ts=2 sts=2 sw=2 et
+  au FileType javascript   setlocal ts=2 sts=2 sw=2 et
+  au FileType sh           setlocal ts=2 sts=2 sw=2 et
+  au FileType actionscript setlocal ts=2 sts=2 sw=2 et
 
   au BufNewFile,BufRead *.rss setfiletype xml
 
@@ -304,7 +305,6 @@ if has("autocmd")
   au BufNewFile,BufRead *_spec.rb compiler rspec
 
   au BufNewFile,BufRead *.as set filetype=actionscript
-  au FileType actionscript setlocal ts=2 sts=2 sw=2 et
   " au Syntax actionscript source $MYVIMRC/syntax/actionscript.vim
 endif
 
@@ -318,23 +318,6 @@ set history=1000
 set complete+=k
 set cmdheight=2
 set laststatus=2
-
-" imap <c-space> <c-x><c-o>
-
-function! InsertTabWrapper()
-  if pumvisible()
-    return "\<c-n>"
-  endif
-  let col = col('.') - 1
-  if !col || getline('.')[col -1] !~ '\k\|<\|/'
-    return "\<tab>"
-  elseif exists('&omnifunc') && &omnifunc == ''
-    return "\<c-n>"
-  else
-    return "\<c-x>\<c-o>"
-  endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 "-------------------------------------------------------------------------------
 " Tags
@@ -451,7 +434,7 @@ vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 set expandtab
 
 " After comma add space automatically
-inoremap , ,<Space>
+" inoremap , ,<Space>
 
 " Automatically insert closing tag for XML
 augroup MyXML
@@ -481,10 +464,10 @@ imap <> <><Left>
 
 if has("autocmd")
   " Auto remove line end white space upon save
-  au BufWritePre * :%s/\s\+$//ge
+  " au BufWritePre * :%s/\s\+$//ge
 
   " Replace tab with whitespace upon save
-  au BufWritePre * :%s/\t/  /ge
+  " au BufWritePre * :%s/\t/  /ge
 endif
 
 " Insert dates
@@ -497,6 +480,29 @@ set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+"-------------------------------------------------------------------------------
+" Folding
+"-------------------------------------------------------------------------------
+" Toggle fold state between closed and opened.
+" If there is no fold at current line, just moves forward.
+" If it is present, reverse it's state.
+function! ToggleFold()
+  if foldlevel('.') == 0
+    normal! l
+  else
+    if foldclosed('.') < 0
+      . foldclose
+    else
+      . foldopen
+    endif
+  endif
+  " Clear status line
+  echo
+endfun
+
+" Map this function to Space key.
+noremap <space> :call ToggleFold()<CR>
 
 "-------------------------------------------------------------------------------
 " Misc stuff
@@ -592,10 +598,14 @@ let g:yankring_history_dir='$HOME/.vim/tmp/'
 "-------------------------------------------------------------------------------
 " Fugitive
 "-------------------------------------------------------------------------------
-nmap <Space>gd :Gdiff<CR>
-nmap <Space>gc :Gcommit<CR>
-nmap <Space>gw :Gwrite<CR>
-nmap <Space>gs :Gstatus<CR>
+" nmap <Space>gd :Gdiff<CR>
+" nmap <Space>gc :Gcommit<CR>
+" nmap <Space>gw :Gwrite<CR>
+" nmap <Space>gs :Gstatus<CR>
+command! Gd :Gdiff
+command! Gc :Gcommit
+command! Gw :Gwrite
+command! Gs :Gstatus
 
 "-------------------------------------------------------------------------------
 " Rainbows!
@@ -619,6 +629,7 @@ map <leader>o :BufExplorer<CR>
 " Fuzzy finder
 "-------------------------------------------------------------------------------
 nnoremap <leader>l :FufBuffer<CR>
+nnoremap <leader>ll :FufFile<CR>
 
 "-------------------------------------------------------------------------------
 " sparkup plugin
@@ -626,3 +637,8 @@ nnoremap <leader>l :FufBuffer<CR>
 let g:sparkupExecuteMapping = '<D-e>'
 let g:sparkupNextMapping = '<D-n>'
 
+"-------------------------------------------------------------------------------
+" Zen coding
+"-------------------------------------------------------------------------------
+let g:user_zen_leader_key = '<c-e>'
+let g:use_zen_complete_tag = 1
