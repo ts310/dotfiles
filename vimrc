@@ -571,6 +571,7 @@ map <leader>n :NERDTreeToggle<CR>
 map <F1> :NERDTreeToggle<CR>
 " map <F2> :NERDTreeFind<CR>
 " let NERDTreeWinSize = 30
+let NERDTreeQuitOnOpen = 1
 
 "-------------------------------------------------------------------------------
 " NERDCommenter
