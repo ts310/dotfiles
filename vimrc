@@ -11,15 +11,15 @@
 "-------------------------------------------------------------------------------
 " Basic configuration
 "-------------------------------------------------------------------------------
-set nocompatible " Not compatible with vi
+set nocompatible               " Not compatible with vi
 set encoding=utf-8
 set scrolloff=5
-set showmode " Show current mode 'Insert',  'Visual' etc
-set showcmd  " Show (partial) command in the last line of the screen
-set hidden " Enable buffers
+set showmode                   " Show current mode 'Insert',  'Visual' etc
+set showcmd                    " Show (partial) command in the last line of the screen
+set hidden                     " Enable buffers
 set browsedir=buffer
 set backspace=indent,eol,start
-set modelines=0 " No modeline
+set modelines=0                " No modeline
 
 " Do not make beep sound
 set visualbell
@@ -31,9 +31,9 @@ set noswapfile
 
 " Soft/hard wrapping
 set wrap
-set textwidth=79
-set formatoptions=qrn1
-set formatoptions=cqt
+" set textwidth=79
+" set formatoptions=qrn1
+" set formatoptions=cqt
 
 " Replace : with ;
 nnoremap ; :
@@ -287,19 +287,16 @@ if has("autocmd")
 
   au FileType make         setlocal ts=8 sts=8 sw=8 noto
   au FileType yaml         setlocal ts=2 sts=2 sw=2 et
-  au FileType php          setlocal ts=4 sts=4 sw=4 et
+  au FileType php          setlocal ts=4 sts=4 sw=4 et foldmethod=syntax
   au FileType vim          setlocal ts=2 sts=2 sw=2 et
   au FileType html         setlocal ts=2 sts=2 sw=2 et
-  au FileType css          setlocal ts=2 sts=2 sw=2 et
+  au FileType css          setlocal ts=2 sts=2 sw=2 et foldmethod=indent
   au FileType javascript   setlocal ts=2 sts=2 sw=2 et
   au FileType sh           setlocal ts=2 sts=2 sw=2 et
   au FileType actionscript setlocal ts=2 sts=2 sw=2 et
+  au FileType ruby         setlocal foldmethod=syntax
 
   au BufNewFile,BufRead *.rss setfiletype xml
-
-  au FileType ruby setlocal foldmethod=syntax
-  au FileType css  setlocal foldmethod=indent sw=2 ts=2
-  au FileType php  setlocal foldmethod=syntax sw=4 ts=4 et
 
   " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
   au BufNewFile,BufRead *_spec.rb compiler rspec
