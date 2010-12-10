@@ -179,3 +179,5 @@ alias me='whoami'
 alias a2restart='sudo /etc/init.d/apache2 restart'
 
 alias ehosts='sudo vim /etc/hosts'
+
+alias newpass='openssl rand -base64 6'
