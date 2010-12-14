@@ -191,6 +191,12 @@ hi clear CursorLine
 hi CursorLine gui=underline
 hi CursorLine ctermbg=black guibg=black
 
+" Enable auto fullscreen
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
+endif
+
 "-------------------------------------------------------------------------------
 " Invisible characters
 "-------------------------------------------------------------------------------
