@@ -5,10 +5,3 @@ function oa {
 alias o='open .'
 alias chrome='open -a Google\ Chrome.app --args -enable-apps'
 alias xcode='open /Xcode4/Applications/Xcode.app'
-
-function up2date() {
-    brew update
-    /* brew outdated */
-    rvm get head
-    rvm reload
-}
