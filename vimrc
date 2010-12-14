@@ -479,10 +479,11 @@ inoremap <expr> ,dd strftime('%Y/%m/%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
 
 " Turn off IME apart from Insert mode
-set noimdisable
-set iminsert=0 imsearch=0
-set noimcmdline
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+" set noimdisable
+" set iminsert=0 imsearch=0
+" set noimcmdline
+" inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+set imdisable " Disable IM
 
 "-------------------------------------------------------------------------------
 " Folding
