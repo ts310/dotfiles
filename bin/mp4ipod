@@ -1,0 +1,10 @@
+#!/bin/sh
+# Name: ffmpeg_mp4.sh
+# Usage mp4ipod targetfile
+
+DEST_FILE=${1}
+DEST_NAME=`basename "${DEST_FILE}"`
+FILE_NAME=`echo ${DEST_NAME} | sed 's/\(^.*\)\.[^\.]*$/\1/'`
+ffmpeg -i "${DEST_FILE}" \ 
+-acodec libfaac -ab 128k -ac 2 -vcodec libx264 \ 
+-vpre slow -vpre ipod640 -crf 26 -threads 0 "${FILE_NAME}.mp4"
