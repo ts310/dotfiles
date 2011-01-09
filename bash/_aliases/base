@@ -28,7 +28,8 @@ function cr() {
 # Common -- Some are from Damian Conway
 alias ls="ls -FG"
 alias a='ls -A' # -A all except literal . ..
-alias la="ls -A -l -G"
+alias la="ls -A -l -G -h"
+alias lat="la -t"
 alias c='clear'
 alias cdd='cd -'  # goto last dir cd'ed from
 alias cl='clear; l'
