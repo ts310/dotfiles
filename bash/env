@@ -13,7 +13,7 @@ export SVN_EDITOR='/usr/bin/vim'
 # Path config
 # export PATH=/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php5/bin:$PATH
 # export PATH="$PATH:/Library/Application Support/VMware Fusion"
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:$PATH
 export PATH=$PATH:~/.bin
 
 # Oracle instant client related config
