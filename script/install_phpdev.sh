@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Install local pear
+pear config-create .pearrc
+pear install -o PEAR
+
 # Installing phpmd
 pear channel-discover pear.phpmd.org
 pear channel-discover pear.pdepend.org
