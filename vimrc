@@ -300,9 +300,10 @@ if has("autocmd")
   au FileType javascript   setlocal ts=2 sts=2 sw=2 et
   au FileType sh           setlocal ts=2 sts=2 sw=2 et
   au FileType actionscript setlocal ts=2 sts=2 sw=2 et
-  au FileType ruby         setlocal foldmethod=syntax
+  " au FileType ruby         setlocal foldmethod=syntax
 
   au BufNewFile,BufRead *.rss setfiletype xml
+  au BufNewFile,BufRead *.thtml setfiletype php
 
   " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
   au BufNewFile,BufRead *_spec.rb compiler rspec
