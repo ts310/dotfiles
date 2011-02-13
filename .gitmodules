@@ -67,3 +67,6 @@
 [submodule "vim/bundle/Command-T"]
 	path = vim/bundle/Command-T
 	url = https://github.com/wincent/Command-T.git
+[submodule "vim/bundle/vim-afterimage"]
+	path = vim/bundle/vim-afterimage
+	url = git://github.com/tpope/vim-afterimage.git
