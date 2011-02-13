@@ -1,5 +1,7 @@
 # dotfiles for bash/zsh shell #
 
+This is my personal dotfiles.
+
 To get started
 
 	cd ~
@@ -7,3 +9,4 @@ To get started
 	cd dotfiles
 	./install-dotfiles.sh
 
+This will symlink all necessary dotfiles like '.bashrc' to your home directory.
