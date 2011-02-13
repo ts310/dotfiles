@@ -553,7 +553,7 @@ vmap <C-Left> x<BS>P`[v`]
 vmap <C-Right> x<Space>P`[v`]
 
 " Shortcut to buffers
-"nnoremap <leader>b :buffers<CR>:buffer<Space>
+" nnoremap <leader>b :buffers<CR>:buffer<Space>
 
 " Xcode header to implementation shortcut
 vmap <D-A-Up> :e %:p:s,.h$,.X123X,:s,.m$,.h,:s,.X123X$,.m,<CR>
