@@ -4,7 +4,7 @@
 pear config-create .pearrc
 pear install -o PEAR
 
-# Installing phpmd
+# Installing phpmd PHP mess detector
 pear channel-discover pear.phpmd.org
 pear channel-discover pear.pdepend.org
 pear install --alldeps phpmd/PHP_PMD-alpha
