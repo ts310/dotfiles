@@ -5,3 +5,7 @@ function oa {
 alias o='open .'
 alias chrome='open -a Google\ Chrome.app --args -enable-apps'
 alias xcode='open /Xcode4/Applications/Xcode.app'
+
+export CLICOLOR=1
+# use yellow for directories
+export LSCOLORS=dxfxcxdxbxegedabagacad
