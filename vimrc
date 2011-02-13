@@ -11,15 +11,15 @@
 "-------------------------------------------------------------------------------
 " Basic configuration
 "-------------------------------------------------------------------------------
-set nocompatible               " Not compatible with vi
+set nocompatible                 " Not compatible with vi
 set encoding=utf-8
 set scrolloff=5
-set showmode                   " Show current mode 'Insert',  'Visual' etc
-set showcmd                    " Show (partial) command in the last line of the screen
-set hidden                     " Enable buffers
+set showmode                     " Show current mode 'Insert',  'Visual' etc
+set showcmd                      " Show (partial) command in the last line of the screen
+set hidden                       " Enable buffers
 set browsedir=buffer
 set backspace=indent,eol,start
-set modelines=0                " No modeline
+set modelines=0                  " No modeline
 
 " Do not make beep sound
 set visualbell
@@ -87,8 +87,8 @@ imap <C-k> <Up>
 imap <C-h> <Left>
 imap <C-l> <Right>
 
+" Automatically move to last cursor position
 if has("autocmd")
-  " Move to last cursor position
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 endif
 
