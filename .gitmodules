@@ -91,3 +91,6 @@
 [submodule "vim/bundle/vim-quickrun"]
 	path = vim/bundle/vim-quickrun
 	url = git://github.com/thinca/vim-quickrun.git
+[submodule "vim/bundle/taglist.vim"]
+	path = vim/bundle/taglist.vim
+	url = git://github.com/vim-scripts/taglist.vim.git
