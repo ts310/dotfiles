@@ -82,3 +82,6 @@
 [submodule "vim/bundle/vim-ref"]
 	path = vim/bundle/vim-ref
 	url = git://github.com/thinca/vim-ref.git
+[submodule "vim/bundle/unite"]
+	path = vim/bundle/unite
+	url = git://github.com/Shougo/unite.vim.git
