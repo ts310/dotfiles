@@ -1,58 +1,74 @@
-autoload -U colors
+## Set prompt
+autoload -Uz colors
 colors
+
 setopt prompt_subst
+PROMPT='%{$fg[blue]%}%m%{$reset_color%}@%{$fg[green]%}%n:%~ %{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[gray]%}→ %{$reset_color%}'
 
-PROMPT='
-%{$reset_color%}%m@%n:%~ %{$fg[magenta]%}$(vcprompt)%{$reset_color%}
-%{$fg[red]%}❉ %{$reset_color%}'
+# Automatically cd to given directory
+setopt auto_cd
 
-# Set RPROMPT to have info show up on the right, too.
+# Remember cd'ed directory
+setopt auto_pushd
 
-#############################
-# Other Options
+## Show packed list for completion
+setopt list_packed
 
-# setopt PRINT_EXIT_VALUE
+## Correct
+setopt correct
+setopt correctall
+setopt nolistbeep
 
-setopt CORRECT
-setopt CORRECTALL
-
-setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data
-setopt HIST_IGNORE_SPACE
-setopt APPEND_HISTORY # write history only when closing
-setopt EXTENDED_HISTORY # add more info
-
-# Other tabbing options
-# setopt NO_AUTO_MENU
-# setopt BASH_AUTO_LIST
-
-#############################
-# Variables
-
-# Quote pasted URLs
-autoload url-quote-magic
-zle -N self-insert url-quote-magic
-
+## Command history
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
-
 REPORTTIME=10 # Show elapsed time if command took more than X seconds
 LISTMAX=0 # ask to complete if top of list would scroll off screen
+setopt hist_ignore_dups  # ignore duplication command history list
+setopt share_history     # share command history data
+setopt HIST_IGNORE_SPACE
+setopt APPEND_HISTORY    # write history only when closing
+setopt EXTENDED_HISTORY  # add more info
 
-# Load completions for Ruby, Git, etc.
-autoload compinit
-compinit
-
-# Make CTRL-W delete after other chars, not just spaces
+## Make CTRL-W delete after other chars, not just spaces
 WORDCHARS=${WORDCHARS//[&=\/;\!#%\{]}
 
+## Quote pasted URLs
+autoload url-quote-magic
+zle -N self-insert url-quote-magic
+
+## historical backward/forward search with linehead string binded to ^P/^N
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+## Bind emacs like keys
 bindkey -e
 
 ## Completions
-autoload -U compinit
-compinit -C
+autoload -Uz compinit
+compinit
 
-## case-insensitive (all),partial-word and then substring completion
+## Case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' list-colors ''
 
+## Show command and path for screen window title
+precmd () {
+  if [[ "$TERM" = "screen" ]]; then
+    local SHORTPWD="`basename $PWD`"
+    echo -ne "\ek${SHORTPWD}/\e\\"
+  fi
+}
+preexec () {
+  if [[ "$TERM" = "screen" ]]; then
+    local CMD="${1}"
+    if [[ ${#CMD} -ge 15 ]]; then
+      CMD="${${(z)CMD}[1]} …"
+    fi
+    echo -ne "\ek${CMD}\e\\"
+  fi
+}
