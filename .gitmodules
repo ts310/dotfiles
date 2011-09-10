@@ -97,6 +97,3 @@
 [submodule "vim/bundle/vim-peepopen"]
 	path = vim/bundle/vim-peepopen
 	url = git://github.com/shemerey/vim-peepopen.git
-[submodule "vim/bundle/vim-bufexplorer"]
-	path = vim/bundle/vim-bufexplorer
-	url = git://github.com/mexpolk/vim-bufexplorer.git
