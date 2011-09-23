@@ -11,23 +11,9 @@ export GIT_EDITOR='vim'
 export SVN_EDITOR='vim'
 
 # Path config
-# export PATH=/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php5/bin:$PATH
-# export PATH="$PATH:/Library/Application Support/VMware Fusion"
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:$PATH
 export PATH=~/pear:$PATH
 export PATH=$PATH:~/.bin
-
-# Oracle instant client related config
-#export NLS_LANG="AMERICAN_AMERICA.UTF8"
-#export ORACLE_HOME=/usr/local/oracle/instantclient_10_2
-#export DYLD_LIBRARY_PATH=$ORACLE_HOME
-
-# Ruby gems
-#export GEM_HOME='/usr/local/Cellar/gems/1.9.1'
-#export GEM_HOME='/usr/local/Cellar/gems/1.8'
-
-# Android sdk
-#export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r6
 
 # rvm
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]
