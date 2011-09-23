@@ -5,16 +5,18 @@
 . ~/dotfiles/bash/aliases
 
 # Bash completion
-if [ -f /usr/local/etc/bash_completion ]; then
+if [ -f /usr/local/etc/bash_completion ]
+then
   . /usr/local/etc/bash_completion
 fi
 
-if [-f ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash ]; then
+if [ -f ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash ]
+then
   . ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash
 fi
 
 # Local configuration
 if [ -f ~/.bashrc.local ]
 then
-  source ~/.bashrc.local
+  . ~/.bashrc.local
 fi
