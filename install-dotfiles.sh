@@ -36,6 +36,7 @@ link vim  .vim
 link gitignore .gitignore
 link bin .bin
 link screenrc .screerc
+link irbrc .irbrc
 
 # reload source
 source ~/.bash_profile

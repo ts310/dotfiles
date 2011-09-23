@@ -9,4 +9,12 @@ if [ -f /usr/local/etc/bash_completion ]; then
   . /usr/local/etc/bash_completion
 fi
 
-. ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash
+if [-f ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash ]; then
+  . ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash
+fi
+
+# Local configuration
+if [ -f ~/.bashrc.local ]
+then
+  source ~/.bashrc.local
+fi
