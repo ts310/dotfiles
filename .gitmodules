@@ -97,3 +97,9 @@
 [submodule "vim/bundle/vim-peepopen"]
 	path = vim/bundle/vim-peepopen
 	url = git://github.com/shemerey/vim-peepopen.git
+[submodule "conque-term"]
+	path = conque-term
+	url = https://github.com/rosenfeld/conque-term.git
+[submodule "vim/bundle/conque-term"]
+	path = vim/bundle/conque-term
+	url = https://github.com/rosenfeld/conque-term.git
