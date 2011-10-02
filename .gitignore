@@ -3,3 +3,4 @@ bin/vcprompt
 bin/vmrun
 vim/.*
 vim/tmp/
+tags
