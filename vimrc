@@ -578,6 +578,12 @@ map <F1> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
 
 "-------------------------------------------------------------------------------
+" TagList
+"-------------------------------------------------------------------------------
+map <leader>5 :TlistToggle<CR>
+map <F2> :TlistToggle<CR>
+
+"-------------------------------------------------------------------------------
 " NERDCommenter
 "-------------------------------------------------------------------------------
 " I turn this off to make it simple
@@ -592,7 +598,7 @@ map <D-/> :call NERDComment(0, "toggle")<CR>
 "-------------------------------------------------------------------------------
 " Ack
 "-------------------------------------------------------------------------------
-map <leader>a :Ack
+map <leader>a :Ack<space>
 
 "-------------------------------------------------------------------------------
 " Yankring
@@ -622,7 +628,7 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 " Command-T options
 "-------------------------------------------------------------------------------
 " let g:CommandTMaxHeight=30
-nmap <silent> <leader>t :CommandT<CR>
+nmap <silent> <leader>1 :CommandT<CR>
 
 "-------------------------------------------------------------------------------
 " Buffer explorer plugin
@@ -648,3 +654,7 @@ let g:sparkupNextMapping = '<D-n>'
 "-------------------------------------------------------------------------------
 let g:user_zen_leader_key = '<c-e>'
 let g:use_zen_complete_tag = 1
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
