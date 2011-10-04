@@ -4,3 +4,4 @@ bin/vmrun
 vim/.*
 vim/tmp/
 tags
+bin/appcrush
