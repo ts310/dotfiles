@@ -15,10 +15,5 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:$PATH
 export PATH=~/pear:$PATH
 export PATH=$PATH:~/.bin
 
-# rvm
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]
-  then source "$HOME/.rvm/scripts/rvm"
-fi
-
 # Prevent double file (._) file on OSX
 export COPYFILE_DISABLE=true
