@@ -37,6 +37,8 @@ link gitignore .gitignore
 link bin .bin
 link screenrc .screerc
 link irbrc .irbrc
+link bashrc.local .bashrc.local
+link zshrc.local .zshrc.local
 
 # reload source
 source ~/.bash_profile
