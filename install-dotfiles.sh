@@ -35,7 +35,7 @@ link gemrc .gemrc
 link vim  .vim
 link gitignore .gitignore
 link bin .bin
-link screenrc .screerc
+link screenrc .screenrc
 link irbrc .irbrc
 link bashrc.local .bashrc.local
 link zshrc.local .zshrc.local
