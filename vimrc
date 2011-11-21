@@ -631,11 +631,9 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 nmap <silent> <leader>1 :CommandT<CR>
 
 "-------------------------------------------------------------------------------
-" Buffer explorer plugin
+" Unite plugin shortcut 
 "-------------------------------------------------------------------------------
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-map <leader>o :BufExplorer<CR>
+map <leader>o :Unite buffer<CR>
 
 "-------------------------------------------------------------------------------
 " Fuzzy finder
