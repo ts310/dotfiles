@@ -76,9 +76,6 @@
 [submodule "vim/bundle/zencoding-vim"]
 	path = vim/bundle/zencoding-vim
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "vim/bundle/vim-yankring"]
-	path = vim/bundle/vim-yankring
-	url = git://github.com/chrismetcalf/vim-yankring.git
 [submodule "vim/bundle/vim-ref"]
 	path = vim/bundle/vim-ref
 	url = git://github.com/thinca/vim-ref.git
