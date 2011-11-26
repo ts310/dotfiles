@@ -49,13 +49,23 @@ set guioptions+=a
 set ttymouse=xterm2
 
 "-------------------------------------------------------------------------------
-" Pathogen
+" Bundles
 "-------------------------------------------------------------------------------
-filetype off
-filetype indent off
-syntax off
-filetype plugin on
-filetype indent on
+set nocompatible
+filetype off                 
+
+set rtp+=~/.vim/vundle.git/  
+call vundle#rc()             
+
+Bundle 'fugitive.vim'
+Bundle 'Command-T'
+Bundle 'checksyntax-B'
+Bundle 'rails.vim'
+Bundle 'The-NERD-tree'
+Bundle 'The-NERD-Commenter'
+Bundle 'ctags.vim'
+
+filetype plugin indent on
 
 "-------------------------------------------------------------------------------
 " Navigation / Movement
@@ -632,12 +642,6 @@ nmap <silent> <leader>1 :CommandT<CR>
 " Unite plugin shortcut 
 "-------------------------------------------------------------------------------
 map <leader>o :Unite buffer<CR>
-
-"-------------------------------------------------------------------------------
-" Fuzzy finder
-"-------------------------------------------------------------------------------
-nnoremap <leader>l :FufBuffer<CR>
-nnoremap <leader>ll :FufFile<CR>
 
 "-------------------------------------------------------------------------------
 " sparkup plugin
