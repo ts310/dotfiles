@@ -54,8 +54,6 @@ set ttymouse=xterm2
 filetype off
 filetype indent off
 syntax off
-call pathogen#infect()
-" set helpfile=$VIMRUNTIME/doc/help.txt
 filetype plugin on
 filetype indent on
 
