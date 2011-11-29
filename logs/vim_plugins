@@ -94,9 +94,6 @@
 [submodule "vim/bundle/vim-peepopen"]
 	path = vim/bundle/vim-peepopen
 	url = git://github.com/shemerey/vim-peepopen.git
-[submodule "conque-term"]
-	path = conque-term
-	url = https://github.com/rosenfeld/conque-term.git
 [submodule "vim/bundle/conque-term"]
 	path = vim/bundle/conque-term
 	url = https://github.com/rosenfeld/conque-term.git
@@ -110,40 +107,37 @@
 	path = vim/bundle/vim-yankring
 	url = https://github.com/vim-scripts/YankRing.vim.git
 
-url = git://github.com/msanders/snipmate.vim.git
-url = git://github.com/tpope/vim-fugitive.git
-url = git://github.com/airblade/vim-rooter.git
-url = git://github.com/mileszs/ack.vim.git
-url = git://github.com/msanders/cocoa.vim.git
-url = git://github.com/scrooloose/nerdtree.git
-url = git://github.com/scrooloose/nerdcommenter.git
-url = git://github.com/tpope/vim-surround.git
-url = git://github.com/ervandew/supertab.git
-url = git://github.com/tpope/vim-repeat.git
-url = git://github.com/tpope/vim-rails.git
-url = git://github.com/tpope/vim-markdown.git
-url = git://github.com/nelstrom/vim-markdown-preview.git
-url = git://github.com/mattn/gist-vim.git
-url = git://github.com/nvie/git-flow-completion.git
-url = git://github.com/tpope/vim-git.git
-url = git://github.com/tpope/vim-unimpaired.git
-url = git://github.com/tpope/vim-ragtag.git
-url = git://github.com/Raimondi/delimitMate.git
-url = git://github.com/tomtom/checksyntax_vim.git
-url = https://github.com/clones/vim-align.git
-url = https://github.com/vim-scripts/SQLUtilities.git
-url = https://github.com/wincent/Command-T.git
-url = git://github.com/tpope/vim-afterimage.git
-url = https://github.com/tpope/vim-pathogen.git
-url = git://github.com/mattn/zencoding-vim.git
-url = git://github.com/thinca/vim-ref.git
-url = git://github.com/Shougo/unite.vim.git
-url = git://github.com/Shougo/neocomplcache.git
-url = git://github.com/thinca/vim-quickrun.git
-url = git://github.com/vim-scripts/taglist.vim.git
-url = git://github.com/shemerey/vim-peepopen.git
-url = https://github.com/rosenfeld/conque-term.git
-url = https://github.com/rosenfeld/conque-term.git
-url = https://github.com/vim-scripts/ZoomWin.git
-url = https://github.com/timcharper/textile.vim.git
-url = https://github.com/vim-scripts/YankRing.vim.git
+msanders/snipmate.vim
+airblade/vim-rooter
+mileszs/ack.vim
+msanders/cocoa.vim
+scrooloose/nerdtree
+scrooloose/nerdcommenter
+tpope/vim-surround
+tpope/vim-fugitive
+tpope/vim-repeat
+tpope/vim-rails
+tpope/vim-markdown
+tpope/vim-git
+tpope/vim-unimpaired
+tpope/vim-ragtag
+tpope/vim-afterimage
+ervandew/supertab
+nelstrom/vim-markdown-preview
+mattn/gist-vim
+Raimondi/delimitMate
+tomtom/checksyntax_vim
+clones/vim-align
+wincent/Command-T
+mattn/zencoding-vim
+thinca/vim-ref
+Shougo/unite.vim
+Shougo/neocomplcache
+thinca/vim-quickrun
+vim-scripts/taglist.vim
+vim-scripts/SQLUtilities
+vim-scripts/YankRing.vim
+vim-scripts/ZoomWin
+shemerey/vim-peepopen
+rosenfeld/conque-term
+timcharper/textile.vim

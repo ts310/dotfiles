@@ -57,13 +57,22 @@ filetype off
 set rtp+=~/.vim/vundle.git/  
 call vundle#rc()             
 
-Bundle 'fugitive.vim'
-Bundle 'Command-T'
-Bundle 'checksyntax-B'
-Bundle 'rails.vim'
+Bundle 'unite.vim'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'ctags.vim'
+Bundle 'ack.vim'
+Bundle 'neocomplcache'
+Bundle 'YankRing.vim'
+Bundle 'vim-diff'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-commentary'
+Bundle 'SuperTab'
 
 filetype plugin indent on
 
@@ -639,11 +648,6 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 nmap <silent> <leader>1 :CommandT<CR>
 
 "-------------------------------------------------------------------------------
-" Unite plugin shortcut 
-"-------------------------------------------------------------------------------
-map <leader>o :Unite buffer<CR>
-
-"-------------------------------------------------------------------------------
 " sparkup plugin
 "-------------------------------------------------------------------------------
 let g:sparkupExecuteMapping = '<D-e>'
@@ -655,6 +659,28 @@ let g:sparkupNextMapping = '<D-n>'
 let g:user_zen_leader_key = '<c-e>'
 let g:use_zen_complete_tag = 1
 
+"-------------------------------------------------------------------------------
+" Unite
+"-------------------------------------------------------------------------------
+" 入力モードで開始する
+" let g:unite_enable_start_insert=1
+nnoremap <leader>o :Unite buffer<CR>
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+"-------------------------------------------------------------------------------
+" Load local vimrc
+"-------------------------------------------------------------------------------
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
