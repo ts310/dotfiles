@@ -58,6 +58,7 @@ set rtp+=~/.vim/vundle.git/
 call vundle#rc()             
 
 Bundle 'unite.vim'
+Bundle 'ref.vim'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'ctags.vim'
@@ -73,6 +74,10 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
 Bundle 'SuperTab'
+Bundle 'vim-diff'
+Bundle 'Align'
+Bundle 'ZenCoding.vim'
+Bundle 'neocomplcache'
 
 filetype plugin indent on
 
