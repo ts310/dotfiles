@@ -78,6 +78,10 @@ Bundle 'vim-diff'
 Bundle 'Align'
 Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
+Bundle 'php.vim'
+Bundle 'php-doc'
+Bundle 'cocoa.vim'
+Bundle 'Match-Bracket-for-Objective-C'
 
 filetype plugin indent on
 
