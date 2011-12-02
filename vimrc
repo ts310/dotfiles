@@ -82,6 +82,8 @@ Bundle 'php.vim'
 Bundle 'php-doc'
 Bundle 'cocoa.vim'
 Bundle 'Match-Bracket-for-Objective-C'
+Bundle 'snipmate-snippets'
+Bundle 'quickrun.vim'
 
 filetype plugin indent on
 
@@ -672,20 +674,21 @@ let g:use_zen_complete_tag = 1
 " Unite
 "-------------------------------------------------------------------------------
 " 入力モードで開始する
-" let g:unite_enable_start_insert=1
-nnoremap <leader>o :Unite buffer<CR>
+let g:unite_enable_start_insert=1
+
 " バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> <leader>ub :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> <leader>um :<C-u>Unite file_mru<CR>
 " 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> <leader>o :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 "-------------------------------------------------------------------------------
 " Load local vimrc
