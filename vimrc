@@ -84,6 +84,10 @@ Bundle 'cocoa.vim'
 Bundle 'Match-Bracket-for-Objective-C'
 Bundle 'snipmate-snippets'
 Bundle 'quickrun.vim'
+Bundle 'sql_iabbr-2'
+Bundle 'SQLUtilities'
+Bundle 'phpcomplete.vim'
+Bundle 'Command-T'
 
 filetype plugin indent on
 
