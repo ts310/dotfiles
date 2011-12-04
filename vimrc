@@ -88,6 +88,8 @@ Bundle 'sql_iabbr-2'
 Bundle 'SQLUtilities'
 Bundle 'phpcomplete.vim'
 Bundle 'Command-T'
+Bundle 'Color-Sampler-Pack'
+Bundle 'taglist.vim'
 
 filetype plugin indent on
 
@@ -202,7 +204,7 @@ set number
 set display=uhex
 if version >= 703
   " set relativenumber
-  set colorcolumn=85
+  " set colorcolumn=85
 endif
 
 " :set lazyredraw

@@ -8,7 +8,8 @@ set encoding=utf-8
 set antialias
 
 " Theme
-colorscheme molokai
+" colorscheme molokai
+colorscheme SummerFruit256
 
 " Scrollbars
 set go-=T
@@ -25,8 +26,9 @@ highlight SpellBad term=underline gui=undercurl guisp=Orange
 "-------------------------------------------------------------------------------
 if has("gui_macvim")
 
-  set guifont=Monaco:h13
-  "set guifont=Menlo:h12
+  " set guifont=Monaco:h13
+  " set guifont=Menlo:h12
+  set guifont=Monaco:h12
 
   " Disable macvim menu key
   macmenu File.New\ Tab key=<nop>
