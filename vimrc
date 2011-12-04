@@ -614,6 +614,8 @@ let NERDTreeQuitOnOpen = 1
 "-------------------------------------------------------------------------------
 " TagList
 "-------------------------------------------------------------------------------
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+let Tlist_Use_Right_Window = 1
 map <leader>5 :TlistToggle<CR>
 map <F2> :TlistToggle<CR>
 
