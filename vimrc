@@ -90,6 +90,7 @@ Bundle 'phpcomplete.vim'
 Bundle 'Command-T'
 Bundle 'Color-Sampler-Pack'
 Bundle 'taglist.vim'
+Bundle 'kogakure/vim-sparkup'
 
 filetype plugin indent on
 
@@ -663,7 +664,7 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 "-------------------------------------------------------------------------------
 " Command-T options
 "-------------------------------------------------------------------------------
-" let g:CommandTMaxHeight=30
+let g:CommandTMaxHeight=30
 nmap <silent> <leader>1 :CommandT<CR>
 
 "-------------------------------------------------------------------------------
