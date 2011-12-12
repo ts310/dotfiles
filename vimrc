@@ -234,8 +234,8 @@ endif
 "-------------------------------------------------------------------------------
 " Invisible characters
 "-------------------------------------------------------------------------------
-" Show invisible characters
-set list
+" Toggle invisible characters
+set list!
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
