@@ -91,6 +91,9 @@ Bundle 'Command-T'
 Bundle 'Color-Sampler-Pack'
 Bundle 'taglist.vim'
 Bundle 'kogakure/vim-sparkup'
+" Bundle 'vimshell-ssh'
+" Bundle 'Shougo/vimproc'
+" Bundle 'Shougo/vimshell'
 
 filetype plugin indent on
 
@@ -672,6 +675,11 @@ nmap <silent> <leader>1 :CommandT<CR>
 "-------------------------------------------------------------------------------
 let g:sparkupExecuteMapping = '<D-e>'
 let g:sparkupNextMapping = '<D-n>'
+
+"-------------------------------------------------------------------------------
+" vimshell plugin
+"-------------------------------------------------------------------------------
+" let g:vimproc_dll_path = $HOME . '/.vim/bundle/vimproc/autoload/proc.so'
 
 "-------------------------------------------------------------------------------
 " Zen coding
