@@ -92,6 +92,7 @@ Bundle 'Color-Sampler-Pack'
 Bundle 'taglist.vim'
 Bundle 'kogakure/vim-sparkup'
 Bundle 'svn-diff.vim'
+Bundle 'kmnk/vim-unite-svn'
 " Bundle 'vimshell-ssh'
 " Bundle 'Shougo/vimproc'
 " Bundle 'Shougo/vimshell'
@@ -707,6 +708,11 @@ nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
 " 全部乗せ
 nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> <leader>o :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+"-------------------------------------------------------------------------------
+" Neocomplcache
+"-------------------------------------------------------------------------------
+let g:neocomplcache_enable_at_startup = 1
 
 "-------------------------------------------------------------------------------
 " Load local vimrc
