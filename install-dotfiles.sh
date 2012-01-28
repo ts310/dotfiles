@@ -37,8 +37,6 @@ link gitignore .gitignore
 link bin .bin
 link screenrc .screenrc
 link irbrc .irbrc
-link bashrc.local .bashrc.local
-link zshrc.local .zshrc.local
 link tmux.conf .tmux.conf
 
 echo "Updating git submodules"
