@@ -1,16 +1,3 @@
-"-------------------------------------------------------------------------------
-" Vim cheatsheet
-" Folding cheet sheet
-"-------------------------------------------------------------------------------
-" zR    open all folds
-" zM    close all folds
-" za    toggle fold at cursor position
-" zj    move down to start of next fold
-" zk    move up to end of previous fold
-
-"-------------------------------------------------------------------------------
-" Basic configuration
-"-------------------------------------------------------------------------------
 set nocompatible                 " Not compatible with vi
 set encoding=utf-8
 set scrolloff=5
@@ -31,9 +18,9 @@ set noswapfile
 
 " Soft/hard wrapping
 set wrap
-" set textwidth=79
-" set formatoptions=qrn1
-" set formatoptions=cqt
+set textwidth=79
+set formatoptions=qrn1
+set formatoptions=cqt
 
 " Replace mapleader key
 let mapleader=","
@@ -61,7 +48,7 @@ Bundle 'The-NERD-Commenter'
 Bundle 'ctags.vim'
 Bundle 'ack.vim'
 Bundle 'neocomplcache'
-" Bundle 'YankRing.vim'
+Bundle 'YankRing.vim'
 Bundle 'vim-diff'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
@@ -99,59 +86,46 @@ filetype plugin indent on
 "-------------------------------------------------------------------------------
 " Mapping
 "-------------------------------------------------------------------------------
-" Replace : with ;
 nnoremap ; :
+" Natural behavior with wordwrap on
+nnoremap j gj
+nnoremap k gk
 
-" Navigation / Movement {
-  " Force vim style navigation
-  " nnoremap <up> <nop>
-  " nnoremap <down> <nop>
-  " nnoremap <left> <nop>
-  " nnoremap <right> <nop>
-  " inoremap <up> <nop>
-  " inoremap <down> <nop>
-  " inoremap <left> <nop>
-  " inoremap <right> <nop>
+" insert mode
+imap  <C-e> <END>
+imap  <C-a> <HOME>
 
-  " Natural behavior with wordwrap on
-  nnoremap j gj
-  nnoremap k gk
+" Enable vim navigation in insert mode
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-h> <Left>
+imap <C-l> <Right>
 
-  " insert mode
-  imap  <C-e> <END>
-  imap  <C-a> <HOME>
+" Automatically move to last cursor position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+endif
 
-  " Enable vim navigation in insert mode
-  imap <C-j> <Down>
-  imap <C-k> <Up>
-  imap <C-h> <Left>
-  imap <C-l> <Right>
+" Move last edit position
+nnoremap gb '[
+nnoremap gp ']
 
-  " Automatically move to last cursor position
-  if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-  endif
+" Move between matching bracket
+nnoremap [ %
+nnoremap ] %
+nmap <tab> %
+vmap <tab> %
 
-  " Move last edit position
-  nnoremap gb '[
-  nnoremap gp ']
+" Select last edit text object
+nnoremap gc  `[v`]
+vnoremap gc ;<C-u>normal gc<Enter>
+onoremap gc ;<C-u>normal gc<Enter>
 
-  " Move between matching bracket
-  nnoremap [ %
-  nnoremap ] %
-  nmap <tab> %
-  vmap <tab> %
-
-  " Select last edit text object
-  nnoremap gc  `[v`]
-  vnoremap gc ;<C-u>normal gc<Enter>
-  onoremap gc ;<C-u>normal gc<Enter>
-
-  " Yank under cursor
-  nnoremap vy vawy
-  "}
+" Yank under cursor
+nnoremap vy vawy
 
 set virtualedit+=block
+
 
 "-------------------------------------------------------------------------------
 " Windows Buffers
@@ -647,9 +621,9 @@ map <leader>a :Ack<space>
 "-------------------------------------------------------------------------------
 " Yankring
 "-------------------------------------------------------------------------------
-" nnoremap <silent> <leader>y :YRShow<CR>
-" let g:yankring_max_element_length = 4194304 " 4M
-" let g:yankring_history_dir='$HOME/.vim/tmp/'
+nnoremap <silent> <leader>y :YRShow<CR>
+let g:yankring_max_element_length = 4194304 " 4M
+let g:yankring_history_dir='$HOME/.vim/tmp/'
 
 "-------------------------------------------------------------------------------
 " Fugitive

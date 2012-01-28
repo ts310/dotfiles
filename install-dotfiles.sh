@@ -29,10 +29,10 @@ link bash_profile .bash_profile
 link bashrc .bashrc
 link inputrc .inputrc
 link zshrc .zshrc
-link vimrc .vimrc
+link vim .vim
 link gvimrc .gvimrc
 link gemrc .gemrc
-link vim  .vim
+link vimrc  .vimrc
 link gitignore .gitignore
 link bin .bin
 link screenrc .screenrc

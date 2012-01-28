@@ -1,2 +1,0 @@
-. ~/dotfiles/bash/env
-. ~/dotfiles/lib/git-flow-completion/git-flow-completion.zsh
