@@ -41,8 +41,9 @@ link bashrc.local .bashrc.local
 link zshrc.local .zshrc.local
 link tmux.conf .tmux.conf
 
-# reload source
-source ~/.bash_profile
+echo "Updating git submodules"
+git submodule init
+git submodule update
 
 if [ -e ~/.bin/vcprompt ]
 then
@@ -52,9 +53,5 @@ else
   curl http://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > ~/dotfiles/bin/vcprompt
   chmod +x ~/.bin/vcprompt
 fi
-
-echo "Updating git submodules"
-git submodule init
-git submodule update
 
 echo "Done!"
