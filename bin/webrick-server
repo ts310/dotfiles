@@ -3,7 +3,7 @@ require 'webrick'
 include WEBrick
 
 s = HTTPServer.new(
-  :BindAddress => 'localhost',
+  # :BindAddress => 'localhost',
   :Port => 8000,
   :DocumentRoot => Dir::pwd,
   :Logger => nil
