@@ -653,9 +653,9 @@ map <leader>a :Ack<space>
 "-------------------------------------------------------------------------------
 " Yankring
 "-------------------------------------------------------------------------------
-" nnoremap <silent> <leader>y :YRShow<CR>
-" let g:yankring_max_element_length = 4194304 " 4M
-" let g:yankring_history_dir='$HOME/.vim/tmp/'
+nnoremap <silent> <leader>y :YRShow<CR>
+let g:yankring_max_element_length = 4194304 " 4M
+let g:yankring_history_dir='$HOME/.vim/tmp/'
 
 "-------------------------------------------------------------------------------
 " Fugitive
