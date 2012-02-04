@@ -64,6 +64,7 @@ Bundle 'neocomplcache'
 Bundle 'YankRing.vim'
 Bundle 'vim-diff'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-rails'
@@ -90,6 +91,9 @@ Bundle 'taglist.vim'
 Bundle 'kogakure/vim-sparkup'
 Bundle 'svn-diff.vim'
 Bundle 'kmnk/vim-unite-svn'
+Bundle 'groenewege/vim-less'
+Bundle 'XML-Folding'
+Bundle 'intuited/vim-shell_complete'
 " Bundle 'vimshell-ssh'
 " Bundle 'Shougo/vimproc'
 " Bundle 'Shougo/vimshell'
@@ -332,19 +336,21 @@ if has("autocmd")
   au FileType html :set indentexpr=
   au FileType xhtml :set indentexpr=
 
-  au FileType make         setlocal ts=8 sts=8 sw=8 noto
+  au FileType make         setlocal ts=8 sts=8 sw=8 noet
   au FileType yaml         setlocal ts=2 sts=2 sw=2 et
-  au FileType php          setlocal ts=4 sts=4 sw=4 et foldmethod=syntax
+  au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=indent
+  au FileType java         setlocal ts=4 sts=4 sw=4 et foldmethod=syntax
   au FileType vim          setlocal ts=2 sts=2 sw=2 et
   au FileType html         setlocal ts=2 sts=2 sw=2 et
   au FileType css          setlocal ts=2 sts=2 sw=2 et foldmethod=indent
-  au FileType javascript   setlocal ts=2 sts=2 sw=2 et
+  au FileType javascript   setlocal ts=2 sts=2 sw=2 et foldmethod=indent
   au FileType sh           setlocal ts=2 sts=2 sw=2 et
   au FileType actionscript setlocal ts=2 sts=2 sw=2 et
   " au FileType ruby         setlocal foldmethod=syntax
 
   au BufNewFile,BufRead *.rss setfiletype xml
   au BufNewFile,BufRead *.thtml setfiletype php
+  au BufNewFile,BufRead *.tpl setfiletype php
 
   " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
   au BufNewFile,BufRead *_spec.rb compiler rspec
@@ -393,8 +399,8 @@ set showmatch
 set gdefault
 nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 map <leader><space> :noh<CR>
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 vnoremap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap /r "xy;%s/<C-R>=escape(@x, '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
@@ -672,6 +678,7 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 " Command-T options
 "-------------------------------------------------------------------------------
 let g:CommandTMaxHeight=30
+let g:CommandTMaxFiles=50000
 nmap <silent> <leader>1 :CommandT<CR>
 
 "-------------------------------------------------------------------------------
