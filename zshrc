@@ -2,7 +2,8 @@
 autoload -Uz colors
 colors
 setopt prompt_subst
-PROMPT='%{$fg[blue]%}%m%{$reset_color%}@%{$fg[green]%}%n:%~ %{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[gray]%}→ %{$reset_color%}'
+PROMPT='%{$fg[green]%}[%n]%{$reset_color%} '
+RPROMPT='%{$fg[yellow]%}[%~] %{$reset_color%}%{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[red]%}[%m]%{$reset_color%}'
 
 source ~/dotfiles/common/env
 source ~/dotfiles/common/aliases
