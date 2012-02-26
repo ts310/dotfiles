@@ -32,7 +32,7 @@ link zshrc .zshrc
 link vim .vim
 link gvimrc .gvimrc
 link gemrc .gemrc
-link vimrc  .vimrc
+link vimrc-min  .vimrc
 link gitignore .gitignore
 link bin .bin
 link screenrc .screenrc
