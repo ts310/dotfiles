@@ -76,8 +76,9 @@ Bundle 'vim-diff'
 Bundle 'Align'
 Bundle 'ZenCoding.vim'
 Bundle 'neocomplcache'
-Bundle 'php.vim'
-Bundle 'php-doc'
+Bundle 'phpfolding.vim'
+" Bundle 'php.vim'
+" Bundle 'php-doc'
 Bundle 'cocoa.vim'
 Bundle 'Match-Bracket-for-Objective-C'
 Bundle 'snipmate-snippets'
@@ -94,6 +95,7 @@ Bundle 'kmnk/vim-unite-svn'
 Bundle 'groenewege/vim-less'
 Bundle 'XML-Folding'
 Bundle 'intuited/vim-shell_complete'
+Bundle 'Townk/vim-autoclose'
 " Bundle 'vimshell-ssh'
 " Bundle 'Shougo/vimproc'
 " Bundle 'Shougo/vimshell'
@@ -338,12 +340,12 @@ if has("autocmd")
 
   au FileType make         setlocal ts=8 sts=8 sw=8 noet
   au FileType yaml         setlocal ts=2 sts=2 sw=2 et
-  au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=indent
+  au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=syntax
   au FileType java         setlocal ts=4 sts=4 sw=4 et foldmethod=syntax
   au FileType vim          setlocal ts=2 sts=2 sw=2 et
   au FileType html         setlocal ts=2 sts=2 sw=2 et
   au FileType css          setlocal ts=2 sts=2 sw=2 et foldmethod=indent
-  au FileType javascript   setlocal ts=2 sts=2 sw=2 et foldmethod=indent
+  au FileType javascript   setlocal ts=4 sts=4 sw=4 et foldmethod=indent
   au FileType sh           setlocal ts=2 sts=2 sw=2 et
   au FileType actionscript setlocal ts=2 sts=2 sw=2 et
   " au FileType ruby         setlocal foldmethod=syntax
@@ -506,12 +508,12 @@ nmap y9 y$
 nmap y0 y^
 
 " Auto close brackets stays inside the brackets
-imap {} {}<Left>
-imap [] []<Left>
-imap () ()<Left>
-imap "" ""<Left>
-imap '' ''<Left>
-imap <> <><Left>
+" imap {} {}<Left>
+" imap [] []<Left>
+" imap () ()<Left>
+" imap "" ""<Left>
+" imap '' ''<Left>
+" imap <> <><Left>
 
 if has("autocmd")
   " Auto remove line end white space upon save
