@@ -1,5 +1,5 @@
 " vim: nowrap fdm=marker
-
+> 
 " Initial settings {{{1
 " ---------------------------------------------------------
   set nocompatible
@@ -15,16 +15,12 @@
   set rtp+=~/.vim/vundle.git/  
   call vundle#rc()             
   Bundle 'gmarik/vundle'
-  Bundle 'unite.vim'
-  Bundle 'ref.vim'
-  Bundle 'vim-scripts/The-NERD-tree'
-  Bundle 'The-NERD-Commenter'
-  Bundle 'Source-Explorer-srcexpl.vim'
-  Bundle 'ctags.vim'
-  Bundle 'ack.vim'
-  Bundle 'neocomplcache'
-  Bundle 'YankRing.vim'
-  Bundle 'vim-diff'
+  Bundle 'Shougo/unite.vim'
+  Bundle 'Shougo/ref.vim'
+  Bundle 'Shougo/neocomplcache'
+  Bundle 'Shougo/vimproc'
+  Bundle 'scrooloose/nerdtree'
+  Bundle 'scrooloose/nerdcommenter'
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-repeat'
   Bundle 'tpope/vim-fugitive'
@@ -33,32 +29,34 @@
   Bundle 'tpope/vim-unimpaired'
   Bundle 'tpope/vim-abolish'
   Bundle 'tpope/vim-commentary'
-  Bundle 'SuperTab'
-  Bundle 'vim-diff'
-  Bundle 'Align'
-  Bundle 'ZenCoding.vim'
-  Bundle 'neocomplcache'
-  Bundle 'php.vim'
-  Bundle 'php-doc'
-  Bundle 'cocoa.vim'
-  Bundle 'Match-Bracket-for-Objective-C'
-  Bundle 'snipmate-snippets'
-  Bundle 'quickrun.vim'
-  Bundle 'sql_iabbr-2'
-  Bundle 'SQLUtilities'
-  Bundle 'phpcomplete.vim'
-  Bundle 'Command-T'
-  Bundle 'Color-Sampler-Pack'
-  Bundle 'taglist.vim'
+  Bundle 'vim-scripts/taglist.vim'
+  Bundle 'vim-scripts/YankRing.vim'
+  Bundle 'vim-scripts/Align'
+  Bundle 'vim-scripts/ZenCoding.vim'
+  Bundle 'vim-scripts/matchit.vim'
+  Bundle 'mileszs/ack.vim'
+  Bundle 'wincent/Command-T'
+  Bundle 'ervandew/supertab'
+  Bundle 'scrooloose/snipmate-snippets'
+  Bundle 'thinca/vim-quickrun'
   Bundle 'kogakure/vim-sparkup'
-  Bundle 'svn-diff.vim'
-  Bundle 'kmnk/vim-unite-svn'
   Bundle 'groenewege/vim-less'
-  Bundle 'XML-Folding'
-  Bundle 'intuited/vim-shell_complete'
-  " Bundle 'vimshell-ssh'
-  " Bundle 'Shougo/vimproc'
-  " Bundle 'Shougo/vimshell'
+  Bundle 'Color-Sampler-Pack'
+    Bundle 'php.vim'
+  Bundle 'phpcomplete.vim'
+  "Bundle 'Source-Explorer-srcexpl.vim'
+  "Bundle 'ctags.vim'
+  "Bundle 'vim-diff'
+  "Bundle 'php-doc'
+  "Bundle 'cocoa.vim'
+  "Bundle 'Match-Bracket-for-Objective-C'
+  "Bundle 'sql_iabbr-2'
+  "Bundle 'SQLUtilities'
+  "Bundle 'svn-diff.vim'
+  "Bundle 'kmnk/vim-unite-svn'
+  "Bundle 'XML-Folding'
+  "Bundle 'intuited/vim-shell_complete'
+  "Bundle 'vimshell-ssh'
   filetype plugin indent on
 " }}}
 
@@ -271,25 +269,15 @@
   map <F1> :NERDTreeToggle<CR>
   "map <F2> :NERDTreeFind<CR>
   let NERDTreeWinSize = 30
-  let NERDTreeQuitOnOpen = 1
-  let NERDTreeShowBookmarks = 1
+  "let NERDTreeQuitOnOpen = 1
+  let NERDTreeShowBookmarks = 0
+  let NERDTreeWinPos = "Right"
 
   " TagList
   let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
   let Tlist_Use_Right_Window = 1
   map <leader>5 :TlistToggle<CR>
   "map <F3> :TlistToggle<CR>
-
-  " // The switch of the Source Explorer 
-  nmap <F5> :SrcExplToggle<CR> 
-  " // In order to Avoid conflicts, the Source Explorer should know what plugins 
-  " // are using buffers. And you need add their bufname into the list below 
-  " // according to the command ":buffers!" 
-  let g:SrcExpl_pluginList = [ 
-        \ "__Tag_List__", 
-        \ "_NERD_tree_", 
-        \ "Source_Explorer" 
-        \ ] 
 
   " Ack
   map <leader>a :Ack<space>
