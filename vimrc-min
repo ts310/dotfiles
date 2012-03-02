@@ -14,9 +14,10 @@
   runtime ftplugin/man.vim
   set rtp+=~/.vim/vundle.git/  
   call vundle#rc()             
+  Bundle 'gmarik/vundle'
   Bundle 'unite.vim'
   Bundle 'ref.vim'
-  Bundle 'The-NERD-tree'
+  Bundle 'vim-scripts/The-NERD-tree'
   Bundle 'The-NERD-Commenter'
   Bundle 'Source-Explorer-srcexpl.vim'
   Bundle 'ctags.vim'
@@ -212,7 +213,7 @@
   nmap <leader>m :make<CR>
 
   " Save on losing focus
-  au focuslost * :wa
+  "au focuslost * :wa
 
   " Disable help key
   map <F1> <nop>
@@ -243,6 +244,26 @@
   command! Rv source $MYVIMRC
 " }}}
 
+ " Syntax {{{1
+" ---------------------------------------------------------
+  au FileType make         setlocal ts=8 sts=8 sw=8 noet
+  au FileType yaml         setlocal ts=2 sts=2 sw=2 et
+  au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=syntax
+  au FileType java         setlocal ts=4 sts=4 sw=4 et   foldmethod=syntax
+  au FileType vim          setlocal ts=2 sts=2 sw=2 et
+  au FileType html         setlocal ts=2 sts=2 sw=2 et
+  au FileType css          setlocal ts=2 sts=2 sw=2 et   foldmethod=indent
+  au FileType javascript   setlocal ts=4 sts=4 sw=4 et   foldmethod=indent
+  au FileType sh           setlocal ts=2 sts=2 sw=2 et
+  au FileType actionscript setlocal ts=2 sts=2 sw=2 et
+
+  au BufNewFile,BufRead *.rss setfiletype xml
+  au BufNewFile,BufRead *.thtml setfiletype php
+  au BufNewFile,BufRead *.tpl setfiletype php
+  au BufNewFile,BufRead *_spec.rb compiler rspec
+  au BufNewFile,BufRead *.as set filetype=actionscript
+ " }}}
+
 " Plugin Settings {{{1
 " ---------------------------------------------------------
   " NerdTree
@@ -258,6 +279,17 @@
   let Tlist_Use_Right_Window = 1
   map <leader>5 :TlistToggle<CR>
   "map <F3> :TlistToggle<CR>
+
+  " // The switch of the Source Explorer 
+  nmap <F5> :SrcExplToggle<CR> 
+  " // In order to Avoid conflicts, the Source Explorer should know what plugins 
+  " // are using buffers. And you need add their bufname into the list below 
+  " // according to the command ":buffers!" 
+  let g:SrcExpl_pluginList = [ 
+        \ "__Tag_List__", 
+        \ "_NERD_tree_", 
+        \ "Source_Explorer" 
+        \ ] 
 
   " Ack
   map <leader>a :Ack<space>
