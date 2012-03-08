@@ -1,5 +1,5 @@
 " vim: nowrap fdm=marker
-> 
+ 
 " Initial settings {{{1
 " ---------------------------------------------------------
   set nocompatible
@@ -19,7 +19,10 @@
   Bundle 'Shougo/ref.vim'
   Bundle 'Shougo/neocomplcache'
   Bundle 'Shougo/vimproc'
+  Bundle 'mileszs/ack.vim'
   Bundle 'scrooloose/nerdtree'
+  Bundle 'tyok/nerdtree-ack'
+  Bundle 'vsushkov/vim-nerdtree-and-ack'
   Bundle 'scrooloose/nerdcommenter'
   Bundle 'tpope/vim-surround'
   Bundle 'tpope/vim-repeat'
@@ -33,8 +36,7 @@
   Bundle 'vim-scripts/YankRing.vim'
   Bundle 'vim-scripts/Align'
   Bundle 'vim-scripts/ZenCoding.vim'
-  Bundle 'vim-scripts/matchit.vim'
-  Bundle 'mileszs/ack.vim'
+  Bundle 'vim-scripts/matchit.zip'
   Bundle 'wincent/Command-T'
   Bundle 'ervandew/supertab'
   Bundle 'scrooloose/snipmate-snippets'
@@ -42,7 +44,7 @@
   Bundle 'kogakure/vim-sparkup'
   Bundle 'groenewege/vim-less'
   Bundle 'Color-Sampler-Pack'
-    Bundle 'php.vim'
+  Bundle 'php.vim'
   Bundle 'phpcomplete.vim'
   "Bundle 'Source-Explorer-srcexpl.vim'
   "Bundle 'ctags.vim'
@@ -254,6 +256,7 @@
   au FileType javascript   setlocal ts=4 sts=4 sw=4 et   foldmethod=indent
   au FileType sh           setlocal ts=2 sts=2 sw=2 et
   au FileType actionscript setlocal ts=2 sts=2 sw=2 et
+  au FileType ruby         setlocal ts=2 sts=2 sw=2 et
 
   au BufNewFile,BufRead *.rss setfiletype xml
   au BufNewFile,BufRead *.thtml setfiletype php
@@ -269,7 +272,7 @@
   map <F1> :NERDTreeToggle<CR>
   "map <F2> :NERDTreeFind<CR>
   let NERDTreeWinSize = 30
-  "let NERDTreeQuitOnOpen = 1
+  let NERDTreeQuitOnOpen = 1
   let NERDTreeShowBookmarks = 0
   let NERDTreeWinPos = "Right"
 
