@@ -5,6 +5,9 @@
   set nocompatible
   set encoding=utf-8
   let mapleader = ","
+  " Shortcut for edit/source vim runtime configuration in command
+  command! Ev edit $MYVIMRC
+  command! Rv source $MYVIMRC
 " }}}
 
 " Load plugins {{{1
@@ -37,8 +40,10 @@
   Bundle 'vim-scripts/Align'
   Bundle 'vim-scripts/ZenCoding.vim'
   Bundle 'vim-scripts/matchit.zip'
+  Bundle 'vim-scripts/AutoComplPop'
+  Bundle 'mileszs/ack.vim'
   Bundle 'wincent/Command-T'
-  Bundle 'ervandew/supertab'
+  "Bundle 'ervandew/supertab'
   Bundle 'scrooloose/snipmate-snippets'
   Bundle 'thinca/vim-quickrun'
   Bundle 'kogakure/vim-sparkup'
@@ -62,9 +67,8 @@
   filetype plugin indent on
 " }}}
 
-" Behaviour {{{1
+  " Behaviour {{{1
 " ---------------------------------------------------------
-  nnoremap ; :
   set backspace=indent,eol,start
 
   " Search
@@ -75,6 +79,13 @@
   set hlsearch
   set showmatch
   set gdefault
+
+  set wildmenu
+  set wildchar=<Tab>
+  set wildmode=list:full
+  set history=100
+  set complete+=k
+  set cmdheight=2
 
   set visualbell t_vb=
   set hidden
@@ -88,11 +99,29 @@
     set ttymouse=xterm2
   endif
 
+  set nobackup
+  set noswapfile
+
+  set autoindent
+  "set paste
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  set expandtab
+
+  set virtualedit+=block
+
+  " Use os's clipboard
+  set clipboard+=unnamed
+" }}}
+
+" Mappings {{{1
+" ---------------------------------------------------------
+  nnoremap ; :
+
   " Natural behavior with wordwrap on
   nnoremap j gj
   nnoremap k gk
-
-  set virtualedit+=block
 
   nmap <ESC><ESC> ;nohlsearch<CR><ESC>
   map <leader><space> :noh<CR>
@@ -107,54 +136,7 @@
   imap <C-h> <Left>
   imap <C-l> <Right>
 
-  " Automatically move to last cursor position
-  if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-  endif
-
-  set wildmenu
-  set wildchar=<Tab>
-  set wildmode=list:full
-  set history=100
-  set complete+=k
-  set cmdheight=2
-" }}}
-
-" Appearance {{{1
-" ---------------------------------------------------------
-  " Useful status information at bottom of screen
-  set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-  set ruler
-  set showcmd
-  set laststatus=2
-  set listchars=tab:▸\ ,eol:¬
-  set number
-  set cursorline
-  " When the terminal has colors, enable syntax+search highlighting
-  if &t_Co > 2 || has("gui_running")
-    syntax on
-    set hlsearch
-  endif
-" }}}
-
-" Indentation {{{1
-" ---------------------------------------------------------
-  set autoindent
-  set paste
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
-  set expandtab
-" }}}
-
-" Disable swapfile and backup {{{1
-" ---------------------------------------------------------
-  set nobackup
-  set noswapfile
-" }}}
-
-" Buffers {{{1
-" ---------------------------------------------------------
+  " Buffers
   nnoremap <C-h> <C-w>h
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
@@ -164,32 +146,15 @@
   nnoremap <leader>h :split<CR><C-w>j
   map <D-A-right> :bn<CR>
   map <D-A-left> :bp<CR>
-" }}}
 
-" Folding {{{1
-" ---------------------------------------------------------
-  " Toggle fold state between closed and opened.
-  " If there is no fold at current line, just moves forward.
-  " If it is present, reverse it's state.
-  function! ToggleFold()
-    if foldlevel('.') == 0
-      normal! l
-    else
-      if foldclosed('.') < 0
-        . foldclose
-      else
-        . foldopen
-      endif
-    endif
-    " Clear status line
-    echo
-  endfun
+  " Automatically move to last cursor position
+  if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+  endif
+
 
   noremap <space> :call ToggleFold()<CR>
-" }}}
 
-" Useful customization {{{1
-" ---------------------------------------------------------
   " Fast escape insert mode
   "inoremap <Esc> <nop>
   inoremap jj <ESC>
@@ -230,18 +195,28 @@
   vmap <C-Left> x<BS>P`[v`]
   vmap <C-Right> x<Space>P`[v`]
 
-  " Shortcut to buffers
-  "nmap <leader>b :buffers<CR>:buffer<Space>
-
   " Xcode header to implementation shortcut
   vmap <D-A-Up> :e %:p:s,.h$,.X123X,:s,.m$,.h,:s,.X123X$,.m,<CR>
 
   " Forgot sudo
   cmap w!! w !sudo tee % >/dev/null
+" }}}
 
-  " Shortcut for edit/source vim runtime configuration in command
-  command! Ev edit $MYVIMRC
-  command! Rv source $MYVIMRC
+" Appearance {{{1
+" ---------------------------------------------------------
+  " Useful status information at bottom of screen
+  set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+  set ruler
+  set showcmd
+  set laststatus=2
+  set listchars=tab:▸\ ,eol:¬
+  set number
+  set cursorline
+  " When the terminal has colors, enable syntax+search highlighting
+  if &t_Co > 2 || has("gui_running")
+    syntax on
+    set hlsearch
+  endif
 " }}}
 
  " Syntax {{{1
@@ -313,4 +288,40 @@
   let g:CommandTMaxDepth=100
   nnoremap <silent> <Leader>t :CommandT<CR>
   nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+" }}}
+
+" Functions {{{1
+  " Close current buffer 
+  function! <SID>BufcloseCloseIt()
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
+    if buflisted(l:alternateBufNum)
+      buffer #
+    else
+      bnext
+    endif
+    if bufnr("%") == l:currentBufNum
+      new
+    endif
+    if buflisted(l:currentBufNum)
+      execute("bdelete! ".l:currentBufNum)
+    endif
+  endfunction
+
+  " Toggle fold state between closed and opened.
+  " If there is no fold at current line, just moves forward.
+  " If it is present, reverse it's state.
+  function! ToggleFold()
+    if foldlevel('.') == 0
+      normal! l
+    else
+      if foldclosed('.') < 0
+        . foldclose
+      else
+        . foldopen
+      endif
+    endif
+    " Clear status line
+    echo
+  endfun
 " }}}
