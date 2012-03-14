@@ -58,7 +58,7 @@
   "Bundle 'cocoa.vim'
   "Bundle 'Match-Bracket-for-Objective-C'
   "Bundle 'sql_iabbr-2'
-  "Bundle 'SQLUtilities'
+  Bundle 'SQLUtilities'
   "Bundle 'svn-diff.vim'
   "Bundle 'kmnk/vim-unite-svn'
   "Bundle 'XML-Folding'
@@ -81,7 +81,7 @@
   set gdefault
 
   set wildmenu
-  set wildchar=<Tab>
+  "set wildchar=<Tab>
   set wildmode=list:full
   set history=100
   set complete+=k
@@ -211,6 +211,7 @@
   set laststatus=2
   set listchars=tab:▸\ ,eol:¬
   set number
+  set numberwidth=6
   set cursorline
   " When the terminal has colors, enable syntax+search highlighting
   if &t_Co > 2 || has("gui_running")
@@ -237,7 +238,7 @@
   au BufNewFile,BufRead *.thtml setfiletype php
   au BufNewFile,BufRead *.tpl setfiletype php
   au BufNewFile,BufRead *_spec.rb compiler rspec
-  au BufNewFile,BufRead *.as set filetype=actionscript
+  au BufNewFile,BufRead *.as setfiletype actionscript
  " }}}
 
 " Plugin Settings {{{1
