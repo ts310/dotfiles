@@ -108,6 +108,7 @@
   set softtabstop=2
   set shiftwidth=2
   set expandtab
+  set foldmethod=indent
 
   set virtualedit+=block
 
@@ -211,7 +212,7 @@
   set laststatus=2
   set listchars=tab:▸\ ,eol:¬
   set number
-  set numberwidth=6
+  set numberwidth=8
   set cursorline
   " When the terminal has colors, enable syntax+search highlighting
   if &t_Co > 2 || has("gui_running")

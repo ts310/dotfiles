@@ -14,7 +14,7 @@ export SVN_EDITOR='vim'
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:$PATH
 export PATH=~/pear:$PATH
 export PATH=$PATH:~/.bin
-export PATH=/usr/local/share/python/:$PATH
+export PATH=/usr/local/share/python:$PATH
 export PATH=$PATH:/usr/local/share/npm/bin
 
 # Prevent double file (._) file on OSX
