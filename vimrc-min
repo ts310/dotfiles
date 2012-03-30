@@ -51,6 +51,7 @@
   Bundle 'Color-Sampler-Pack'
   Bundle 'php.vim'
   Bundle 'phpcomplete.vim'
+  Bundle 'sudo.vim'
   "Bundle 'Source-Explorer-srcexpl.vim'
   "Bundle 'ctags.vim'
   "Bundle 'vim-diff'
@@ -81,7 +82,7 @@
   set gdefault
 
   set wildmenu
-  "set wildchar=<Tab>
+  set wildchar=<Tab>
   set wildmode=list:full
   set history=100
   set complete+=k
