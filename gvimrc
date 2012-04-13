@@ -8,8 +8,7 @@ set encoding=utf-8
 set antialias
 
 " Theme
-colorscheme molokai
-" colorscheme SummerFruit256
+colorscheme Wombat
 
 " Scrollbars
 set go-=T
