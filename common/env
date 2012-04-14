@@ -37,8 +37,6 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]
   then source "$HOME/.rvm/scripts/rvm"
 fi
 
-alias svn=colorsvn
-
 # Loading local env settings
 if [ -f ~/.env.local ]
 then

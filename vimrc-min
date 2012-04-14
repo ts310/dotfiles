@@ -222,6 +222,13 @@
   endif
 " }}}
 
+" GUI {{{1
+" --------------------------------------------------------
+  if has("gui")
+    colorscheme Wombat
+  end
+" }}}
+
  " Syntax {{{1
 " ---------------------------------------------------------
   au FileType make         setlocal ts=8 sts=8 sw=8 noet
