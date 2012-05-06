@@ -65,6 +65,7 @@
   "Bundle 'XML-Folding'
   "Bundle 'intuited/vim-shell_complete'
   "Bundle 'vimshell-ssh'
+  Bundle 'preview'
   filetype plugin indent on
 " }}}
 
@@ -154,7 +155,6 @@
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
   endif
 
-
   noremap <space> :call ToggleFold()<CR>
 
   " Fast escape insert mode
@@ -164,8 +164,11 @@
   " Strip all trading whitespace in current while
   nmap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
+  " Folding
   " HTML fold tag
   nmap <leader>f Vatzf
+  nnoremap <leader>zr zR<CR>
+  nnoremap <leader>zm zM<CR>
 
   " Sort css properties alphabetically
   nmap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
@@ -233,7 +236,7 @@
 " ---------------------------------------------------------
   au FileType make         setlocal ts=8 sts=8 sw=8 noet
   au FileType yaml         setlocal ts=2 sts=2 sw=2 et
-  au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=syntax
+  au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=indent
   au FileType java         setlocal ts=4 sts=4 sw=4 et   foldmethod=syntax
   au FileType vim          setlocal ts=2 sts=2 sw=2 et
   au FileType html         setlocal ts=2 sts=2 sw=2 et
@@ -255,7 +258,7 @@
   " NerdTree
   map <leader>n :NERDTreeToggle<CR>
   map <F1> :NERDTreeToggle<CR>
-  "map <F2> :NERDTreeFind<CR>
+  nnoremap <leader>nr :NERDTreeFind<CR>
   let NERDTreeWinSize = 30
   let NERDTreeQuitOnOpen = 1
   let NERDTreeShowBookmarks = 0
@@ -301,6 +304,7 @@
 " }}}
 
 " Functions {{{1
+" ---------------------------------------------------------
   " Close current buffer 
   function! <SID>BufcloseCloseIt()
     let l:currentBufNum = bufnr("%")
@@ -334,4 +338,23 @@
     " Clear status line
     echo
   endfun
+" }}}
+
+" Notes {{{1
+" ---------------------------------------------------------
+  " Vim folding commands
+  " zf#j creates a fold from the cursor down # lines.
+  " zf/string creates a fold from the cursor to string .
+  " zj moves the cursor to the next fold.
+  " zk moves the cursor to the previous fold.
+  " zo opens a fold at the cursor.
+  " zO opens all folds at the cursor.
+  " zm increases the foldlevel by one.
+  " zM closes all open folds.
+  " zr decreases the foldlevel by one.
+  " zR decreases the foldlevel to zero -- all folds will be open.
+  " zd deletes the fold at the cursor.
+  " zE deletes all folds.
+  " [z move to start of open fold.
+  " ]z move to end of open fold.
 " }}}
