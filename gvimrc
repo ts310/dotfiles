@@ -1,46 +1,45 @@
-"-------------------------------------------------------------------------------
-"  GUI
-"-------------------------------------------------------------------------------
-" Encoding
-set encoding=utf-8
+" GUI {{{1
+" ---------------------------------------------------
+  " Encoding
+  set encoding=utf-8
 
-" Font
-set antialias
+  " Font
+  set antialias
 
-" Theme
-colorscheme Wombat
+  " Theme
+  colorscheme Wombat
 
-" Scrollbars
-set go-=T
-set go-=l
-set go-=L
-set go-=r
-set go-=R
+  " Scrollbars
+  set go-=T
+  set go-=l
+  set go-=L
+  set go-=r
+  set go-=R
 
-" Cursor
-highlight SpellBad term=underline gui=undercurl guisp=Orange
+  " Cursor
+  highlight SpellBad term=underline gui=undercurl guisp=Orange
+" }}}
 
-"-------------------------------------------------------------------------------
-" MacVIM
-"-------------------------------------------------------------------------------
-if has("gui_macvim")
+" MacVIM {{{1
+" --------------------------------------------------
+  if has("gui_macvim")
+    " set guifont=Monaco:h13
+    " set guifont=Menlo:h12
+    set guifont=Monaco:h11
 
-  " set guifont=Monaco:h13
-  " set guifont=Menlo:h12
-  set guifont=Monaco:h11
+    " Disable macvim menu key
+    macmenu File.New\ Tab key=<nop>
+    macmenu File.Print key=<nop>
 
-  " Disable macvim menu key
-  macmenu File.New\ Tab key=<nop>
-  macmenu File.Print key=<nop>
+    " PeepOpen
+    map <leader>p <Plug>PeepOpen
+    map <D-p> <Plug>PeepOpen
 
-  " PeepOpen
-  map <leader>p <Plug>PeepOpen
-  map <D-p> <Plug>PeepOpen
+    " CommandT
+    map <D-t> :CommandT<CR>
 
-  " CommandT
-  map <D-t> :CommandT<CR>
-
-  " Buffer explorer
-  macmenu File.Open\.\.\. key=<nop>
-  map <D-o> :BufExplorer<CR>
-end
+    " Buffer explorer
+    macmenu File.Open\.\.\. key=<nop>
+    map <D-o> :BufExplorer<CR>
+  end
+" }}}
