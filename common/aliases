@@ -256,3 +256,6 @@ function vmng() {
 function vm() {
   vmrun start ~/Documents/Virtual\ Machines/$1.vmwarevm
 }
+
+# ksdiff
+alias skdiff='svn diff --diff-cmd=ksdiff-svnwrapper .'
