@@ -1,7 +1,7 @@
 # Command Enhancements
 
 # Utility
-alias reload='source ~/dotfiles/aliases'
+alias reload='source ~/dotfiles/common/aliases'
 
 alias vim='vim -N'
 alias ls="ls -FG"

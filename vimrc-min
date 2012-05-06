@@ -19,7 +19,7 @@
   call vundle#rc()             
   Bundle 'gmarik/vundle'
   Bundle 'Shougo/unite.vim'
-  Bundle 'Shougo/ref.vim'
+  "Bundle 'Shougo/ref.vim'
   Bundle 'Shougo/neocomplcache'
   Bundle 'Shougo/vimproc'
   Bundle 'mileszs/ack.vim'
