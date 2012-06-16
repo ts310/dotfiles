@@ -19,7 +19,7 @@
   call vundle#rc()             
   Bundle 'gmarik/vundle'
   Bundle 'Shougo/unite.vim'
-  "Bundle 'Shougo/ref.vim'
+  Bundle 'thinca/vim-ref'
   Bundle 'Shougo/neocomplcache'
   Bundle 'Shougo/vimproc'
   Bundle 'mileszs/ack.vim'
@@ -228,7 +228,8 @@
 " GUI {{{1
 " --------------------------------------------------------
   if has("gui")
-    colorscheme Wombat
+    "colorscheme Wombat
+    colorscheme desert
   end
 " }}}
 
