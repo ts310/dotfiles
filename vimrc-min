@@ -31,13 +31,11 @@
   Bundle 'tpope/vim-repeat'
   Bundle 'tpope/vim-fugitive'
   Bundle 'tpope/vim-git'
-  Bundle 'tpope/vim-rails'
   Bundle 'tpope/vim-unimpaired'
   Bundle 'tpope/vim-abolish'
   Bundle 'tpope/vim-commentary'
   Bundle 'vim-scripts/taglist.vim'
   Bundle 'vim-scripts/YankRing.vim'
-  Bundle 'vim-scripts/Align'
   Bundle 'vim-scripts/ZenCoding.vim'
   Bundle 'vim-scripts/matchit.zip'
   Bundle 'vim-scripts/AutoComplPop'
@@ -48,15 +46,23 @@
   Bundle 'thinca/vim-quickrun'
   Bundle 'kogakure/vim-sparkup'
   Bundle 'groenewege/vim-less'
-  Bundle 'Color-Sampler-Pack'
-  Bundle 'php.vim'
-  Bundle 'phpcomplete.vim'
+  " VCS {{{
+    Bundle 'vim-scripts/vcscommand.vim'
+  " }}}
+  " Themes {{{
+    Bundle 'Color-Sampler-Pack'
+  " }}}
+  " Syntax {{{
+    Bundle 'php.vim'
+    Bundle 'phpcomplete.vim'
+    Bundle 'tpope/vim-rails'
+    "Bundle 'php-doc'
+    "Bundle 'cocoa.vim'
+  " }}}
   Bundle 'sudo.vim'
   "Bundle 'Source-Explorer-srcexpl.vim'
   "Bundle 'ctags.vim'
   "Bundle 'vim-diff'
-  "Bundle 'php-doc'
-  "Bundle 'cocoa.vim'
   "Bundle 'Match-Bracket-for-Objective-C'
   "Bundle 'sql_iabbr-2'
   Bundle 'SQLUtilities'
@@ -66,7 +72,17 @@
   "Bundle 'intuited/vim-shell_complete'
   "Bundle 'vimshell-ssh'
   Bundle 'preview'
+<<<<<<< HEAD
   Bundle 'sudo.vim'
+=======
+  Bundle 'Textile-for-VIM'
+  Bundle 'scrooloose/syntastic'
+  " Indent {{{
+    Bundle 'vim-scripts/Align'
+    "Bundle 'godlygeek/tabular'
+  " }}}
+  Bundle 'vimshell-ssh'
+>>>>>>> Update various settings
   filetype plugin indent on
 " }}}
 
@@ -217,7 +233,7 @@
   set laststatus=2
   set listchars=tab:▸\ ,eol:¬
   set number
-  set numberwidth=8
+  set numberwidth=5
   set cursorline
   " When the terminal has colors, enable syntax+search highlighting
   if &t_Co > 2 || has("gui_running")
@@ -240,6 +256,7 @@
   au FileType make         setlocal ts=8 sts=8 sw=8 noet
   au FileType yaml         setlocal ts=2 sts=2 sw=2 et
   au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=indent
+  au FileType smarty       setlocal ts=2 sts=2 sw=2 noet foldmethod=indent
   au FileType java         setlocal ts=4 sts=4 sw=4 et   foldmethod=syntax
   au FileType vim          setlocal ts=2 sts=2 sw=2 et
   au FileType html         setlocal ts=2 sts=2 sw=2 et
@@ -248,10 +265,11 @@
   au FileType sh           setlocal ts=2 sts=2 sw=2 et
   au FileType actionscript setlocal ts=2 sts=2 sw=2 et
   au FileType ruby         setlocal ts=2 sts=2 sw=2 et
+  au FileType sql          setlocal ts=2 sts=2 sw=2 noet foldmethod=indent
 
   au BufNewFile,BufRead *.rss setfiletype xml
   au BufNewFile,BufRead *.thtml setfiletype php
-  au BufNewFile,BufRead *.tpl setfiletype php
+  au BufNewFile,BufRead *.tpl setfiletype smarty
   au BufNewFile,BufRead *_spec.rb compiler rspec
   au BufNewFile,BufRead *.as setfiletype actionscript
  " }}}
@@ -291,17 +309,17 @@
 
   " Unite
   let g:unite_enable_start_insert=0
-  nnoremap <silent> <leader>ub :<C-u>Unite buffer<CR>
+  nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
   nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
-  nnoremap <silent> <leader>um :<C-u>Unite file_mru<CR>
-  nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru<CR>
-  nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+  nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
+  nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
+  nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
+  nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
   map <F2> <leader>uu
 
   "CommantT
-  let g:CommandTMaxFiles=20000
-  let g:CommandTMaxDepth=100
+  let g:CommandTMaxFiles=25000
+  let g:CommandTMaxDepth=150
   nnoremap <silent> <Leader>t :CommandT<CR>
   nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 " }}}
@@ -360,4 +378,14 @@
   " zE deletes all folds.
   " [z move to start of open fold.
   " ]z move to end of open fold.
+" }}}
+
+" PHP {{{1
+" ---------------------------------------------------------
+  command! Cphp :!php -l %
+  nnoremap <F6> :Cphp<CR>
+" }}}
+
+" Othres {{{1
+" ---------------------------------------------------------
 " }}}
