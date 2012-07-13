@@ -1,18 +1,12 @@
 startup_message off
-
 autodetach on
-
 vbell off
-
 setenv SCREENTITLE auto
-
-hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
-
-# hardstatus alwayslastline
-# hardstatus string "%{= .W}%-Lw%{= C}%50>[%n* %t]%{-}%+Lw%= (%c)%< "
-
 shell -$SHELL
 escape ^Tt
+defscrollback 10000
+#hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+hardstatus alwayslastline '%{gk}[%{G}%H%{g}][%= %{wk}%?%-Lw%?%{=b kR}[%{W}%n%f %t%?(%u)%?%{=b kR}]%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[%m/%d %C%a]%{W}'
 
 bind w windowlist -b
 bind -c REGION 2 split
@@ -20,9 +14,4 @@ bind -c REGION 1 only
 bind -c REGION 0 remove
 bind -c REGION o focus
 bind -c REGION \^ resize
-
 bind x command -c REGION
-
-#
-# idle 360
-# blankerprg /usr/local/bin/fortune "$HOME/dotfiles/share/fortune/starwars"
