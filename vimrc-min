@@ -66,6 +66,7 @@
   "Bundle 'intuited/vim-shell_complete'
   "Bundle 'vimshell-ssh'
   Bundle 'preview'
+  Bundle 'sudo.vim'
   filetype plugin indent on
 " }}}
 
