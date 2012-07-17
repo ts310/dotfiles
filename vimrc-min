@@ -177,6 +177,7 @@
   " Fast escape insert mode
   "inoremap <Esc> <nop>
   inoremap jj <ESC>
+  inoremap kk <ESC>
 
   " Strip all trading whitespace in current while
   nmap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
@@ -289,7 +290,7 @@
   let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
   let Tlist_Use_Left_Window = 1
   map <leader>5 :TlistToggle<CR>
-  "map <F3> :TlistToggle<CR>
+  map <F3> :TlistToggle<CR>
 
   " Ack
   map <leader>a :Ack<space>
@@ -384,6 +385,7 @@
 " ---------------------------------------------------------
   command! Cphp :!php -l %
   nnoremap <F6> :Cphp<CR>
+  let tlist_php_settings = 'php;f:function'
 " }}}
 
 " Othres {{{1
