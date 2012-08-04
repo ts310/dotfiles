@@ -48,8 +48,8 @@ then
   echo "vcprompt command is found"
 else
   echo "Please install vcprompt command"
-  curl http://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > ~/dotfiles/bin/vcprompt
-  chmod +x ~/.bin/vcprompt
+  curl -sL https://github.com/djl/vcprompt/raw/master/bin/vcprompt > bin/vcprompt
+  chmod +x bin/vcprompt
 fi
 
 echo "Done!"
