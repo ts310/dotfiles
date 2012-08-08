@@ -72,9 +72,7 @@
   "Bundle 'intuited/vim-shell_complete'
   "Bundle 'vimshell-ssh'
   Bundle 'preview'
-<<<<<<< HEAD
   Bundle 'sudo.vim'
-=======
   Bundle 'Textile-for-VIM'
   Bundle 'scrooloose/syntastic'
   " Indent {{{
@@ -82,7 +80,6 @@
     "Bundle 'godlygeek/tabular'
   " }}}
   Bundle 'vimshell-ssh'
->>>>>>> Update various settings
   filetype plugin indent on
 " }}}
 
