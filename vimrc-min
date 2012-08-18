@@ -34,7 +34,7 @@
   Bundle 'tpope/vim-unimpaired'
   Bundle 'tpope/vim-abolish'
   Bundle 'tpope/vim-commentary'
-  Bundle 'vim-scripts/taglist.vim'
+  "Bundle 'vim-scripts/taglist.vim'
   Bundle 'vim-scripts/YankRing.vim'
   Bundle 'vim-scripts/ZenCoding.vim'
   Bundle 'vim-scripts/matchit.zip'
@@ -46,19 +46,13 @@
   Bundle 'thinca/vim-quickrun'
   Bundle 'kogakure/vim-sparkup'
   Bundle 'groenewege/vim-less'
-  " VCS {{{
-    Bundle 'vim-scripts/vcscommand.vim'
-  " }}}
-  " Themes {{{
-    Bundle 'Color-Sampler-Pack'
-  " }}}
-  " Syntax {{{
-    Bundle 'php.vim'
-    Bundle 'phpcomplete.vim'
-    Bundle 'tpope/vim-rails'
-    "Bundle 'php-doc'
-    "Bundle 'cocoa.vim'
-  " }}}
+  Bundle 'vim-scripts/vcscommand.vim'
+  Bundle 'Color-Sampler-Pack'
+  Bundle 'php.vim'
+  Bundle 'phpcomplete.vim'
+  Bundle 'tpope/vim-rails'
+  "Bundle 'php-doc'
+  "Bundle 'cocoa.vim'
   Bundle 'sudo.vim'
   "Bundle 'Source-Explorer-srcexpl.vim'
   "Bundle 'ctags.vim'
@@ -75,11 +69,10 @@
   Bundle 'sudo.vim'
   Bundle 'Textile-for-VIM'
   Bundle 'scrooloose/syntastic'
-  " Indent {{{
-    Bundle 'vim-scripts/Align'
-    "Bundle 'godlygeek/tabular'
-  " }}}
+  Bundle 'vim-scripts/Align'
+  "Bundle 'godlygeek/tabular'
   Bundle 'vimshell-ssh'
+  Bundle 'Tagbar'
   filetype plugin indent on
 " }}}
 
@@ -278,16 +271,20 @@
   map <leader>n :NERDTreeToggle<CR>
   map <F1> :NERDTreeToggle<CR>
   nnoremap <leader>nr :NERDTreeFind<CR>
-  let NERDTreeWinSize = 30
+  let NERDTreeWinSize = 27
   let NERDTreeQuitOnOpen = 1
   let NERDTreeShowBookmarks = 0
-  let NERDTreeWinPos = "Right"
+  "let NERDTreeWinPos = "Right"
 
   " TagList
-  let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-  let Tlist_Use_Left_Window = 1
-  map <leader>5 :TlistToggle<CR>
-  map <F3> :TlistToggle<CR>
+  "let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+  "let Tlist_Use_Left_Window = 1
+  "map <leader>5 :TlistToggle<CR>
+  "map <F3> :TlistToggle<CR>
+
+  " Tagbar
+  let g:tagbar_width = 27
+  map <F3> :TagbarToggle<CR>
 
   " Ack
   map <leader>a :Ack<space>
