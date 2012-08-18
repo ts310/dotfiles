@@ -7,7 +7,8 @@
   set antialias
 
   " Theme
-  colorscheme Wombat
+  "colorscheme Wombat
+  colorscheme Desert
 
   " Scrollbars
   set go-=T
