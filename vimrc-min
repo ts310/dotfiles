@@ -17,62 +17,63 @@
   runtime ftplugin/man.vim
   set rtp+=~/.vim/vundle.git/  
   call vundle#rc()             
-  Bundle 'gmarik/vundle'
-  Bundle 'Shougo/unite.vim'
-  Bundle 'thinca/vim-ref'
-  Bundle 'Shougo/neocomplcache'
-  Bundle 'Shougo/vimproc'
-  Bundle 'mileszs/ack.vim'
-  Bundle 'scrooloose/nerdtree'
-  Bundle 'tyok/nerdtree-ack'
-  Bundle 'vsushkov/vim-nerdtree-and-ack'
-  Bundle 'scrooloose/nerdcommenter'
-  Bundle 'tpope/vim-surround'
-  Bundle 'tpope/vim-repeat'
-  Bundle 'tpope/vim-fugitive'
-  Bundle 'tpope/vim-git'
-  Bundle 'tpope/vim-unimpaired'
-  Bundle 'tpope/vim-abolish'
-  Bundle 'tpope/vim-commentary'
-  "Bundle 'vim-scripts/taglist.vim'
-  Bundle 'vim-scripts/YankRing.vim'
-  Bundle 'vim-scripts/ZenCoding.vim'
-  Bundle 'vim-scripts/matchit.zip'
-  Bundle 'vim-scripts/AutoComplPop'
-  Bundle 'mileszs/ack.vim'
-  Bundle 'wincent/Command-T'
-  "Bundle 'ervandew/supertab'
-  Bundle 'scrooloose/snipmate-snippets'
-  Bundle 'thinca/vim-quickrun'
-  Bundle 'kogakure/vim-sparkup'
-  Bundle 'groenewege/vim-less'
-  Bundle 'vim-scripts/vcscommand.vim'
-  Bundle 'Color-Sampler-Pack'
-  Bundle 'php.vim'
-  Bundle 'phpcomplete.vim'
-  Bundle 'tpope/vim-rails'
-  "Bundle 'php-doc'
-  "Bundle 'cocoa.vim'
-  Bundle 'sudo.vim'
-  "Bundle 'Source-Explorer-srcexpl.vim'
-  "Bundle 'ctags.vim'
-  "Bundle 'vim-diff'
-  "Bundle 'Match-Bracket-for-Objective-C'
-  "Bundle 'sql_iabbr-2'
-  Bundle 'SQLUtilities'
-  "Bundle 'svn-diff.vim'
-  "Bundle 'kmnk/vim-unite-svn'
-  "Bundle 'XML-Folding'
-  "Bundle 'intuited/vim-shell_complete'
-  "Bundle 'vimshell-ssh'
-  Bundle 'preview'
-  Bundle 'sudo.vim'
-  Bundle 'Textile-for-VIM'
-  Bundle 'scrooloose/syntastic'
-  Bundle 'vim-scripts/Align'
-  "Bundle 'godlygeek/tabular'
-  Bundle 'vimshell-ssh'
-  Bundle 'Tagbar'
+  " Plugins {{{
+    Bundle 'gmarik/vundle'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-repeat'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-git'
+    Bundle 'tpope/vim-unimpaired'
+    Bundle 'tpope/vim-abolish'
+    Bundle 'tpope/vim-commentary'
+    Bundle 'tpope/vim-rails'
+    Bundle 'vim-scripts/taglist.vim'
+    Bundle 'vim-scripts/YankRing.vim'
+    Bundle 'vim-scripts/ZenCoding.vim'
+    Bundle 'vim-scripts/matchit.zip'
+    Bundle 'vim-scripts/AutoComplPop'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'wincent/Command-T'
+    Bundle 'scrooloose/snipmate-snippets'
+    Bundle 'kogakure/vim-sparkup'
+    Bundle 'groenewege/vim-less'
+    Bundle 'Color-Sampler-Pack'
+    Bundle 'php.vim'
+    Bundle 'phpcomplete.vim'
+    Bundle 'vim-scripts/Align'
+    Bundle 'sudo.vim'
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/unite.vim'
+    "Bundle 'thinca/vim-ref'
+    "Bundle 'Shougo/vimproc'
+    "Bundle 'tyok/nerdtree-ack'
+    "Bundle 'vsushkov/vim-nerdtree-and-ack'
+    "Bundle 'ervandew/supertab'
+    "Bundle 'thinca/vim-quickrun'
+    "Bundle 'vim-scripts/vcscommand.vim'
+    "Bundle 'php-doc'
+    "Bundle 'cocoa.vim'
+    "Bundle 'Source-Explorer-srcexpl.vim'
+    "Bundle 'ctags.vim'
+    "Bundle 'vim-diff'
+    "Bundle 'Match-Bracket-for-Objective-C'
+    "Bundle 'sql_iabbr-2'
+    "Bundle 'SQLUtilities'
+    "Bundle 'svn-diff.vim'
+    "Bundle 'kmnk/vim-unite-svn'
+    "Bundle 'XML-Folding'
+    "Bundle 'intuited/vim-shell_complete'
+    "Bundle 'vimshell-ssh'
+    "Bundle 'preview'
+    "Bundle 'Textile-for-VIM'
+    "Bundle 'scrooloose/syntastic'
+    "Bundle 'godlygeek/tabular'
+    "Bundle 'vimshell-ssh'
+    "Bundle 'Tagbar'
+  " }}}
   filetype plugin indent on
 " }}}
 
@@ -267,7 +268,7 @@
 
 " Plugin Settings {{{1
 " ---------------------------------------------------------
-  " NerdTree
+  " NerdTree {{{
   map <leader>n :NERDTreeToggle<CR>
   map <F1> :NERDTreeToggle<CR>
   nnoremap <leader>nr :NERDTreeFind<CR>
@@ -275,34 +276,41 @@
   let NERDTreeQuitOnOpen = 1
   let NERDTreeShowBookmarks = 0
   "let NERDTreeWinPos = "Right"
+  " }}}
 
-  " TagList
-  "let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-  "let Tlist_Use_Left_Window = 1
-  "map <leader>5 :TlistToggle<CR>
-  "map <F3> :TlistToggle<CR>
+  " TagList {{{
+  let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+  let Tlist_Use_Left_Window = 1
+  map <leader>5 :TlistToggle<CR>
+  map <F3> :TlistToggle<CR>
+  " }}}
 
-  " Tagbar
-  let g:tagbar_width = 27
-  map <F3> :TagbarToggle<CR>
+  " Tagbar {{{
+  "let g:tagbar_width = 27
+  "map <F3> :TagbarToggle<CR>
+  " }}}
 
-  " Ack
+  " Ack {{{
   map <leader>a :Ack<space>
+  " }}}
 
-  " Fugitive
+  " Fugitive {{{
   command! Gd :Gdiff
   command! Gc :Gcommit
   command! Gw :Gwrite
   command! Gs :Gstatus
+  " }}}
 
-  " Neocomplcache
-  let g:neocomplcache_enable_at_startup = 1
+  " Neocomplcache {{{
+  "let g:neocomplcache_enable_at_startup = 1
+  " }}}
 
-  " Zen coding
+  " Zen coding {{{
   let g:user_zen_leader_key = '<c-e>'
   let g:use_zen_complete_tag = 1
+  " }}}
 
-  " Unite
+  " Unite {{{
   let g:unite_enable_start_insert=0
   nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
   nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -311,12 +319,20 @@
   nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
   nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
   map <F2> <leader>uu
+  " }}}
 
-  "CommantT
+  " CommantT {{{
   let g:CommandTMaxFiles=25000
   let g:CommandTMaxDepth=150
   nnoremap <silent> <Leader>t :CommandT<CR>
   nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+  " }}}
+
+  " YankRing {{{
+  let g:yankring_max_history = 400
+  let g:yankring_window_use_separate = 1
+  let g:yankring_history_dir = '~/.vim/tmp/'
+  " }}}
 " }}}
 
 " Functions {{{1
