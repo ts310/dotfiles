@@ -10,3 +10,4 @@ zshrc.local
 vim/bundle/*
 script.local/*
 bin/*
+bin.local/*
