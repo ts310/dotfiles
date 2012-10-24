@@ -119,6 +119,7 @@
   set shiftwidth=2
   set expandtab
   set foldmethod=indent
+  "set nowrap
 
   set virtualedit+=block
 
@@ -238,8 +239,7 @@
 " --------------------------------------------------------
   if has("gui")
     "colorscheme Wombat
-    colorscheme desert
-
+    colorscheme Desert
   end
 " }}}
 
@@ -256,7 +256,7 @@
   au FileType javascript   setlocal ts=4 sts=4 sw=4 et   foldmethod=indent
   au FileType sh           setlocal ts=2 sts=2 sw=2 et
   au FileType actionscript setlocal ts=2 sts=2 sw=2 et
-  au FileType ruby         setlocal ts=2 sts=2 sw=2 et   foldmethod=syntax
+  au FileType ruby         setlocal ts=2 sts=2 sw=2 et   foldmethod=indent
   au FileType sql          setlocal ts=2 sts=2 sw=2 noet foldmethod=indent
 
   au BufNewFile,BufRead *.rss     setfiletype xml
@@ -395,7 +395,7 @@
 " ---------------------------------------------------------
   command! Cphp :!php -l %
   nnoremap <F6> :Cphp<CR>
-  let tlist_php_settings = 'php;f:function'
+  "let tlist_php_settings = 'php;f:function'
 " }}}
 
 " Othres {{{1
