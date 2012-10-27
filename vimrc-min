@@ -169,6 +169,8 @@
   "inoremap <Esc> <nop>
   inoremap jj <ESC>
   inoremap kk <ESC>
+  inoremap ll <ESC>
+  inoremap hh <ESC>
 
   " Strip all trading whitespace in current while
   nmap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
