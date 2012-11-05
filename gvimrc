@@ -8,7 +8,7 @@
 
   " Theme
   "colorscheme Wombat
-  colorscheme Desert
+  "colorscheme Desert
 
   " Scrollbars
   set go-=T
