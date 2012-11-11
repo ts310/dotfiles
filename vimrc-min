@@ -1,7 +1,6 @@
 " vim: nowrap fdm=marker
- 
-" Initial settings {{{1
-" ---------------------------------------------------------
+
+" Initial settings {{{
   set nocompatible
   set encoding=utf-8
   let mapleader = ","
@@ -10,75 +9,93 @@
   command! Rv source $MYVIMRC
 " }}}
 
-" Load plugins {{{1
-" ---------------------------------------------------------
-  filetype off                 
+" Load plugins {{{
+  filetype off
   runtime macros/matchit.vim
   runtime ftplugin/man.vim
-  set rtp+=~/.vim/vundle.git/  
-  call vundle#rc()             
+  set rtp+=~/.vim/vundle.git/
+  call vundle#rc()
   " Plugins {{{
-    Bundle 'gmarik/vundle'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tpope/vim-repeat'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-git'
-    Bundle 'tpope/vim-unimpaired'
-    Bundle 'tpope/vim-abolish'
-    Bundle 'tpope/vim-commentary'
-    Bundle 'tpope/vim-rails'
-    Bundle 'vim-scripts/taglist.vim'
-    Bundle 'vim-scripts/YankRing.vim'
-    Bundle 'vim-scripts/ZenCoding.vim'
-    Bundle 'vim-scripts/matchit.zip'
-    Bundle 'vim-scripts/AutoComplPop'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'wincent/Command-T'
-    Bundle 'scrooloose/snipmate-snippets'
-    Bundle 'kogakure/vim-sparkup'
-    Bundle 'groenewege/vim-less'
-    Bundle 'Color-Sampler-Pack'
-    Bundle 'php.vim'
-    Bundle 'phpcomplete.vim'
-    Bundle 'vim-scripts/Align'
-    Bundle 'sudo.vim'
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'Shougo/unite.vim'
-    "Bundle 'thinca/vim-ref'
-    "Bundle 'Shougo/vimproc'
-    "Bundle 'tyok/nerdtree-ack'
-    "Bundle 'vsushkov/vim-nerdtree-and-ack'
-    "Bundle 'ervandew/supertab'
-    "Bundle 'thinca/vim-quickrun'
-    "Bundle 'vim-scripts/vcscommand.vim'
-    "Bundle 'php-doc'
-    "Bundle 'cocoa.vim'
-    "Bundle 'Source-Explorer-srcexpl.vim'
-    "Bundle 'ctags.vim'
-    "Bundle 'vim-diff'
-    "Bundle 'Match-Bracket-for-Objective-C'
-    "Bundle 'sql_iabbr-2'
-    "Bundle 'SQLUtilities'
-    "Bundle 'svn-diff.vim'
-    "Bundle 'kmnk/vim-unite-svn'
-    "Bundle 'XML-Folding'
-    "Bundle 'intuited/vim-shell_complete'
-    "Bundle 'vimshell-ssh'
-    "Bundle 'preview'
-    "Bundle 'Textile-for-VIM'
-    "Bundle 'scrooloose/syntastic'
-    "Bundle 'godlygeek/tabular'
-    "Bundle 'vimshell-ssh'
-    "Bundle 'Tagbar'
+    " Basic {{{
+      Bundle 'gmarik/vundle'
+      "Bundle 'Shougo/neocomplcache'
+      Bundle 'Shougo/unite.vim'
+      "Bundle 'Shougo/vimproc'
+      "Bundle 'thinca/vim-ref'
+    " }}}
+    " Theme {{{
+      Bundle 'Color-Sampler-Pack'
+    " }}}
+    " Navigation {{{
+      "Bundle 'Source-Explorer-srcexpl.vim'
+      "Bundle 'Tagbar'
+      "Bundle 'ctags.vim'
+      Bundle 'scrooloose/nerdtree'
+      "Bundle 'tyok/nerdtree-ack'
+      "Bundle 'vim-scripts/taglist.vim'
+      "Bundle 'vsushkov/vim-nerdtree-and-ack'
+    " }}}
+    " Search {{{
+      Bundle 'mileszs/ack.vim'
+      Bundle 'wincent/Command-T'
+    " }}}
+    " Editing {{{
+      "Bundle 'godlygeek/tabular'
+      Bundle 'scrooloose/nerdcommenter'
+      "Bundle 'tpope/vim-abolish'
+      "Bundle 'tpope/vim-commentary'
+      "Bundle 'tpope/vim-repeat'
+      Bundle 'tpope/vim-surround'
+      "Bundle 'tpope/vim-unimpaired'
+      "Bundle 'vim-diff'
+      Bundle 'vim-scripts/Align'
+      "Bundle 'vim-scripts/AutoComplPop'
+      Bundle 'vim-scripts/YankRing.vim'
+      "Bundle 'vim-scripts/matchit.zip'
+    " }}}
+    " VCS {{{
+      Bundle 'tpope/vim-fugitive'
+      Bundle 'tpope/vim-git'
+      Bundle 'svn-diff.vim'
+      "Bundle 'vim-scripts/vcscommand.vim'
+      "Bundle 'kmnk/vim-unite-svn'
+    " }}}
+    " Language {{{
+      " PHP
+      Bundle 'php.vim'
+      Bundle 'phpcomplete.vim'
+      Bundle 'php-doc'
+      " Rails
+      Bundle 'tpope/vim-rails'
+      " Less
+      Bundle 'groenewege/vim-less'
+      " Cocoa
+      Bundle 'cocoa.vim'
+      "Bundle 'Match-Bracket-for-Objective-C'
+      " SQL
+      "Bundle 'sql_iabbr-2'
+      "Bundle 'SQLUtilities'
+      " HTML
+      Bundle 'vim-scripts/ZenCoding.vim'
+    "}}}
+    " Misc {{{
+      "Bundle 'Textile-for-VIM'
+      "Bundle 'XML-Folding'
+      "Bundle 'ervandew/supertab'
+      "Bundle 'intuited/vim-shell_complete'
+      "Bundle 'kogakure/vim-sparkup'
+      "Bundle 'preview'
+      "Bundle 'scrooloose/snipmate-snippets'
+      "Bundle 'scrooloose/syntastic'
+      Bundle 'sudo.vim'
+      "Bundle 'thinca/vim-quickrun'
+      "Bundle 'vimshell-ssh'
+    " }}}
   " }}}
   filetype plugin indent on
 " }}}
 
-  " Behaviour {{{1
-" ---------------------------------------------------------
+  " Behaviour {{{
   set backspace=indent,eol,start
 
   " Search
@@ -127,8 +144,7 @@
   set clipboard+=unnamed
 " }}}
 
-" Mappings {{{1
-" ---------------------------------------------------------
+" Mappings {{{
   nnoremap ; :
 
   " Natural behavior with wordwrap on
@@ -216,8 +232,7 @@
   cmap w!! w !sudo tee % >/dev/null
 " }}}
 
-" Appearance {{{1
-" ---------------------------------------------------------
+" Appearance {{{
   " Useful status information at bottom of screen
   set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
   set ruler
@@ -234,16 +249,14 @@
   endif
 " }}}
 
-" GUI {{{1
-" --------------------------------------------------------
+" GUI {{{
   if has("gui")
     "colorscheme Wombat
     colorscheme Desert
   end
 " }}}
 
- " Syntax {{{1
-" ---------------------------------------------------------
+ " Syntax {{{
   au FileType make         setlocal ts=8 sts=8 sw=8 noet
   au FileType yaml         setlocal ts=2 sts=2 sw=2 et
   au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=indent
@@ -263,80 +276,88 @@
   au BufNewFile,BufRead *.tpl     setfiletype smarty
   au BufNewFile,BufRead *_spec.rb compiler    rspec
   au BufNewFile,BufRead *.as      setfiletype actionscript
+
+  " PHP
+  command! Cphp :!php -l %
+  nnoremap <F6> :Cphp<CR>
+  let tlist_php_settings = 'php;f:function'
  " }}}
 
-" Plugin Settings {{{1
-" ---------------------------------------------------------
+" Plugin Settings {{{
+  " Netrw {{{
+    let g:netrw_browse_split = 0
+    let g:netrw_liststyle = 3
+    let g:netrw_altv = 1
+    let g:netrw_alto = 1
+  " }}}
+
   " NerdTree {{{
-  map <leader>n :NERDTreeToggle<CR>
-  map <F1> :NERDTreeToggle<CR>
-  nnoremap <leader>nr :NERDTreeFind<CR>
-  let NERDTreeWinSize = 27
-  let NERDTreeQuitOnOpen = 1
-  let NERDTreeShowBookmarks = 0
-  "let NERDTreeWinPos = "Right"
+    map <leader>n :NERDTreeToggle<CR>
+    map <F1> :NERDTreeToggle<CR>
+    nnoremap <leader>nr :NERDTreeFind<CR>
+    let NERDTreeWinSize = 27
+    let NERDTreeQuitOnOpen = 1
+    let NERDTreeShowBookmarks = 0
   " }}}
 
   " TagList {{{
-  let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-  let Tlist_Use_Left_Window = 1
-  map <leader>5 :TlistToggle<CR>
-  map <F3> :TlistToggle<CR>
+    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+    let Tlist_Use_Left_Window = 1
+    map <leader>5 :TlistToggle<CR>
+    map <F3> :TlistToggle<CR>
   " }}}
 
   " Tagbar {{{
-  "let g:tagbar_width = 27
-  "map <F3> :TagbarToggle<CR>
+    "let g:tagbar_width = 27
+    "map <F3> :TagbarToggle<CR>
   " }}}
 
   " Ack {{{
-  map <leader>a :Ack<space>
+    "map <leader>a :Ack<space>
   " }}}
 
   " Fugitive {{{
-  command! Gd :Gdiff
-  command! Gc :Gcommit
-  command! Gw :Gwrite
-  command! Gs :Gstatus
+    command! Gd :Gdiff
+    command! Gc :Gcommit
+    command! Gw :Gwrite
+    command! Gs :Gstatus
   " }}}
 
   " Neocomplcache {{{
-  "let g:neocomplcache_enable_at_startup = 1
+    "let g:neocomplcache_enable_at_startup = 1
   " }}}
 
   " Zen coding {{{
-  let g:user_zen_leader_key = '<c-e>'
-  let g:use_zen_complete_tag = 1
+    let g:user_zen_leader_key = '<c-e>'
+    let g:use_zen_complete_tag = 1
   " }}}
 
   " Unite {{{
-  let g:unite_enable_start_insert=0
-  nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
-  nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
-  nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
-  nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
-  nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
-  map <F2> <leader>uu
+    let g:unite_enable_start_insert=0
+    nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
+    nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+    nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
+    nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
+    nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
+    nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
+    map <F2> <leader>uu
   " }}}
 
   " CommantT {{{
-  let g:CommandTMaxFiles=25000
-  let g:CommandTMaxDepth=150
-  nnoremap <silent> <Leader>t :CommandT<CR>
-  nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+    let g:CommandTMaxFiles=25000
+    let g:CommandTMaxDepth=150
+    nnoremap <silent> <Leader>t :CommandT<CR>
+    nnoremap <silent> <Leader>b :CommandTBuffer<CR>
   " }}}
-
   " YankRing {{{
-  let g:yankring_max_history = 400
-  let g:yankring_window_use_separate = 1
-  let g:yankring_history_dir = '~/.vim/tmp/'
+    let g:yankring_max_history = 400
+    let g:yankring_window_use_separate = 1
+    let g:yankring_history_dir = '~/.vim/tmp/'
   " }}}
 " }}}
 
-" Functions {{{1
-" ---------------------------------------------------------
-  " Close current buffer 
+" Functions {{{
+  " Close current buffer
   function! <SID>BufcloseCloseIt()
     let l:currentBufNum = bufnr("%")
     let l:alternateBufNum = bufnr("#")
@@ -371,8 +392,7 @@
   endfun
 " }}}
 
-" Notes {{{1
-" ---------------------------------------------------------
+" Notes {{{
   " Vim folding commands
   " zf#j creates a fold from the cursor down # lines.
   " zf/string creates a fold from the cursor to string .
@@ -388,15 +408,4 @@
   " zE deletes all folds.
   " [z move to start of open fold.
   " ]z move to end of open fold.
-" }}}
-
-" PHP {{{1
-" ---------------------------------------------------------
-  command! Cphp :!php -l %
-  nnoremap <F6> :Cphp<CR>
-  "let tlist_php_settings = 'php;f:function'
-" }}}
-
-" Othres {{{1
-" ---------------------------------------------------------
 " }}}

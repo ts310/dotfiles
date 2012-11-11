@@ -259,3 +259,5 @@ function vm() {
 
 # ksdiff
 alias skdiff='svn diff --diff-cmd=ksdiff-svnwrapper .'
+
+alias cot='open -a /Applications/CotEditor.app'
