@@ -18,7 +18,7 @@
   " Plugins {{{
     " Basic {{{
       Bundle 'gmarik/vundle'
-      "Bundle 'Shougo/neocomplcache'
+      Bundle 'Shougo/neocomplcache'
       Bundle 'Shougo/unite.vim'
       "Bundle 'Shougo/vimproc'
       "Bundle 'thinca/vim-ref'
@@ -34,6 +34,9 @@
       "Bundle 'tyok/nerdtree-ack'
       "Bundle 'vim-scripts/taglist.vim'
       "Bundle 'vsushkov/vim-nerdtree-and-ack'
+      "Bundle 'gtags-multiwindow-browsing'
+      "Bundle 'GtagsClient'
+      Bundle 'gtags.vim'
     " }}}
     " Search {{{
       Bundle 'mileszs/ack.vim'
@@ -301,10 +304,10 @@
   " }}}
 
   " TagList {{{
-    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-    let Tlist_Use_Left_Window = 1
-    map <leader>5 :TlistToggle<CR>
-    map <F3> :TlistToggle<CR>
+    "let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+    "let Tlist_Use_Left_Window = 0
+    "map <leader>5 :TlistToggle<CR>
+    "map <F3> :TlistToggle<CR>
   " }}}
 
   " Tagbar {{{
@@ -344,15 +347,24 @@
   " }}}
 
   " CommantT {{{
-    let g:CommandTMaxFiles=25000
-    let g:CommandTMaxDepth=150
+    let g:CommandTMaxFiles=35000
+    let g:CommandTMaxDepth=50
     nnoremap <silent> <Leader>t :CommandT<CR>
     nnoremap <silent> <Leader>b :CommandTBuffer<CR>
   " }}}
+
   " YankRing {{{
     let g:yankring_max_history = 400
     let g:yankring_window_use_separate = 1
     let g:yankring_history_dir = '~/.vim/tmp/'
+  " }}}
+
+  " Gtags {{{
+      map <C-g> :Gtags 
+      map <C-i> :Gtags -f %<CR>
+      map <C-t><C-t> :GtagsCursor<CR>
+      map <C-n> :cn<CR>
+      map <C-p> :cp<CR>
   " }}}
 " }}}
 
