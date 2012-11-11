@@ -22,6 +22,7 @@
       Bundle 'Shougo/unite.vim'
       "Bundle 'Shougo/vimproc'
       "Bundle 'thinca/vim-ref'
+      Bundle 'Conque-Shell'
     " }}}
     " Theme {{{
       Bundle 'Color-Sampler-Pack'
@@ -361,7 +362,8 @@
 
   " Gtags {{{
       map <C-g> :Gtags 
-      map <C-i> :Gtags -f %<CR>
+      map <F3> :Gtags -f %<CR>
+      map <C-l> :Gtags -f %<CR>
       map <C-t><C-t> :GtagsCursor<CR>
       map <C-n> :cn<CR>
       map <C-p> :cp<CR>
