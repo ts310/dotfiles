@@ -361,12 +361,12 @@
   " }}}
 
   " Gtags {{{
-      map <C-g> :Gtags 
-      map <F3> :Gtags -f %<CR>
-      map <C-l> :Gtags -f %<CR>
-      map <C-t><C-t> :GtagsCursor<CR>
-      map <C-n> :cn<CR>
-      map <C-p> :cp<CR>
+    map <C-g> :Gtags 
+    map <F3> :Gtags -f %<CR>
+    map <C-u> :Gtags -f %<CR>
+    map <C-t><C-t> :GtagsCursor<CR>
+    map <C-n> :cn<CR>
+    map <C-p> :cp<CR>
   " }}}
 " }}}
 
