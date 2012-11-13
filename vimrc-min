@@ -53,7 +53,7 @@
       "Bundle 'tpope/vim-unimpaired'
       "Bundle 'vim-diff'
       Bundle 'vim-scripts/Align'
-      "Bundle 'vim-scripts/AutoComplPop'
+      Bundle 'vim-scripts/AutoComplPop'
       Bundle 'vim-scripts/YankRing.vim'
       "Bundle 'vim-scripts/matchit.zip'
     " }}}
