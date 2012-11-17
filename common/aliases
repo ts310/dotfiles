@@ -261,3 +261,7 @@ function vm() {
 alias skdiff='svn diff --diff-cmd=ksdiff-svnwrapper .'
 
 alias cot='open -a /Applications/CotEditor.app'
+
+# VirtualBox
+alias vbs='VboxVRDP -s'
+alias vbc='VboxManage controlvm'
