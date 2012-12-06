@@ -265,3 +265,9 @@ alias cot='open -a /Applications/CotEditor.app'
 # VirtualBox
 alias vbs='VboxVRDP -s'
 alias vbc='VboxManage controlvm'
+
+# Load local configuration
+if [ -f ~/.alias.local ]
+then
+  . ~/.alias.local
+fi
