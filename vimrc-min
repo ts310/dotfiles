@@ -16,92 +16,38 @@
   set rtp+=~/.vim/vundle.git/
   call vundle#rc()
   " Plugins {{{
-    " Basic {{{
-      Bundle 'gmarik/vundle'
-      Bundle 'Shougo/neocomplcache'
-      Bundle 'Shougo/vimproc'
-      Bundle 'thinca/vim-ref'
-    " }}}
-    " Unite {{{
-      Bundle 'Shougo/unite.vim'
-      Bundle 'unite-colorscheme'
-      Bundle 'tsukkee/unite-tag'
-    " }}}
-    " Theme {{{
-      "Bundle 'Powerline'
-      Bundle 'Color-Sampler-Pack'
-    " }}}
-    " Navigation {{{
-      Bundle 'Source-Explorer-srcexpl.vim'
-      "Bundle 'Tagbar'
-      "Bundle 'ctags.vim'
-      Bundle 'scrooloose/nerdtree'
-      "Bundle 'tyok/nerdtree-ack'
-      Bundle 'vim-scripts/taglist.vim'
-      "Bundle 'vsushkov/vim-nerdtree-and-ack'
-      "Bundle 'gtags-multiwindow-browsing'
-      "Bundle 'GtagsClient'
-      "Bundle 'gtags.vim'
-    " }}}
-    " Search {{{
-      Bundle 'mileszs/ack.vim'
-      Bundle 'wincent/Command-T'
-    " }}}
-    " Editing {{{
-      "Bundle 'godlygeek/tabular'
-      Bundle 'scrooloose/nerdcommenter'
-      "Bundle 'tpope/vim-abolish'
-      "Bundle 'tpope/vim-commentary'
-      "Bundle 'tpope/vim-repeat'
-      Bundle 'tpope/vim-surround'
-      "Bundle 'tpope/vim-unimpaired'
-      "Bundle 'vim-diff'
-      Bundle 'vim-scripts/Align'
-      "Bundle 'vim-scripts/AutoComplPop'
-      Bundle 'vim-scripts/YankRing.vim'
-      "Bundle 'vim-scripts/matchit.zip'
-      Bundle 'linediff.vim'
-      Bundle 'vim-scripts/matchit.zip'
-    " }}}
-    " VCS {{{
-      Bundle 'tpope/vim-fugitive'
-      Bundle 'tpope/vim-git'
-      Bundle 'svn-diff.vim'
-      "Bundle 'vim-scripts/vcscommand.vim'
-      Bundle 'kmnk/vim-unite-svn'
-    " }}}
-    " Language {{{
-      " PHP
-      Bundle 'php.vim'
-      Bundle 'phpcomplete.vim'
-      Bundle 'php-doc'
-      "Bundle 'phpfolding.vim'
-      " Rails
-      Bundle 'tpope/vim-rails'
-      " Less
-      Bundle 'groenewege/vim-less'
-      " Cocoa
-      Bundle 'cocoa.vim'
-      "Bundle 'Match-Bracket-for-Objective-C'
-      " SQL
-      "Bundle 'sql_iabbr-2'
-      "Bundle 'SQLUtilities'
-      " HTML
-      Bundle 'vim-scripts/ZenCoding.vim'
-    "}}}
-    " Misc {{{
-      "Bundle 'Textile-for-VIM'
-      "Bundle 'XML-Folding'
-      "Bundle 'ervandew/supertab'
-      "Bundle 'intuited/vim-shell_complete'
-      "Bundle 'kogakure/vim-sparkup'
-      "Bundle 'preview'
-      "Bundle 'scrooloose/snipmate-snippets'
-      "Bundle 'scrooloose/syntastic'
-      "Bundle 'sudo.vim'
-      "Bundle 'thinca/vim-quickrun'
-      "Bundle 'vimshell-ssh'
-    " }}}
+    Bundle 'gmarik/vundle'
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/vimproc'
+    Bundle 'thinca/vim-ref'
+    Bundle 'Shougo/unite.vim'
+    Bundle 'unite-colorscheme'
+    Bundle 'tsukkee/unite-tag'
+    Bundle 'kmnk/vim-unite-svn'
+    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'Color-Sampler-Pack'
+    Bundle 'Source-Explorer-srcexpl.vim'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'vim-scripts/taglist.vim'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'wincent/Command-T'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'tpope/vim-surround'
+    Bundle 'vim-scripts/Align'
+    Bundle 'vim-scripts/YankRing.vim'
+    Bundle 'linediff.vim'
+    Bundle 'vim-scripts/matchit.zip'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-git'
+    Bundle 'svn-diff.vim'
+    Bundle 'php.vim'
+    Bundle 'phpcomplete.vim'
+    Bundle 'php-doc'
+    "Bundle 'phpfolding.vim'
+    Bundle 'tpope/vim-rails'
+    Bundle 'groenewege/vim-less'
+    Bundle 'cocoa.vim'
+    Bundle 'vim-scripts/ZenCoding.vim'
   " }}}
   filetype plugin indent on
 " }}}
