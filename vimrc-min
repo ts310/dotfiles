@@ -331,6 +331,11 @@
       nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
     endif
   " }}}
+    
+  " Powerline {{{
+    "let g:Powerline_symbols = 'fancy'
+    set t_Co=256
+  " }}}
 " }}}
 
 " Functions {{{
