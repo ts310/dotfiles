@@ -24,7 +24,7 @@
     Bundle 'unite-colorscheme'
     Bundle 'tsukkee/unite-tag'
     Bundle 'kmnk/vim-unite-svn'
-    Bundle 'Lokaltog/vim-powerline'
+    "Bundle 'Lokaltog/vim-powerline'
     Bundle 'Color-Sampler-Pack'
     Bundle 'Source-Explorer-srcexpl.vim'
     Bundle 'scrooloose/nerdtree'
@@ -52,7 +52,7 @@
   filetype plugin indent on
 " }}}
 
-  " Behaviour {{{
+" Behaviour {{{
   set backspace=indent,eol,start
 
   " Search
@@ -305,8 +305,9 @@
   " }}}
 
   " CommantT {{{
-    let g:CommandTMaxFiles=55000
-    let g:CommandTMaxDepth=30
+    let g:CommandTMaxFiles  = 55000
+    let g:CommandTMaxDepth  = 100
+    let g:CommandTMaxHeight = 30
     nnoremap <silent> <Leader>t :CommandT<CR>
     nnoremap <silent> <Leader>b :CommandTBuffer<CR>
   " }}}
@@ -334,7 +335,7 @@
     
   " Powerline {{{
     "let g:Powerline_symbols = 'fancy'
-    set t_Co=256
+    "set t_Co=256
   " }}}
 " }}}
 
