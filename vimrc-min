@@ -23,8 +23,9 @@
     Bundle 'Shougo/unite.vim'
     Bundle 'unite-colorscheme'
     Bundle 'tsukkee/unite-tag'
-    Bundle 'kmnk/vim-unite-svn'
-    Bundle 'Lokaltog/vim-powerline'
+    "Bundle 'kmnk/vim-unite-svn'
+    Bundle 'AutoComplPop'
+    "Bundle 'Lokaltog/vim-powerline'
     Bundle 'Color-Sampler-Pack'
     Bundle 'Source-Explorer-srcexpl.vim'
     Bundle 'scrooloose/nerdtree'
@@ -48,6 +49,10 @@
     Bundle 'groenewege/vim-less'
     Bundle 'cocoa.vim'
     Bundle 'vim-scripts/ZenCoding.vim'
+    Bundle 'vcscommand.vim'
+    Bundle 'SearchComplete'
+    Bundle 'SQLComplete.vim'
+    "Bundle 'ShowMarks'
   " }}}
   filetype plugin indent on
 " }}}
@@ -281,7 +286,7 @@
   " }}}
 
   " Neocomplcache {{{
-    let g:neocomplcache_enable_at_startup = 1
+    "let g:neocomplcache_enable_at_startup = 1
   " }}}
 
   " Zen coding {{{
@@ -305,8 +310,11 @@
   " }}}
 
   " CommantT {{{
-    let g:CommandTMaxFiles=55000
-    let g:CommandTMaxDepth=30
+    let g:CommandTMaxFiles = 40000
+    let g:CommandTMaxDepth = 40
+    let g:CommandTMaxHeight = 30
+    let g:CommandTMatchWindowAtTop = 1
+    let g:CommandTMatchWindowReverse = 1
     nnoremap <silent> <Leader>t :CommandT<CR>
     nnoremap <silent> <Leader>b :CommandTBuffer<CR>
   " }}}
@@ -327,14 +335,14 @@
   " }}}
 
   " Unite tag {{{
-    if empty(&buftype)
-      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-    endif
+    "if empty(&buftype)
+      "nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+    "endif
   " }}}
     
   " Powerline {{{
     "let g:Powerline_symbols = 'fancy'
-    set t_Co=256
+    "set t_Co=256
   " }}}
 " }}}
 
