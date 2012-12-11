@@ -39,6 +39,7 @@ link bin .bin
 link screenrc .screenrc
 link irbrc .irbrc
 link tmux.conf .tmux.conf
+link ctags .ctags
 
 echo "Updating git submodules"
 git submodule init

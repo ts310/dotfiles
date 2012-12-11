@@ -104,6 +104,8 @@
 
   " Use os's clipboard
   set clipboard+=unnamed
+
+  set tags+=.tags
 " }}}
 
 " Mappings {{{

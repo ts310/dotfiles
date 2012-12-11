@@ -1,0 +1,11 @@
+-R 
+-f .tags 
+--exclude=".svn"
+--languages=PHP 
+--langmap=PHP:.php.inc 
+--php-types=c+f+d 
+--tag-relative=yes
+--totals=yes
+--regex-PHP='/abstract class ([^ ]*)/\1/c/'
+--regex-PHP='/interface ([^ ]*)/\1/c/'
+--regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'
