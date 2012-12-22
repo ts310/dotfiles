@@ -23,7 +23,7 @@
     Bundle 'Shougo/unite.vim'
     Bundle 'unite-colorscheme'
     Bundle 'tsukkee/unite-tag'
-    "Bundle 'kmnk/vim-unite-svn'
+    Bundle 'kmnk/vim-unite-svn'
     Bundle 'AutoComplPop'
     "Bundle 'Lokaltog/vim-powerline'
     Bundle 'Color-Sampler-Pack'
@@ -52,7 +52,7 @@
     Bundle 'vcscommand.vim'
     Bundle 'SearchComplete'
     Bundle 'SQLComplete.vim'
-    "Bundle 'ShowMarks'
+    Bundle 'ShowMarks'
   " }}}
   filetype plugin indent on
 " }}}
@@ -62,6 +62,7 @@
 
   " Search
   set wrapscan
+  "set spell spelllang=en_us
   set ignorecase
   set smartcase
   set incsearch
@@ -215,8 +216,8 @@
 
 " GUI {{{
   if has("gui")
-    "colorscheme Wombat
-    colorscheme Desert
+    colorscheme wombat
+    "colorscheme desert
   end
 " }}}
 
