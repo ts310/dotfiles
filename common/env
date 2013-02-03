@@ -30,6 +30,12 @@ git config --global color.branch auto
 
 export NODE_PATH="/usr/local/lib/node"
 
+# tmux default start
+if [ "$TERM" != 'screen-256color' ]; then
+  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+  exitf
+fi
+
 # rbenv
 if [[ -s "/usr/local/bin/rbenv" ]]
 then
