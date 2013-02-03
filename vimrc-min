@@ -310,7 +310,7 @@
     nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
     nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
     nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
-    map <F2> <leader>uu
+    map <F2> <leader>ua
     "map <F3> <leader>uf
   " }}}
 
