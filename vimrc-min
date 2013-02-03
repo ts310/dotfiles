@@ -22,9 +22,10 @@
     Bundle 'thinca/vim-ref'
     Bundle 'Shougo/unite.vim'
     Bundle 'unite-colorscheme'
+    Bundle 'h1mesuke/unite-outline'
     Bundle 'tsukkee/unite-tag'
     Bundle 'kmnk/vim-unite-svn'
-    Bundle 'AutoComplPop'
+    "Bundle 'AutoComplPop'
     "Bundle 'Lokaltog/vim-powerline'
     Bundle 'Color-Sampler-Pack'
     Bundle 'Source-Explorer-srcexpl.vim'
@@ -52,7 +53,8 @@
     Bundle 'vcscommand.vim'
     Bundle 'SearchComplete'
     Bundle 'SQLComplete.vim'
-    Bundle 'ShowMarks'
+    "Bundle 'ShowMarks'
+    Bundle 'vim-coffee-script'
   " }}}
   filetype plugin indent on
 " }}}
@@ -216,8 +218,8 @@
 
 " GUI {{{
   if has("gui")
-    colorscheme wombat
-    "colorscheme desert
+    "colorscheme wombat
+    colorscheme desert
   end
 " }}}
 
@@ -289,7 +291,7 @@
   " }}}
 
   " Neocomplcache {{{
-    "let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_at_startup = 1
   " }}}
 
   " Zen coding {{{
@@ -313,11 +315,11 @@
   " }}}
 
   " CommantT {{{
-    let g:CommandTMaxFiles = 40000
+    let g:CommandTMaxFiles = 55000
     let g:CommandTMaxDepth = 40
     let g:CommandTMaxHeight = 30
-    let g:CommandTMatchWindowAtTop = 1
-    let g:CommandTMatchWindowReverse = 1
+    let g:CommandTMatchWindowAtTop = 0
+    let g:CommandTMatchWindowReverse = 0
     nnoremap <silent> <Leader>t :CommandT<CR>
     nnoremap <silent> <Leader>b :CommandTBuffer<CR>
   " }}}
