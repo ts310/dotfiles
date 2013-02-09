@@ -188,6 +188,8 @@
   set showcmd
   set laststatus=2
   set listchars=tab:▸\ ,eol:¬,nbsp:.
+  hi NonText guifg=#999999
+  hi SpecialKey guifg=#999999
   set number
   set numberwidth=5
   set cursorline
@@ -296,7 +298,7 @@
     let g:CommandTMaxHeight = 30
     let g:CommandTMatchWindowAtTop = 0
     let g:CommandTMatchWindowReverse = 0
-    nnoremap <silent> <Leader>tt :CommandT<CR>
+    nnoremap <silent> <Leader>ff :CommandT<CR>
     nnoremap <silent> <Leader>bb :CommandTBuffer<CR>
   " }}}
 

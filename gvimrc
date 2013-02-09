@@ -1,5 +1,4 @@
 " GUI {{{1
-" ---------------------------------------------------
   " Encoding
   set encoding=utf-8
 
@@ -22,7 +21,6 @@
 " }}}
 
 " MacVIM {{{1
-" --------------------------------------------------
   if has("gui_macvim")
     " set guifont=Monaco:h13
     " set guifont=Menlo:h12
