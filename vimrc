@@ -91,7 +91,6 @@
   set noswapfile
   set autoindent
   set smartindent
-  set paste
   set tabstop=2
   set softtabstop=2
   set shiftwidth=2
