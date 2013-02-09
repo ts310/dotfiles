@@ -10,7 +10,7 @@
 " }}}
 
 " Load plugins {{{
-  filetype off
+  "filetype off
   runtime macros/matchit.vim
   runtime ftplugin/man.vim
   set rtp+=~/.vim/vundle.git/
@@ -59,56 +59,59 @@
   filetype plugin indent on
 " }}}
 
+" Auto Command {{{
+  " Automatically move to last cursor position
+  if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+  endif
+" }}}
+
 " Behaviour {{{
   set backspace=indent,eol,start
-
-  " Search
+  set modelines=0
   set wrapscan
-  "set spell spelllang=en_us
   set ignorecase
   set smartcase
   set incsearch
   set hlsearch
   set showmatch
   set gdefault
-
   set wildmenu
   set wildchar=<Tab>
   set wildmode=list:full
-  set history=100
+  set history=1000
   set complete+=k
   set cmdheight=2
-
   set visualbell t_vb=
   set hidden
   set nojoinspaces
   set wildmode=longest,list
   set nrformats=
-
-  if has('mouse')
-    set mouse=a
-    set guioptions+=a
-    set ttymouse=xterm2
-  endif
-
   set nobackup
   set noswapfile
-
   set autoindent
-  "set paste
+  set smartindent
+  set paste
   set tabstop=2
   set softtabstop=2
   set shiftwidth=2
   set expandtab
   set foldmethod=indent
-  "set nowrap
-
+  set wrap
+  set textwidth=79
+  set formatoptions=qrn1
+  set formatoptions=cqt
   set virtualedit+=block
-
-  " Use os's clipboard
   set clipboard+=unnamed
-
   set tags+=.tags
+" }}}
+
+" Mouse {{{
+  if has('mouse')
+    set mouse=a
+    set guioptions+=a
+    set ttymouse=xterm2
+  endif
 " }}}
 
 " Mappings {{{
@@ -121,7 +124,6 @@
   nmap <ESC><ESC> ;nohlsearch<CR><ESC>
   map <leader><space> :noh<CR>
 
-  " insert mode
   imap  <C-e> <END>
   imap  <C-a> <HOME>
 
@@ -141,11 +143,6 @@
   nnoremap <leader>h :split<CR><C-w>j
   map <D-A-right> :bn<CR>
   map <D-A-left> :bp<CR>
-
-  " Automatically move to last cursor position
-  if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-  endif
 
   noremap <space> :call ToggleFold()<CR>
 
@@ -200,7 +197,6 @@
 " }}}
 
 " Appearance {{{
-  " Useful status information at bottom of screen
   set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
   set ruler
   set showcmd
@@ -209,18 +205,12 @@
   set number
   set numberwidth=5
   set cursorline
-  " When the terminal has colors, enable syntax+search highlighting
-  if &t_Co > 2 || has("gui_running")
-    syntax on
-    set hlsearch
-  endif
-" }}}
-
-" GUI {{{
-  if has("gui")
-    "colorscheme wombat
-    colorscheme desert
-  end
+  set t_Co=256
+  set lazyredraw
+  set ttyfast
+  hi clear CursorLine
+  hi CursorLine term=reverse cterm=none ctermbg=256
+  colorscheme desert
 " }}}
 
  " Syntax {{{
@@ -280,7 +270,7 @@
   " }}}
 
   " Ack {{{
-    map <leader>a :Ack<space>
+    nnoremap <leader>aa :Ack<space>
   " }}}
 
   " Fugitive {{{
@@ -311,7 +301,6 @@
     nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
     nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
     map <F2> <leader>ua
-    "map <F3> <leader>uf
   " }}}
 
   " CommantT {{{
@@ -403,4 +392,10 @@
   " zE deletes all folds.
   " [z move to start of open fold.
   " ]z move to end of open fold.
+" }}}
+
+" Load local vimrc {{{
+  if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+  endif
 " }}}
