@@ -10,7 +10,7 @@
 " }}}
 
 " Load plugins {{{
-  "filetype off
+  filetype off
   runtime macros/matchit.vim
   runtime ftplugin/man.vim
   set rtp+=~/.vim/vundle.git/
@@ -25,8 +25,6 @@
     Bundle 'h1mesuke/unite-outline'
     Bundle 'tsukkee/unite-tag'
     Bundle 'kmnk/vim-unite-svn'
-    "Bundle 'AutoComplPop'
-    "Bundle 'Lokaltog/vim-powerline'
     Bundle 'Color-Sampler-Pack'
     Bundle 'Source-Explorer-srcexpl.vim'
     Bundle 'scrooloose/nerdtree'
@@ -45,7 +43,6 @@
     Bundle 'php.vim'
     Bundle 'phpcomplete.vim'
     Bundle 'php-doc'
-    "Bundle 'phpfolding.vim'
     Bundle 'tpope/vim-rails'
     Bundle 'groenewege/vim-less'
     Bundle 'cocoa.vim'
@@ -53,23 +50,15 @@
     Bundle 'vcscommand.vim'
     Bundle 'SearchComplete'
     Bundle 'SQLComplete.vim'
-    "Bundle 'ShowMarks'
     Bundle 'vim-coffee-script'
   " }}}
   filetype plugin indent on
 " }}}
 
-" Auto Command {{{
-  " Automatically move to last cursor position
-  if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-  endif
-" }}}
-
 " Behaviour {{{
   set backspace=indent,eol,start
-  set modelines=0
   set wrapscan
+  "set spell spelllang=en_us
   set ignorecase
   set smartcase
   set incsearch
@@ -79,7 +68,7 @@
   set wildmenu
   set wildchar=<Tab>
   set wildmode=list:full
-  set history=1000
+  set history=100
   set complete+=k
   set cmdheight=2
   set visualbell t_vb=
@@ -87,30 +76,22 @@
   set nojoinspaces
   set wildmode=longest,list
   set nrformats=
-  set nobackup
-  set noswapfile
-  set autoindent
-  set smartindent
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
-  set expandtab
-  set foldmethod=indent
-  set wrap
-  set textwidth=79
-  set formatoptions=qrn1
-  set formatoptions=cqt
-  set virtualedit+=block
-  set clipboard+=unnamed
-  set tags+=.tags
-" }}}
-
-" Mouse {{{
   if has('mouse')
     set mouse=a
     set guioptions+=a
     set ttymouse=xterm2
   endif
+  set nobackup
+  set noswapfile
+  set autoindent
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  set expandtab
+  set foldmethod=indent
+  set virtualedit+=block
+  set clipboard+=unnamed
+  set tags+=.tags
 " }}}
 
 " Mappings {{{
@@ -123,6 +104,7 @@
   nmap <ESC><ESC> ;nohlsearch<CR><ESC>
   map <leader><space> :noh<CR>
 
+  " insert mode
   imap  <C-e> <END>
   imap  <C-a> <HOME>
 
@@ -143,10 +125,15 @@
   map <D-A-right> :bn<CR>
   map <D-A-left> :bp<CR>
 
+  " Automatically move to last cursor position
+  if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+  endif
+
   noremap <space> :call ToggleFold()<CR>
 
   " Fast escape insert mode
-  "inoremap <Esc> <nop>
+  inoremap <Esc> <nop>
   inoremap jj <ESC>
 
   " Strip all trading whitespace in current while
@@ -204,15 +191,16 @@
   set number
   set numberwidth=5
   set cursorline
-  set t_Co=256
-  set lazyredraw
-  set ttyfast
-  hi clear CursorLine
-  hi CursorLine term=reverse cterm=none ctermbg=256
-  colorscheme desert
+  if &t_Co > 2 || has("gui_running")
+    syntax on
+    set hlsearch
+  endif
+  if has("gui")
+    colorscheme molokai
+  end
 " }}}
 
- " Syntax {{{
+" Syntax {{{
   au FileType make         setlocal ts=8 sts=8 sw=8 noet
   au FileType yaml         setlocal ts=2 sts=2 sw=2 et
   au FileType php          setlocal ts=4 sts=4 sw=4 noet foldmethod=indent
@@ -237,7 +225,7 @@
   command! Cphp :!php -l %
   nnoremap <F6> :Cphp<CR>
   let tlist_php_settings = 'php;c:class;f:function'
- " }}}
+" }}}
 
 " Plugin Settings {{{
   " Netrw {{{
@@ -269,7 +257,7 @@
   " }}}
 
   " Ack {{{
-    nnoremap <leader>aa :Ack<space>
+    map <leader>a :Ack<space>
   " }}}
 
   " Fugitive {{{
@@ -300,6 +288,7 @@
     nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
     nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
     map <F2> <leader>ua
+    "map <F3> <leader>uf
   " }}}
 
   " CommantT {{{
@@ -391,10 +380,4 @@
   " zE deletes all folds.
   " [z move to start of open fold.
   " ]z move to end of open fold.
-" }}}
-
-" Load local vimrc {{{
-  if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
-  endif
 " }}}
