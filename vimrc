@@ -187,7 +187,7 @@
   set ruler
   set showcmd
   set laststatus=2
-  set listchars=tab:▸\ ,eol:¬
+  set listchars=tab:▸\ ,eol:¬,nbsp:.
   set number
   set numberwidth=5
   set cursorline
@@ -257,7 +257,7 @@
   " }}}
 
   " Ack {{{
-    map <leader>a :Ack<space>
+    map <leader>aa :Ack<space>
   " }}}
 
   " Fugitive {{{
@@ -288,7 +288,6 @@
     nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
     nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
     map <F2> <leader>ua
-    "map <F3> <leader>uf
   " }}}
 
   " CommantT {{{
@@ -297,8 +296,8 @@
     let g:CommandTMaxHeight = 30
     let g:CommandTMatchWindowAtTop = 0
     let g:CommandTMatchWindowReverse = 0
-    nnoremap <silent> <Leader>t :CommandT<CR>
-    nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+    nnoremap <silent> <Leader>tt :CommandT<CR>
+    nnoremap <silent> <Leader>bb :CommandTBuffer<CR>
   " }}}
 
   " YankRing {{{
