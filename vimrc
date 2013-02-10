@@ -203,7 +203,7 @@
   if has("gui")
     colorscheme molokai
   end
-  hi statusline cterm=none ctermfg=white ctermbg=blue guibg=blue
+  hi statusline cterm=none ctermfg=white ctermbg=blue gui=none guifg=white guibg=blue
   au InsertEnter * hi statusline ctermbg=red guibg=red
   au InsertLeave * hi statusline ctermbg=blue guibg=blue
 " }}}
