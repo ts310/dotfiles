@@ -16,41 +16,42 @@
   set rtp+=~/.vim/vundle.git/
   call vundle#rc()
   " Plugins {{{
-    Bundle 'gmarik/vundle'
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'Shougo/vimproc'
-    Bundle 'thinca/vim-ref'
-    Bundle 'Shougo/unite.vim'
-    Bundle 'unite-colorscheme'
-    Bundle 'h1mesuke/unite-outline'
-    Bundle 'tsukkee/unite-tag'
-    Bundle 'kmnk/vim-unite-svn'
+    Bundle 'AndrewRadev/linediff.vim'
     Bundle 'Color-Sampler-Pack'
-    Bundle 'Source-Explorer-srcexpl.vim'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'vim-scripts/taglist.vim'
+    Bundle 'SQLComplete.vim'
+    Bundle 'SearchComplete'
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/unite.vim'
+    Bundle 'Shougo/vimfiler'
+    Bundle 'Shougo/vimproc'
+    Bundle 'Shougo/vimproc'
+    Bundle 'cocoa.vim'
+    Bundle 'gmarik/vundle'
+    Bundle 'groenewege/vim-less'
+    Bundle 'h1mesuke/unite-outline'
+    Bundle 'kmnk/vim-unite-svn'
     Bundle 'mileszs/ack.vim'
-    Bundle 'wincent/Command-T'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'tpope/vim-surround'
-    Bundle 'vim-scripts/Align'
-    Bundle 'vim-scripts/YankRing.vim'
-    Bundle 'linediff.vim'
-    Bundle 'vim-scripts/matchit.zip'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-git'
-    Bundle 'svn-diff.vim'
+    Bundle 'php-doc'
     Bundle 'php.vim'
     Bundle 'phpcomplete.vim'
-    Bundle 'php-doc'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'svn-diff.vim'
+    Bundle 'thinca/vim-ref'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-rails'
-    Bundle 'groenewege/vim-less'
-    Bundle 'cocoa.vim'
-    Bundle 'vim-scripts/ZenCoding.vim'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tsukkee/unite-tag'
+    Bundle 'unite-colorscheme'
     Bundle 'vcscommand.vim'
-    Bundle 'SearchComplete'
-    Bundle 'SQLComplete.vim'
     Bundle 'vim-coffee-script'
+    Bundle 'vim-scripts/Align'
+    Bundle 'vim-scripts/YankRing.vim'
+    Bundle 'vim-scripts/ZenCoding.vim'
+    Bundle 'vim-scripts/matchit.zip'
+    Bundle 'vim-scripts/taglist.vim'
+    Bundle 'wincent/Command-T'
   " }}}
   filetype plugin indent on
 " }}}
@@ -68,13 +69,14 @@
   set wildmenu
   set wildchar=<Tab>
   set wildmode=list:full
-  set history=100
+  set history=1000
   set complete+=k
   set cmdheight=2
   set visualbell t_vb=
   set hidden
   set nojoinspaces
   set wildmode=longest,list
+  set wildignore+=.git,cache
   set nrformats=
   if has('mouse')
     set mouse=a
@@ -135,6 +137,7 @@
   " Fast escape insert mode
   inoremap <Esc> <nop>
   inoremap jj <ESC>
+  inoremap <C-c> <ESC>
 
   " Strip all trading whitespace in current while
   nmap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
@@ -188,8 +191,8 @@
   set showcmd
   set laststatus=2
   set listchars=tab:▸\ ,eol:¬,nbsp:.
-  hi NonText guifg=#999999
-  hi SpecialKey guifg=#999999
+  hi NonText guifg=gray cterm=none ctermfg=gray
+  hi SpecialKey guifg=gray cterm=none ctermfg=gray
   set number
   set numberwidth=5
   set cursorline
@@ -200,6 +203,9 @@
   if has("gui")
     colorscheme molokai
   end
+  hi statusline cterm=none ctermfg=white ctermbg=blue guibg=blue
+  au InsertEnter * hi statusline ctermbg=red guibg=red
+  au InsertLeave * hi statusline ctermbg=blue guibg=blue
 " }}}
 
 " Syntax {{{
@@ -279,7 +285,9 @@
   " }}}
 
   " Unite {{{
-    let g:unite_enable_start_insert = 1
+    let g:unite_enable_start_insert=1
+    let g:unite_source_file_mru_filename_format=''
+    let g:unite_source_file_mru_limit=50
     nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
     nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
     nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
@@ -290,6 +298,12 @@
     nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
     nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
     map <F2> <leader>ua
+    " For ack.
+    if executable('ack-grep')
+      let g:unite_source_grep_command = 'ack-grep'
+      let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+      let g:unite_source_grep_recursive_opt = ''
+    endif
   " }}}
 
   " CommantT {{{
