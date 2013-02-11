@@ -311,6 +311,7 @@
     let g:unite_enable_start_insert=1
     let g:unite_source_file_mru_filename_format=''
     let g:unite_source_file_mru_limit=50
+    let g:unite_split_rule = "botright"
     nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
     nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
     nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
