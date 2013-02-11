@@ -27,6 +27,7 @@
     Bundle 'groenewege/vim-less'
     Bundle 'h1mesuke/unite-outline'
     Bundle 'kchmck/vim-coffee-script'
+    Bundle 'kien/ctrlp.vim'
     Bundle 'kmnk/vim-unite-svn'
     Bundle 'majutsushi/tagbar'
     Bundle 'mileszs/ack.vim'
@@ -54,7 +55,6 @@
     Bundle 'vim-scripts/svn-diff.vim'
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/vcscommand.vim'
-    Bundle 'wincent/Command-T'
     Bundle 'xolox/vim-easytags'
   " }}}
   filetype plugin indent on
@@ -327,16 +327,29 @@
       let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
       let g:unite_source_grep_recursive_opt = ''
     endif
+    autocmd FileType unite call s:unite_my_settings()
+    function! s:unite_my_settings()
+      " 単語単位からパス単位で削除するように変更
+      imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+      " ESCキーを2回押すと終了する
+      nmap <silent><buffer> <ESC><ESC> q
+      imap <silent><buffer> <ESC><ESC> <ESC>q
+    endfunction
   " }}}
 
   " CommantT {{{
-    let g:CommandTMaxFiles = 55000
-    let g:CommandTMaxDepth = 40
-    let g:CommandTMaxHeight = 30
-    let g:CommandTMatchWindowAtTop = 0
-    let g:CommandTMatchWindowReverse = 0
-    nnoremap <silent> <Leader>ff :CommandT<CR>
-    nnoremap <silent> <Leader>bb :CommandTBuffer<CR>
+    "let g:CommandTMaxFiles = 55000
+    "let g:CommandTMaxDepth = 40
+    "let g:CommandTMaxHeight = 30
+    "let g:CommandTMatchWindowAtTop = 0
+    "let g:CommandTMatchWindowReverse = 0
+    "nnoremap <silent> <Leader>ff :CommandT<CR>
+    "nnoremap <silent> <Leader>bb :CommandTBuffer<CR>
+  " }}}
+  
+  " Ctrlp {{{
+    let g:ctrlp_map = '<leader>ff'
+    let g:ctrlp_cmd = 'CtrlP'
   " }}}
 
   " YankRing {{{
