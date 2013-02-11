@@ -1,11 +1,17 @@
 -R 
 -f .tags 
---exclude=".svn"
+--exclude=.svn
+--exclude=.git
+--exclude=cache
+--exclude=*.log
+--exclude=*.LOG
+--exclude=*.sql
+--exclude=*.SQL
+--extra=+q
 --tag-relative=yes
 --totals=yes
 --langmap=php:+.inc
---php-types=cfd 
---php-kinds=cfd
+--php-kinds=cdfi 
 --langdef=js
 --langmap=js:.js
 --regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/,object/
