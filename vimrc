@@ -30,12 +30,10 @@
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'kien/ctrlp.vim'
     Bundle 'kmnk/vim-unite-svn'
-    Bundle 'majutsushi/tagbar'
     Bundle 'mileszs/ack.vim'
     Bundle 'msanders/cocoa.vim'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/nerdtree'
-    Bundle 'techlivezheng/tagbar-phpctags'
     Bundle 'thinca/vim-ref'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-git'
@@ -355,6 +353,8 @@
     let g:ctrlp_map = '<leader>ff'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+    let g:ctrlp_max_files = 0
+    let g:ctrlp_working_path_mode = ''
   " }}}
 
   " YankRing {{{
