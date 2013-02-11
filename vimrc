@@ -211,7 +211,7 @@
   end
   hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
   au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
-  au InsertLeave * hi statusline ctermbg=darkblue guibg=darkgreen
+  au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
 " }}}
 
 " Syntax {{{

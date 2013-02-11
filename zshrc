@@ -59,6 +59,13 @@ compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors ''
 
+# z deep nested directory completion
+. /usr/local/etc/profile.d/z.sh
+function _z_precmd {
+  z --add "$(pwd -P)" 61
+}
+precmd_functions=($precmd_functions _z_precmd)
+
 # Show command and path for screen window title
 precmd () {
   if [[ "$TERM" = "screen" ]]; then
