@@ -4,6 +4,7 @@
   set nocompatible
   set encoding=utf-8
   let mapleader = ","
+  let g:mapleader = ","
   " Shortcut for edit/source vim runtime configuration in command
   command! Ev edit $MYVIMRC
   command! Rv source $MYVIMRC
@@ -80,7 +81,7 @@
   set hidden
   set nojoinspaces
   set wildmode=longest,list
-  set wildignore+=.git,cache,.svn,*.log
+  set wildignore+=.git/*,cache/*,tmp/*,.svn/*,*.log,*.o
   set nrformats=
   if has('mouse')
     set mouse=a
@@ -111,6 +112,8 @@
 
   nmap <ESC><ESC> ;nohlsearch<CR><ESC>
   map <leader><space> :noh<CR>
+
+  nmap <silent> <Leader>w :w!<CR>
 
   " insert mode
   imap  <C-e> <END>
