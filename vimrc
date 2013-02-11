@@ -17,41 +17,45 @@
   call vundle#rc()
   " Plugins {{{
     Bundle 'AndrewRadev/linediff.vim'
-    Bundle 'Color-Sampler-Pack'
-    Bundle 'SQLComplete.vim'
-    Bundle 'SearchComplete'
     Bundle 'Shougo/neocomplcache'
     Bundle 'Shougo/unite.vim'
     Bundle 'Shougo/vimfiler'
     Bundle 'Shougo/vimproc'
     Bundle 'Shougo/vimproc'
-    Bundle 'cocoa.vim'
+    Bundle 'Shougo/vimshell'
     Bundle 'gmarik/vundle'
     Bundle 'groenewege/vim-less'
     Bundle 'h1mesuke/unite-outline'
+    Bundle 'kchmck/vim-coffee-script'
     Bundle 'kmnk/vim-unite-svn'
+    Bundle 'majutsushi/tagbar'
     Bundle 'mileszs/ack.vim'
-    Bundle 'php-doc'
-    Bundle 'php.vim'
-    Bundle 'phpcomplete.vim'
+    Bundle 'msanders/cocoa.vim'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/nerdtree'
-    Bundle 'svn-diff.vim'
+    Bundle 'techlivezheng/tagbar-phpctags'
     Bundle 'thinca/vim-ref'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-surround'
     Bundle 'tsukkee/unite-tag'
-    Bundle 'unite-colorscheme'
-    Bundle 'vcscommand.vim'
-    Bundle 'vim-coffee-script'
+    Bundle 'ujihisa/unite-colorscheme'
     Bundle 'vim-scripts/Align'
+    Bundle 'vim-scripts/Color-Sampler-Pack'
+    Bundle 'vim-scripts/SQLComplete.vim'
+    Bundle 'vim-scripts/SearchComplete'
     Bundle 'vim-scripts/YankRing.vim'
     Bundle 'vim-scripts/ZenCoding.vim'
     Bundle 'vim-scripts/matchit.zip'
+    Bundle 'vim-scripts/php-doc'
+    Bundle 'vim-scripts/php.vim'
+    Bundle 'vim-scripts/phpcomplete.vim'
+    Bundle 'vim-scripts/svn-diff.vim'
     Bundle 'vim-scripts/taglist.vim'
+    Bundle 'vim-scripts/vcscommand.vim'
     Bundle 'wincent/Command-T'
+    Bundle 'xolox/vim-easytags'
   " }}}
   filetype plugin indent on
 " }}}
@@ -76,7 +80,7 @@
   set hidden
   set nojoinspaces
   set wildmode=longest,list
-  set wildignore+=.git,cache
+  set wildignore+=.git,cache,.svn,*.log
   set nrformats=
   if has('mouse')
     set mouse=a
@@ -91,6 +95,8 @@
   set shiftwidth=2
   set expandtab
   set foldmethod=indent
+  set foldlevel=99
+  set foldlevelstart=99
   set virtualedit+=block
   set clipboard+=unnamed
   set tags+=.tags
@@ -203,9 +209,9 @@
   if has("gui")
     colorscheme molokai
   end
-  hi statusline cterm=none ctermfg=white ctermbg=blue gui=none guifg=white guibg=blue
-  au InsertEnter * hi statusline ctermbg=red guibg=red
-  au InsertLeave * hi statusline ctermbg=blue guibg=blue
+  hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
+  au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
+  au InsertLeave * hi statusline ctermbg=darkblue guibg=darkgreen
 " }}}
 
 " Syntax {{{
@@ -255,13 +261,26 @@
   " TagList {{{
     let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
     let Tlist_Use_Right_Window = 1
-    map <leader>5 :TlistToggle<CR>
-    map <F3> :TlistToggle<CR>
+    nnoremap <silent> <leader>y :TlistToggle<CR>
+    nnoremap <silent> <F3> :TlistToggle<CR>
+  " }}}
+  
+  " easytags {{{
+    let g:easytags_dynamic_files = 1
   " }}}
 
   " Tagbar {{{
     "let g:tagbar_width = 27
-    "map <F3> :TagbarToggle<CR>
+    "let g:tagbar_left = 0
+    "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+    "let g:tagbar_compact = 1
+    "let g:tagbar_expand = 1
+    "nnoremap <silent> <F3> :TagbarToggle<CR>
+    "nnoremap <silent> <Leader>y :TagbarToggle<CR>
+  " }}}
+
+  " phpctags {{{
+    "let g:tagbar_phpctags_bin = '/usr/local/src/phpctags/phpctags'
   " }}}
 
   " Ack {{{
@@ -277,6 +296,10 @@
 
   " Neocomplcache {{{
     let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_min_syntax_length = 3
+    let g:neocomplcache_enable_camel_case_completion = 1
+    let g:neocomplcache_enable_underbar_completion = 1
   " }}}
 
   " Zen coding {{{
