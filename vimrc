@@ -54,7 +54,7 @@
     Bundle 'vim-scripts/svn-diff.vim'
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/vcscommand.vim'
-    Bundle 'xolox/vim-easytags'
+    "Bundle 'xolox/vim-easytags'
   " }}}
   filetype plugin indent on
 " }}}
@@ -267,7 +267,8 @@
   " }}}
   
   " easytags {{{
-    let g:easytags_dynamic_files = 1
+    "let g:easytags_dynamic_files = 1
+    "let g:easytags_always_enabled = 0
   " }}}
 
   " Tagbar {{{
@@ -350,6 +351,7 @@
   " }}}
   
   " Ctrlp {{{
+    "let g:loaded_ctrlp = 1
     let g:ctrlp_map = '<leader>ff'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
