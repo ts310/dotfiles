@@ -142,7 +142,7 @@
   noremap <space> :call ToggleFold()<CR>
 
   " Fast escape insert mode
-  inoremap <Esc> <nop>
+  "inoremap <Esc> <nop>
   inoremap jj <ESC>
   inoremap <C-c> <ESC>
 
