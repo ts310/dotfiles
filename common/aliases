@@ -3,6 +3,9 @@
 # Utility
 alias reload='source ~/dotfiles/common/aliases'
 
+alias zshconfig="vim ~/.zshrc"
+alias rzshrc="source ~/.zshrc"
+
 alias vim='vim -N'
 alias ls="ls -FG"
 alias a='ls -A' # -A all except literal . ..

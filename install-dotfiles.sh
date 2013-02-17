@@ -48,7 +48,7 @@ if [ -e ~/.bin/vcprompt ]
 then
   echo "vcprompt command is found"
 else
-  echo "Please install vcprompt command"
+  echo "Installing vcprompt command"
   curl -sL https://github.com/djl/vcprompt/raw/master/bin/vcprompt > bin/vcprompt
   chmod +x bin/vcprompt
 fi
