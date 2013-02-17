@@ -357,8 +357,7 @@
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
     let g:ctrlp_max_files = 0
     let g:ctrlp_working_path_mode = ''
-    let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
-          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+    let g:ctrlp_extensions = ['tag', 'buffertag']
   " }}}
 
   " YankRing {{{
