@@ -79,8 +79,9 @@
   set hidden
   set nojoinspaces
   set wildmode=longest,list
-  set wildignore+=.git/*,cache/*,tmp/*,.svn/*,*.log,*.o
+  set wildignore+=.git/*,*/cache/*,.svn/*,*.log,*.o
   set nrformats=
+  set fillchars+=stl:\ ,stlnc:\
   if has('mouse')
     set mouse=a
     set guioptions+=a
@@ -108,10 +109,10 @@
   nnoremap j gj
   nnoremap k gk
 
-  nmap <ESC><ESC> ;nohlsearch<CR><ESC>
-  map <leader><space> :noh<CR>
+  nmap <ESC><ESC> :nohlsearch<CR><ESC>
+  map <leader><space> :nohlsearch<CR>
 
-  nmap <silent> <Leader>w :w!<CR>
+  nmap <silent> <Leader>ww :w!<CR>
 
   " insert mode
   imap  <C-e> <END>
@@ -207,12 +208,10 @@
     syntax on
     set hlsearch
   endif
-  if has("gui")
-    colorscheme molokai
-  end
-  hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
-  au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
-  au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
+  colorscheme molokai
+  "hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
+  "au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
+  "au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
 " }}}
 
 " Syntax {{{
@@ -354,9 +353,12 @@
     "let g:loaded_ctrlp = 1
     let g:ctrlp_map = '<leader>ff'
     let g:ctrlp_cmd = 'CtrlP'
+    let g:ctrlp_max_height = 16
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
     let g:ctrlp_max_files = 0
     let g:ctrlp_working_path_mode = ''
+    let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
+          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
   " }}}
 
   " YankRing {{{
@@ -375,12 +377,14 @@
   " }}}
 
   " Unite tag {{{
-    "if empty(&buftype)
-      "nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-    "endif
+    autocmd BufEnter *
+    \   if empty(&buftype)
+    \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+    \|  endif
   " }}}
     
   " Powerline {{{
+    "set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
     "let g:Powerline_symbols = 'fancy'
     "set t_Co=256
   " }}}

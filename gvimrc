@@ -28,16 +28,5 @@
     " Disable macvim menu key
     macmenu File.New\ Tab key=<nop>
     macmenu File.Print key=<nop>
-
-    " PeepOpen
-    map <leader>p <Plug>PeepOpen
-    map <D-p> <Plug>PeepOpen
-
-    " CommandT
-    map <D-t> :CommandT<CR>
-
-    " Buffer explorer
-    macmenu File.Open\.\.\. key=<nop>
-    map <D-o> :BufExplorer<CR>
   end
 " }}}
