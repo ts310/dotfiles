@@ -21,6 +21,19 @@ function link() {
   fi
 }
 
+echo "Updating git submodules"
+git submodule init
+git submodule update
+
+if [ -e ~/.bin/vcprompt ]
+then
+  echo "vcprompt command is found"
+else
+  echo "Installing vcprompt command"
+  curl -sL https://github.com/djl/vcprompt/raw/master/bin/vcprompt > bin/vcprompt
+  chmod +x bin/vcprompt
+fi
+
 # symlink various config files
 
 echo "Symlink dotfiles..."
@@ -39,18 +52,5 @@ link screenrc .screenrc
 link irbrc .irbrc
 link tmux.conf .tmux.conf
 link ctags .ctags
-
-echo "Updating git submodules"
-git submodule init
-git submodule update
-
-if [ -e ~/.bin/vcprompt ]
-then
-  echo "vcprompt command is found"
-else
-  echo "Installing vcprompt command"
-  curl -sL https://github.com/djl/vcprompt/raw/master/bin/vcprompt > bin/vcprompt
-  chmod +x bin/vcprompt
-fi
 
 echo "Done!"
