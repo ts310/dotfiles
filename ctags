@@ -12,6 +12,7 @@
 --totals=yes
 --langmap=php:+.inc
 --php-kinds=cdfi 
+--regex-php=/^[ \t]*const[ \t]+([a-z0-9_]+)/\1/d/i
 --langdef=js
 --langmap=js:.js
 --regex-js=/([A-Za-z0-9._$]+)[ \t]*[:=][ \t]*\{/\1/,object/
