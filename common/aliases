@@ -1,28 +1,26 @@
-# Command Enhancements
-
-# Utility
 alias reload='source ~/dotfiles/common/aliases'
+alias shellrestart='exec $SHELL -l'
+
+alias ssh='TERM=xterm ssh'
+alias ssh256='TERM=xterm-256color ssh'
 
 alias zshconfig="vim ~/.zshrc"
 alias rzshrc="source ~/.zshrc"
 
-alias vim='vim -N'
-alias ls="ls -FG"
 alias a='ls -A' # -A all except literal . ..
-alias la="ls -A -l -G -h"
-alias lat="la -t"
 alias c='clear'
 alias cdd='cd -'  # goto last dir cd'ed from
 alias cl='clear; l'
+alias la="ls -A -l -G -h"
+alias lat="la -t"
 alias lf='ls -F'
 alias ll='ls -l'
-alias search=grep
-alias mcd='mount /mnt/cdrom'
-alias ucd='umount /mnt/cdrom'
+alias ls="ls -FG"
 alias mc='mc -c'
-alias ..='cd ..'
-alias ...='cd ../..'
+alias mcd='mount /mnt/cdrom'
 alias nt='newtab' # new terminal tab
+alias search=grep
+alias ucd='umount /mnt/cdrom'
 
 function cdc() {
   cd $1; ls
