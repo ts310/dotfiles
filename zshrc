@@ -43,9 +43,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/common/env
 source ~/dotfiles/common/aliases
 
-alias ssh='TERM=xterm ssh'
-alias ssh256='TERM=xterm-256color ssh'
-
 #autoload -Uz colors
 #colors
 
