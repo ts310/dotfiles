@@ -45,7 +45,7 @@
     Bundle 'vim-scripts/Color-Sampler-Pack'
     Bundle 'vim-scripts/SQLComplete.vim'
     Bundle 'vim-scripts/SearchComplete'
-    Bundle 'vim-scripts/YankRing.vim'
+    "Bundle 'vim-scripts/YankRing.vim'
     Bundle 'vim-scripts/ZenCoding.vim'
     Bundle 'vim-scripts/matchit.zip'
     Bundle 'vim-scripts/php-doc'
@@ -55,6 +55,7 @@
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/vcscommand.vim'
     "Bundle 'xolox/vim-easytags'
+    "Bundle 'majutsushi/tagbar'
   " }}}
   filetype plugin indent on
 " }}}
@@ -98,7 +99,7 @@
   set foldlevel=99
   set foldlevelstart=99
   set virtualedit+=block
-  set clipboard+=unnamed
+  set clipboard+=unnamedplus,unnamed
   set tags+=.tags
 " }}}
 
@@ -259,10 +260,10 @@
   " }}}
 
   " TagList {{{
-    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-    let Tlist_Use_Right_Window = 1
-    nnoremap <silent> <leader>y :TlistToggle<CR>
-    nnoremap <silent> <F3> :TlistToggle<CR>
+    "let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+    "let Tlist_Use_Right_Window = 1
+    "nnoremap <silent> <leader>y :TlistToggle<CR>
+    "nnoremap <silent> <F3> :TlistToggle<CR>
   " }}}
   
   " easytags {{{
@@ -271,13 +272,13 @@
   " }}}
 
   " Tagbar {{{
-    "let g:tagbar_width = 27
-    "let g:tagbar_left = 0
-    "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-    "let g:tagbar_compact = 1
-    "let g:tagbar_expand = 1
-    "nnoremap <silent> <F3> :TagbarToggle<CR>
-    "nnoremap <silent> <Leader>y :TagbarToggle<CR>
+    let g:tagbar_width = 27
+    let g:tagbar_left = 0
+    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+    let g:tagbar_compact = 1
+    let g:tagbar_expand = 1
+    nnoremap <silent> <F3> :TagbarToggle<CR>
+    nnoremap <silent> <Leader>y :TagbarToggle<CR>
   " }}}
 
   " phpctags {{{
@@ -351,19 +352,20 @@
   
   " Ctrlp {{{
     "let g:loaded_ctrlp = 1
-    let g:ctrlp_map = '<leader>ff'
+    let g:ctrlp_map = '<C-p>'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_max_height = 16
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
     let g:ctrlp_max_files = 0
     let g:ctrlp_working_path_mode = ''
-    let g:ctrlp_extensions = ['tag', 'buffertag']
+    let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
+    " 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
   " }}}
 
   " YankRing {{{
-    let g:yankring_max_history = 400
-    let g:yankring_window_use_separate = 1
-    let g:yankring_history_dir = '~/.vim/tmp/'
+    "let g:yankring_max_history = 400
+    "let g:yankring_window_use_separate = 1
+    "let g:yankring_history_dir = '~/.vim/tmp/'
   " }}}
 
   " Gtags {{{
@@ -376,10 +378,10 @@
   " }}}
 
   " Unite tag {{{
-    autocmd BufEnter *
-    \   if empty(&buftype)
-    \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-    \|  endif
+    "autocmd BufEnter *
+    "\   if empty(&buftype)
+    "\|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+    "\|  endif
   " }}}
     
   " Powerline {{{
