@@ -14,6 +14,9 @@ export PATH=$PATH:/usr/local/share/npm/bin
 # Prevent double file (._) file on OSX
 export COPYFILE_DISABLE=true
 
+# export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r6
+export NODE_PATH="/usr/local/lib/node"
+
 # git configuration
 git config --global color.diff auto
 git config --global color.status auto
@@ -22,28 +25,21 @@ git config --global alias.co "checkout"
 git config --global alias.br "branch"
 git config --global alias.ci "commit"
 
-# export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r6
-
-export NODE_PATH="/usr/local/lib/node"
-
 if [ "$TERM" != 'screen-256color' ]; then
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
-fi
-
-if [[ -s "/usr/local/bin/rbenv" ]]
-then
-  export PATH="$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init -)"
 fi
 
 if [[ -s "$HOME/.rbenv/bin/rbenv" ]]
 then
   export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
   eval "$(rbenv init -)"
-fi
-
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]
-  then source "$HOME/.rvm/scripts/rvm"
+elif [[ -s "/usr/local/bin/rbenv" ]]
+then
+  export PATH="$HOME/.rbenv/shims:$PATH"
+  eval "$(rbenv init -)"
+elif [[ -s "$HOME/.rvm/scripts/rvm" ]]
+then
+  source "$HOME/.rvm/scripts/rvm"
 fi
 
 if [ -f ~/.env.local ]

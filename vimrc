@@ -22,11 +22,10 @@
     Bundle 'Shougo/unite.vim'
     Bundle 'Shougo/vimfiler'
     Bundle 'Shougo/vimproc'
-    Bundle 'Shougo/vimproc'
     Bundle 'Shougo/vimshell'
-    Bundle 'gmarik/vundle'
     Bundle 'groenewege/vim-less'
     Bundle 'h1mesuke/unite-outline'
+    Bundle 'hrsh7th/vim-unite-vcs'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'kien/ctrlp.vim'
     Bundle 'kmnk/vim-unite-svn'
@@ -51,11 +50,13 @@
     Bundle 'vim-scripts/php-doc'
     Bundle 'vim-scripts/php.vim'
     Bundle 'vim-scripts/phpcomplete.vim'
-    Bundle 'vim-scripts/svn-diff.vim'
     Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/vcscommand.vim'
     "Bundle 'xolox/vim-easytags'
     "Bundle 'majutsushi/tagbar'
+    Bundle 'oinksoft/tcd.vim'
+    Bundle 'vim-scripts/bufkill.vim'
+    Bundle 'astashov/vim-ruby-debugger'
   " }}}
   filetype plugin indent on
 " }}}
@@ -192,6 +193,9 @@
 
   " Forgot sudo
   cmap w!! w !sudo tee % >/dev/null
+
+  " tagsジャンプの時に複数ある時は一覧表示                                        
+  nnoremap <C-]> g<C-]> 
 " }}}
 
 " Appearance {{{
@@ -388,6 +392,11 @@
     "set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
     "let g:Powerline_symbols = 'fancy'
     "set t_Co=256
+  " }}}
+
+  " Rubydebugger {{{
+    let g:ruby_debugger_progname = 'mvim'
+    let g:ruby_debugger_default_script = 'rails s'
   " }}}
 " }}}
 
