@@ -264,10 +264,10 @@
   " }}}
 
   " TagList {{{
-    "let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-    "let Tlist_Use_Right_Window = 1
-    "nnoremap <silent> <leader>y :TlistToggle<CR>
-    "nnoremap <silent> <F3> :TlistToggle<CR>
+    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+    let Tlist_Use_Right_Window = 1
+    nnoremap <silent> <leader>y :TlistToggle<CR>
+    nnoremap <silent> <F3> :TlistToggle<CR>
   " }}}
   
   " easytags {{{
@@ -276,13 +276,13 @@
   " }}}
 
   " Tagbar {{{
-    let g:tagbar_width = 27
-    let g:tagbar_left = 0
-    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-    let g:tagbar_compact = 1
-    let g:tagbar_expand = 1
-    nnoremap <silent> <F3> :TagbarToggle<CR>
-    nnoremap <silent> <Leader>y :TagbarToggle<CR>
+    "let g:tagbar_width = 27
+    "let g:tagbar_left = 0
+    "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+    "let g:tagbar_compact = 1
+    "let g:tagbar_expand = 1
+    "nnoremap <silent> <F3> :TagbarToggle<CR>
+    "nnoremap <silent> <Leader>y :TagbarToggle<CR>
   " }}}
 
   " phpctags {{{
