@@ -25,9 +25,9 @@ git config --global alias.co "checkout"
 git config --global alias.br "branch"
 git config --global alias.ci "commit"
 
-if [ "$TERM" != 'screen-256color' ]; then
-  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
-fi
+#if [ "$TERM" != 'screen-256color' ]; then
+  #tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+#fi
 
 if [[ -s "$HOME/.rbenv/bin/rbenv" ]]
 then
