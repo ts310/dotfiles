@@ -12,51 +12,74 @@
 
 " Load plugins {{{
   filetype off
-  runtime macros/matchit.vim
-  runtime ftplugin/man.vim
+  "runtime macros/matchit.vim
+  "runtime ftplugin/man.vim
   set rtp+=~/.vim/vundle.git/
   call vundle#rc()
   " Plugins {{{
-    Bundle 'AndrewRadev/linediff.vim'
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'Shougo/unite.vim'
-    Bundle 'Shougo/vimfiler'
-    Bundle 'Shougo/vimproc'
-    Bundle 'Shougo/vimshell'
-    Bundle 'groenewege/vim-less'
-    Bundle 'h1mesuke/unite-outline'
-    Bundle 'hrsh7th/vim-unite-vcs'
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'kmnk/vim-unite-svn'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'msanders/cocoa.vim'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'thinca/vim-ref'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-git'
-    Bundle 'tpope/vim-rails'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tsukkee/unite-tag'
-    Bundle 'ujihisa/unite-colorscheme'
-    Bundle 'vim-scripts/Align'
-    Bundle 'vim-scripts/Color-Sampler-Pack'
-    Bundle 'vim-scripts/SQLComplete.vim'
-    Bundle 'vim-scripts/SearchComplete'
-    "Bundle 'vim-scripts/YankRing.vim'
-    Bundle 'vim-scripts/ZenCoding.vim'
-    Bundle 'vim-scripts/matchit.zip'
-    Bundle 'vim-scripts/php-doc'
-    Bundle 'vim-scripts/php.vim'
-    Bundle 'vim-scripts/phpcomplete.vim'
-    Bundle 'vim-scripts/taglist.vim'
-    Bundle 'vim-scripts/vcscommand.vim'
-    "Bundle 'xolox/vim-easytags'
-    "Bundle 'majutsushi/tagbar'
-    Bundle 'oinksoft/tcd.vim'
-    Bundle 'vim-scripts/bufkill.vim'
-    Bundle 'astashov/vim-ruby-debugger'
+    " plugin manager {{{
+      Bundle 'gmarik/vundle'
+    " }}}
+    " unite {{{
+      Bundle 'Shougo/neocomplcache'
+      Bundle 'Shougo/unite.vim'
+      Bundle 'Shougo/vimfiler'
+      Bundle 'Shougo/vimproc'
+      "Bundle 'Shougo/vimshell'
+      "Bundle 'h1mesuke/unite-outline'
+      "Bundle 'hrsh7th/vim-unite-vcs'
+      "Bundle 'kmnk/vim-unite-svn'
+      Bundle 'tsukkee/unite-tag'
+      Bundle 'ujihisa/unite-colorscheme'
+    " }}}
+    " diff {{{
+      Bundle 'AndrewRadev/linediff.vim'
+    " }}}
+    " syntax {{{
+      Bundle 'groenewege/vim-less'
+      Bundle 'kchmck/vim-coffee-script'
+      Bundle 'msanders/cocoa.vim'
+    " }}}
+    " php {{{
+      Bundle 'vim-scripts/php-doc'
+      Bundle 'vim-scripts/php.vim'
+      Bundle 'vim-scripts/phpcomplete.vim'
+    " }}}
+    " git {{{
+      Bundle 'tpope/vim-fugitive'
+      Bundle 'tpope/vim-git'
+    " }}}
+    " rails {{{
+      Bundle 'tpope/vim-rails'
+    " }}}
+    " navigation {{{
+      Bundle 'scrooloose/nerdtree'
+      Bundle 'kien/ctrlp.vim'
+      Bundle 'vim-scripts/taglist.vim'
+    " }}}
+    " search {{{
+      Bundle 'mileszs/ack.vim'
+    " }}}
+    " editing {{{
+      Bundle 'vim-scripts/ZenCoding.vim'
+      Bundle 'vim-scripts/matchit.zip'
+      Bundle 'tpope/vim-surround'
+      Bundle 'scrooloose/nerdcommenter'
+      Bundle 'vim-scripts/Align'
+    " }}}
+    " svn {{{
+      "Bundle 'vim-scripts/vcscommand.vim'
+    " }}}
+    " debugging {{{
+      Bundle 'joonty/vdebug'
+    " }}}
+    " misc {{{
+      Bundle 'thinca/vim-ref'
+      Bundle 'vim-scripts/Color-Sampler-Pack'
+      Bundle 'vim-scripts/SQLComplete.vim'
+      Bundle 'vim-scripts/SearchComplete'
+      "Bundle 'vim-scripts/YankRing.vim'
+    " }}}
   " }}}
   filetype plugin indent on
 " }}}
@@ -394,9 +417,9 @@
     "set t_Co=256
   " }}}
 
-  " Rubydebugger {{{
-    let g:ruby_debugger_progname = 'mvim'
-    let g:ruby_debugger_default_script = 'rails s'
+  " vdebug {{{
+    "let g:vdebug_options['server'] = "192.168.56.101"
+    "let g:vdebug_options['path_maps'] = {"/home/buyma/apps/trunk": "/Volumes/buyma/apps/trunk"}
   " }}}
 " }}}
 
