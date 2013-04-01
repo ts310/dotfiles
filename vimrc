@@ -418,8 +418,15 @@
   " }}}
 
   " vdebug {{{
-    "let g:vdebug_options['server'] = "192.168.56.101"
-    "let g:vdebug_options['path_maps'] = {"/home/buyma/apps/trunk": "/Volumes/buyma/apps/trunk"}
+    let g:vdebug_options = {
+      \ 'path_maps': {"/home/buyma/apps/trunk": "/Volumes/buyma_vbox/trunk"},
+      \ 'server': '192.168.56.101'
+    \}
+  " }}}
+  "
+  " CodeReviewer {{{
+    let g:CodeReviewer_reviewer = "saito"
+    let g:CodeReviewer_reviewFile = "./review.rev"
   " }}}
 " }}}
 
