@@ -386,6 +386,7 @@
     let g:ctrlp_max_files = 0
     let g:ctrlp_working_path_mode = ''
     let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
+    let g:ctrlp_max_height = 40
     " 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
   " }}}
 
@@ -427,6 +428,10 @@
   " CodeReviewer {{{
     let g:CodeReviewer_reviewer = "saito"
     let g:CodeReviewer_reviewFile = "./review.rev"
+  " }}}
+
+  " vimref {{{
+    let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
   " }}}
 " }}}
 
