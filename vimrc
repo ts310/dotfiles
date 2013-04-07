@@ -387,6 +387,7 @@
     let g:ctrlp_max_files = 0
     let g:ctrlp_working_path_mode = ''
     let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
+    let g:ctrlp_max_height = 40
     " 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
   " }}}
 
@@ -452,6 +453,10 @@
       exec 'vsplit '. a:candidates[0].action__path
     endfunction
     call unite#custom_action('file', 'my_vsplit', s:my_action)
+  " }}}
+
+  " vimref {{{
+    let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
   " }}}
 " }}}
 
