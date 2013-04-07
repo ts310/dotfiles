@@ -14,7 +14,7 @@
   filetype off
   "runtime macros/matchit.vim
   "runtime ftplugin/man.vim
-  set rtp+=~/.vim/vundle.git/
+  set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
   " Plugins {{{
     " plugin manager {{{
@@ -79,6 +79,7 @@
       Bundle 'vim-scripts/SQLComplete.vim'
       Bundle 'vim-scripts/SearchComplete'
       "Bundle 'vim-scripts/YankRing.vim'
+      Bundle 'vim-scripts/CodeReviewer.vim'
     " }}}
   " }}}
   filetype plugin indent on
@@ -426,7 +427,31 @@
   "
   " CodeReviewer {{{
     let g:CodeReviewer_reviewer = "saito"
-    let g:CodeReviewer_reviewFile = "./review.rev"
+    let g:CodeReviewer_reviewFile = "./Dropbox/vim/review.rev"
+  " }}}
+
+  " vimfiler {{{
+    nnoremap <F2> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
+    autocmd! FileType vimfiler call g:my_vimfiler_settings()
+    function! g:my_vimfiler_settings()
+      nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+      nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
+      nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
+    endfunction
+
+    let s:my_action = { 'is_selectable' : 1 }
+    function! s:my_action.func(candidates)
+      wincmd p
+      exec 'split '. a:candidates[0].action__path
+    endfunction
+    call unite#custom_action('file', 'my_split', s:my_action)
+
+    let s:my_action = { 'is_selectable' : 1 }
+    function! s:my_action.func(candidates)
+      wincmd p
+      exec 'vsplit '. a:candidates[0].action__path
+    endfunction
+    call unite#custom_action('file', 'my_vsplit', s:my_action)
   " }}}
 " }}}
 
