@@ -12,75 +12,49 @@
 
 " Load plugins {{{
   filetype off
-  "runtime macros/matchit.vim
-  "runtime ftplugin/man.vim
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
   " Plugins {{{
-    " plugin manager {{{
-      Bundle 'gmarik/vundle'
-    " }}}
-    " unite {{{
-      Bundle 'Shougo/neocomplcache'
-      Bundle 'Shougo/unite.vim'
-      Bundle 'Shougo/vimfiler'
-      Bundle 'Shougo/vimproc'
-      "Bundle 'Shougo/vimshell'
-      "Bundle 'h1mesuke/unite-outline'
-      "Bundle 'hrsh7th/vim-unite-vcs'
-      "Bundle 'kmnk/vim-unite-svn'
-      Bundle 'tsukkee/unite-tag'
-      Bundle 'ujihisa/unite-colorscheme'
-    " }}}
-    " diff {{{
-      Bundle 'AndrewRadev/linediff.vim'
-    " }}}
-    " syntax {{{
-      Bundle 'groenewege/vim-less'
-      Bundle 'kchmck/vim-coffee-script'
-      Bundle 'msanders/cocoa.vim'
-    " }}}
-    " php {{{
-      Bundle 'vim-scripts/php-doc'
-      Bundle 'vim-scripts/php.vim'
-      Bundle 'vim-scripts/phpcomplete.vim'
-    " }}}
-    " git {{{
-      Bundle 'tpope/vim-fugitive'
-      Bundle 'tpope/vim-git'
-    " }}}
-    " rails {{{
-      Bundle 'tpope/vim-rails'
-    " }}}
-    " navigation {{{
-      Bundle 'scrooloose/nerdtree'
-      Bundle 'kien/ctrlp.vim'
-      Bundle 'vim-scripts/taglist.vim'
-    " }}}
-    " search {{{
-      Bundle 'mileszs/ack.vim'
-    " }}}
-    " editing {{{
-      Bundle 'vim-scripts/ZenCoding.vim'
-      Bundle 'vim-scripts/matchit.zip'
-      Bundle 'tpope/vim-surround'
-      Bundle 'scrooloose/nerdcommenter'
-      Bundle 'vim-scripts/Align'
-    " }}}
-    " svn {{{
-      "Bundle 'vim-scripts/vcscommand.vim'
-    " }}}
-    " debugging {{{
-      Bundle 'joonty/vdebug'
-    " }}}
-    " misc {{{
-      Bundle 'thinca/vim-ref'
-      Bundle 'vim-scripts/Color-Sampler-Pack'
-      Bundle 'vim-scripts/SQLComplete.vim'
-      Bundle 'vim-scripts/SearchComplete'
-      "Bundle 'vim-scripts/YankRing.vim'
-      Bundle 'vim-scripts/CodeReviewer.vim'
-    " }}}
+    Bundle 'gmarik/vundle'
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/neosnippet'
+    Bundle 'Shougo/unite.vim'
+    "Bundle 'Shougo/vimfiler'
+    Bundle 'Shougo/vimproc'
+    "Bundle 'Shougo/vimshell'
+    "Bundle 'h1mesuke/unite-outline'
+    "Bundle 'hrsh7th/vim-unite-vcs'
+    "Bundle 'kmnk/vim-unite-svn'
+    "Bundle 'tsukkee/unite-tag'
+    Bundle 'ujihisa/unite-colorscheme'
+    Bundle 'AndrewRadev/linediff.vim'
+    Bundle 'groenewege/vim-less'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'msanders/cocoa.vim'
+    Bundle 'vim-scripts/php-doc'
+    Bundle 'vim-scripts/php.vim'
+    Bundle 'vim-scripts/phpcomplete.vim'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-git'
+    Bundle 'tpope/vim-rails'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'vim-scripts/taglist.vim'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'vim-scripts/ZenCoding.vim'
+    Bundle 'vim-scripts/matchit.zip'
+    Bundle 'tpope/vim-surround'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'vim-scripts/Align'
+    "Bundle 'vim-scripts/vcscommand.vim'
+    Bundle 'joonty/vdebug'
+    Bundle 'thinca/vim-ref'
+    Bundle 'vim-scripts/Color-Sampler-Pack'
+    "Bundle 'vim-scripts/SQLComplete.vim'
+    "Bundle 'vim-scripts/SearchComplete'
+    Bundle 'vim-scripts/YankRing.vim'
+    Bundle 'vim-scripts/CodeReviewer.vim'
+    Bundle 'vim-scripts/sudo.vim'
   " }}}
   filetype plugin indent on
 " }}}
@@ -220,6 +194,9 @@
 
   " tagsジャンプの時に複数ある時は一覧表示                                        
   nnoremap <C-]> g<C-]> 
+
+  " use quickfix for vimrgrep
+  autocmd QuickFixCmdPost *grep* cwindow
 " }}}
 
 " Appearance {{{
@@ -294,25 +271,6 @@
     nnoremap <silent> <F3> :TlistToggle<CR>
   " }}}
   
-  " easytags {{{
-    "let g:easytags_dynamic_files = 1
-    "let g:easytags_always_enabled = 0
-  " }}}
-
-  " Tagbar {{{
-    "let g:tagbar_width = 27
-    "let g:tagbar_left = 0
-    "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-    "let g:tagbar_compact = 1
-    "let g:tagbar_expand = 1
-    "nnoremap <silent> <F3> :TagbarToggle<CR>
-    "nnoremap <silent> <Leader>y :TagbarToggle<CR>
-  " }}}
-
-  " phpctags {{{
-    "let g:tagbar_phpctags_bin = '/usr/local/src/phpctags/phpctags'
-  " }}}
-
   " Ack {{{
     map <leader>aa :Ack<space>
   " }}}
@@ -367,20 +325,10 @@
       imap <silent><buffer> <ESC><ESC> <ESC>q
     endfunction
   " }}}
-
-  " CommantT {{{
-    "let g:CommandTMaxFiles = 55000
-    "let g:CommandTMaxDepth = 40
-    "let g:CommandTMaxHeight = 30
-    "let g:CommandTMatchWindowAtTop = 0
-    "let g:CommandTMatchWindowReverse = 0
-    "nnoremap <silent> <Leader>ff :CommandT<CR>
-    "nnoremap <silent> <Leader>bb :CommandTBuffer<CR>
-  " }}}
   
   " Ctrlp {{{
     "let g:loaded_ctrlp = 1
-    let g:ctrlp_map = '<C-p>'
+    let g:ctrlp_map = '<D-p>'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_max_height = 16
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -392,31 +340,9 @@
   " }}}
 
   " YankRing {{{
-    "let g:yankring_max_history = 400
-    "let g:yankring_window_use_separate = 1
-    "let g:yankring_history_dir = '~/.vim/tmp/'
-  " }}}
-
-  " Gtags {{{
-    "map <C-g> :Gtags 
-    "map <F3> :Gtags -f %<CR>
-    "map <C-u> :Gtags -f %<CR>
-    "map <C-t><C-t> :GtagsCursor<CR>
-    "map <C-n> :cn<CR>
-    "map <C-p> :cp<CR>
-  " }}}
-
-  " Unite tag {{{
-    "autocmd BufEnter *
-    "\   if empty(&buftype)
-    "\|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
-    "\|  endif
-  " }}}
-    
-  " Powerline {{{
-    "set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
-    "let g:Powerline_symbols = 'fancy'
-    "set t_Co=256
+    let g:yankring_max_history = 400
+    let g:yankring_window_use_separate = 1
+    let g:yankring_history_dir = $HOME . '/.vim/tmp/'
   " }}}
 
   " vdebug {{{
@@ -429,30 +355,6 @@
   " CodeReviewer {{{
     let g:CodeReviewer_reviewer = "saito"
     let g:CodeReviewer_reviewFile = "./Dropbox/vim/review.rev"
-  " }}}
-
-  " vimfiler {{{
-    nnoremap <F2> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
-    autocmd! FileType vimfiler call g:my_vimfiler_settings()
-    function! g:my_vimfiler_settings()
-      nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
-      nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
-      nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
-    endfunction
-
-    let s:my_action = { 'is_selectable' : 1 }
-    function! s:my_action.func(candidates)
-      wincmd p
-      exec 'split '. a:candidates[0].action__path
-    endfunction
-    call unite#custom_action('file', 'my_split', s:my_action)
-
-    let s:my_action = { 'is_selectable' : 1 }
-    function! s:my_action.func(candidates)
-      wincmd p
-      exec 'vsplit '. a:candidates[0].action__path
-    endfunction
-    call unite#custom_action('file', 'my_vsplit', s:my_action)
   " }}}
 
   " vimref {{{
