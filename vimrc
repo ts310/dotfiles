@@ -290,6 +290,16 @@
     let g:neocomplcache_enable_underbar_completion = 1
   " }}}
 
+  " neosnippet {{{
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    if has('conceal')
+      set conceallevel=2 concealcursor=i
+    endif
+  " }}}
+
   " Zen coding {{{
     let g:user_zen_leader_key = '<c-e>'
     let g:use_zen_complete_tag = 1
