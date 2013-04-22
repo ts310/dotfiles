@@ -364,7 +364,7 @@
   "
   " CodeReviewer {{{
     let g:CodeReviewer_reviewer = "saito"
-    let g:CodeReviewer_reviewFile = "./Dropbox/vim/review.rev"
+    let g:CodeReviewer_reviewFile = $HOME . "/Dropbox/vim/review.rev"
   " }}}
 
   " vimref {{{
