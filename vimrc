@@ -347,6 +347,7 @@
     let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
     let g:ctrlp_max_height = 40
     " 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
+    map <Leader>p :CtrlP<CR>
   " }}}
 
   " YankRing {{{
