@@ -37,6 +37,7 @@
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-rails'
+    Bundle 'tpope/vim-markdown'
     Bundle 'scrooloose/nerdtree'
     Bundle 'kien/ctrlp.vim'
     Bundle 'vim-scripts/taglist.vim'
@@ -55,6 +56,9 @@
     Bundle 'vim-scripts/YankRing.vim'
     Bundle 'vim-scripts/CodeReviewer.vim'
     Bundle 'vim-scripts/sudo.vim'
+    Bundle 'thinca/vim-quickrun'
+    Bundle 'rizzatti/funcoo.vim'
+    Bundle 'rizzatti/dash.vim'
   " }}}
   filetype plugin indent on
 " }}}
@@ -369,6 +373,17 @@
 
   " vimref {{{
     let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
+  " }}}
+
+  " vim-quickrun {{{
+    let g:quickrun_config = {}
+    let g:quickrun_config.markdown = {
+          \ 'outputter' : 'null',
+          \ 'command'   : 'open',
+          \ 'cmdopt'    : '-a',
+          \ 'args'      : 'Marked',
+          \ 'exec'      : '%c %o %a %s',
+          \ }
   " }}}
 " }}}
 
