@@ -351,6 +351,7 @@
     let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
     let g:ctrlp_max_height = 40
     " 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
+    map <Leader>p :CtrlP<CR>
   " }}}
 
   " YankRing {{{
@@ -368,7 +369,7 @@
   "
   " CodeReviewer {{{
     let g:CodeReviewer_reviewer = "saito"
-    let g:CodeReviewer_reviewFile = "./Dropbox/vim/review.rev"
+    let g:CodeReviewer_reviewFile = $HOME . "/Dropbox/vim/review.rev"
   " }}}
 
   " vimref {{{
