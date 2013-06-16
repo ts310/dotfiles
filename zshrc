@@ -40,15 +40,15 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 ########################################################
 
-source ~/dotfiles/common/env
-source ~/dotfiles/common/aliases
+source $HOME/dotfiles/common/env
+source $HOME/dotfiles/common/aliases
 
 #autoload -Uz colors
 #colors
 
 #setopt prompt_subst
 PROMPT='%{$fg[green]%}[%n]%{$reset_color%} '
-RPROMPT='%{$fg[yellow]%}[%~] %{$reset_color%}%{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[red]%}[@%m]%{$reset_color%}'
+#RPROMPT='%{$fg[yellow]%}[%~] %{$reset_color%}%{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[red]%}[@%m]%{$reset_color%}'
 
 #setopt auto_cd
 #setopt auto_pushd
