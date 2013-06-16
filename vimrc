@@ -16,49 +16,77 @@
   call vundle#rc()
   " Plugins {{{
     Bundle 'gmarik/vundle'
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'Shougo/neosnippet'
-    Bundle 'Shougo/unite.vim'
-    "Bundle 'Shougo/vimfiler'
-    Bundle 'Shougo/vimproc'
-    "Bundle 'Shougo/vimshell'
-    "Bundle 'h1mesuke/unite-outline'
-    "Bundle 'hrsh7th/vim-unite-vcs'
-    "Bundle 'kmnk/vim-unite-svn'
-    "Bundle 'tsukkee/unite-tag'
-    Bundle 'ujihisa/unite-colorscheme'
-    Bundle 'AndrewRadev/linediff.vim'
-    Bundle 'groenewege/vim-less'
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'msanders/cocoa.vim'
-    Bundle 'vim-scripts/php-doc'
-    Bundle 'vim-scripts/php.vim'
-    Bundle 'vim-scripts/phpcomplete.vim'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-git'
-    Bundle 'tpope/vim-rails'
-    Bundle 'tpope/vim-markdown'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'vim-scripts/taglist.vim'
-    Bundle 'mileszs/ack.vim'
-    Bundle 'vim-scripts/ZenCoding.vim'
-    Bundle 'vim-scripts/matchit.zip'
-    Bundle 'tpope/vim-surround'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'vim-scripts/Align'
-    "Bundle 'vim-scripts/vcscommand.vim'
-    Bundle 'joonty/vdebug'
-    Bundle 'thinca/vim-ref'
-    Bundle 'vim-scripts/Color-Sampler-Pack'
-    "Bundle 'vim-scripts/SQLComplete.vim'
-    "Bundle 'vim-scripts/SearchComplete'
-    Bundle 'vim-scripts/YankRing.vim'
-    Bundle 'vim-scripts/CodeReviewer.vim'
-    Bundle 'vim-scripts/sudo.vim'
-    Bundle 'thinca/vim-quickrun'
-    Bundle 'rizzatti/funcoo.vim'
-    Bundle 'rizzatti/dash.vim'
+
+    " Unite {{{
+      "Bundle 'Shougo/neocomplcache'
+      "Bundle 'Shougo/neosnippet'
+      "Bundle 'Shougo/unite.vim'
+      "Bundle 'Shougo/vimfiler'
+      "Bundle 'Shougo/vimproc'
+      "Bundle 'Shougo/vimshell'
+      "Bundle 'h1mesuke/unite-outline'
+      "Bundle 'hrsh7th/vim-unite-vcs'
+      "Bundle 'kmnk/vim-unite-svn'
+      "Bundle 'tsukkee/unite-tag'
+      "Bundle 'ujihisa/unite-colorscheme'
+      "Bundle 'thinca/vim-ref'
+    " }}}
+
+    " Completion {{{
+      Bundle 'vim-scripts/AutoComplPop' 
+    " }}}
+
+    " Language {{{
+      Bundle 'groenewege/vim-less'
+      Bundle 'kchmck/vim-coffee-script'
+      Bundle 'msanders/cocoa.vim'
+      Bundle 'vim-scripts/php-doc'
+      Bundle 'vim-scripts/php.vim'
+      Bundle 'vim-scripts/phpcomplete.vim'
+      Bundle 'tpope/vim-rails'
+      Bundle 'tpope/vim-markdown'
+      "Bundle 'vim-scripts/SQLComplete.vim'
+    " }}}
+
+    " Editing {{{
+      Bundle 'vim-scripts/ZenCoding.vim'
+      Bundle 'vim-scripts/matchit.zip'
+      Bundle 'tpope/vim-surround'
+      Bundle 'scrooloose/nerdcommenter'
+      Bundle 'vim-scripts/Align'
+      "Bundle 'vim-scripts/SearchComplete'
+      Bundle 'vim-scripts/YankRing.vim'
+      Bundle 'vim-scripts/sudo.vim'
+      Bundle 'thinca/vim-quickrun'
+    " }}}
+    "
+    " File browser {{{
+      Bundle 'scrooloose/nerdtree'
+      Bundle 'kien/ctrlp.vim'
+      Bundle 'vim-scripts/taglist.vim'
+      Bundle 'mileszs/ack.vim'
+    " }}}
+
+    " Debugging {{{
+      Bundle 'joonty/vdebug'
+    " }}}
+
+    " VCS {{{
+      Bundle 'tpope/vim-fugitive'
+      Bundle 'tpope/vim-git'
+      Bundle 'vim-scripts/vcscommand.vim'
+    " }}}
+
+    " Diff {{{
+      Bundle 'AndrewRadev/linediff.vim'
+    " }}}
+
+    " Misc {{{
+      Bundle 'rizzatti/funcoo.vim'
+      Bundle 'rizzatti/dash.vim'
+      Bundle 'vim-scripts/Color-Sampler-Pack'
+      Bundle 'vim-scripts/CodeReviewer.vim'
+    " }}}
   " }}}
   filetype plugin indent on
 " }}}
@@ -287,21 +315,21 @@
   " }}}
 
   " Neocomplcache {{{
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_smart_case = 1
-    let g:neocomplcache_min_syntax_length = 3
-    let g:neocomplcache_enable_camel_case_completion = 1
-    let g:neocomplcache_enable_underbar_completion = 1
+    "let g:neocomplcache_enable_at_startup = 1
+    "let g:neocomplcache_enable_smart_case = 1
+    "let g:neocomplcache_min_syntax_length = 3
+    "let g:neocomplcache_enable_camel_case_completion = 1
+    "let g:neocomplcache_enable_underbar_completion = 1
   " }}}
 
   " neosnippet {{{
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-    if has('conceal')
-      set conceallevel=2 concealcursor=i
-    endif
+    "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    "smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    "imap <expr><TAB> neosnippet#expandable_or_jumpable() ? '\<Plug>(neosnippet_expand_or_jump)' : pumvisible() ? '\<C-n>' : '\<TAB>'
+    "smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "'\<Plug>(neosnippet_expand_or_jump) : '\<TAB>'
+    "if has('conceal')
+      "set conceallevel=2 concealcursor=i
+    "endif
   " }}}
 
   " Zen coding {{{
@@ -310,34 +338,34 @@
   " }}}
 
   " Unite {{{
-    let g:unite_enable_start_insert=1
-    let g:unite_source_file_mru_filename_format=''
-    let g:unite_source_file_mru_limit=50
-    let g:unite_split_rule = "botright"
-    nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
-    nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-    nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
-    nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
-    nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
-    nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
-    nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
-    nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
-    nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
-    map <F2> <leader>ua
+    "let g:unite_enable_start_insert=1
+    "let g:unite_source_file_mru_filename_format=''
+    "let g:unite_source_file_mru_limit=50
+    "let g:unite_split_rule = 'botright'
+    "nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
+    "nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+    "nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
+    "nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
+    "nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
+    "nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
+    "nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
+    "nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
+    "nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
+    "map <F2> <leader>ua
     " For ack.
-    if executable('ack-grep')
-      let g:unite_source_grep_command = 'ack-grep'
-      let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-      let g:unite_source_grep_recursive_opt = ''
-    endif
-    autocmd FileType unite call s:unite_my_settings()
-    function! s:unite_my_settings()
-      " 単語単位からパス単位で削除するように変更
-      imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-      " ESCキーを2回押すと終了する
-      nmap <silent><buffer> <ESC><ESC> q
-      imap <silent><buffer> <ESC><ESC> <ESC>q
-    endfunction
+    "if executable('ack-grep')
+      "let g:unite_source_grep_command = 'ack-grep'
+      "let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+      "let g:unite_source_grep_recursive_opt = ''
+    "endif
+    "autocmd FileType unite call s:unite_my_settings()
+    "function! s:unite_my_settings()
+      "" 単語単位からパス単位で削除するように変更
+      "imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+      "" ESCキーを2回押すと終了する
+      "nmap <silent><buffer> <ESC><ESC> q
+      "imap <silent><buffer> <ESC><ESC> <ESC>q
+    "endfunction
   " }}}
   
   " Ctrlp {{{
@@ -362,7 +390,7 @@
 
   " vdebug {{{
     let g:vdebug_options = {
-      \ 'path_maps': {"/home/buyma/apps/trunk": "/Volumes/buyma_vbox/trunk"},
+      \ 'path_maps': {"/home/buyma/php_apps": "/Volumes/buyma_vbox/bm_sm_search"},
       \ 'server': '192.168.56.101'
     \}
   " }}}
@@ -373,7 +401,7 @@
   " }}}
 
   " vimref {{{
-    let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
+    "let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
   " }}}
 
   " vim-quickrun {{{
