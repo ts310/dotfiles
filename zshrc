@@ -48,7 +48,7 @@ source $HOME/dotfiles/common/aliases
 
 #setopt prompt_subst
 PROMPT='%{$fg[green]%}[%n]%{$reset_color%} '
-#RPROMPT='%{$fg[yellow]%}[%~] %{$reset_color%}%{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[red]%}[@%m]%{$reset_color%}'
+RPROMPT='%{$fg[yellow]%}[%~] %{$reset_color%}%{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[red]%}[@%m]%{$reset_color%}'
 
 #setopt auto_cd
 #setopt auto_pushd
