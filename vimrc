@@ -75,6 +75,7 @@
       Bundle 'tpope/vim-fugitive'
       Bundle 'tpope/vim-git'
       Bundle 'vim-scripts/vcscommand.vim'
+      Bundle 'gitv'
     " }}}
 
     " Diff {{{
