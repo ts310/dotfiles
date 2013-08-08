@@ -54,7 +54,7 @@
       Bundle 'tpope/vim-surround'
       Bundle 'scrooloose/nerdcommenter'
       Bundle 'vim-scripts/Align'
-      "Bundle 'vim-scripts/SearchComplete'
+      Bundle 'vim-scripts/SearchComplete'
       Bundle 'vim-scripts/YankRing.vim'
       Bundle 'vim-scripts/sudo.vim'
       Bundle 'thinca/vim-quickrun'
@@ -246,7 +246,7 @@
     syntax on
     set hlsearch
   endif
-  colorscheme molokai
+  colorscheme desert
   "hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
   "au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
   "au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
