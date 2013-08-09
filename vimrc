@@ -75,6 +75,7 @@
       Bundle 'tpope/vim-fugitive'
       Bundle 'tpope/vim-git'
       Bundle 'vim-scripts/vcscommand.vim'
+      Bundle 'gitv'
     " }}}
 
     " Diff {{{
@@ -246,7 +247,7 @@
     syntax on
     set hlsearch
   endif
-  colorscheme desert
+  colorscheme mustang
   "hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
   "au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
   "au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
@@ -413,6 +414,10 @@
           \ 'args'      : 'Marked',
           \ 'exec'      : '%c %o %a %s',
           \ }
+  " }}}
+
+  " Gitv {{{
+    let g:Gitv_OpenHorizontal = 1
   " }}}
 " }}}
 
