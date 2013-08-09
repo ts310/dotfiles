@@ -7,3 +7,6 @@
 [submodule "lib/oh-my-zsh"]
 	path = lib/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "themes/iTerm-Color-Schemes"]
+	path = themes/iTerm-Color-Schemes
+	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
