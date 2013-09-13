@@ -33,7 +33,7 @@
     " }}}
 
     " Completion {{{
-      Bundle 'vim-scripts/AutoComplPop' 
+      "Bundle 'vim-scripts/AutoComplPop' 
     " }}}
 
     " Language {{{
@@ -54,7 +54,7 @@
       Bundle 'tpope/vim-surround'
       Bundle 'scrooloose/nerdcommenter'
       Bundle 'vim-scripts/Align'
-      Bundle 'vim-scripts/SearchComplete'
+      "Bundle 'vim-scripts/SearchComplete'
       Bundle 'vim-scripts/YankRing.vim'
       Bundle 'vim-scripts/sudo.vim'
       Bundle 'thinca/vim-quickrun'
@@ -65,6 +65,7 @@
       Bundle 'kien/ctrlp.vim'
       Bundle 'vim-scripts/taglist.vim'
       Bundle 'mileszs/ack.vim'
+      Bundle 'rking/ag.vim'
     " }}}
 
     " Debugging {{{
@@ -76,7 +77,7 @@
       Bundle 'tpope/vim-git'
       Bundle 'vim-scripts/vcscommand.vim'
       Bundle 'gitv'
-    " }}}
+    " }}}'
 
     " Diff {{{
       Bundle 'AndrewRadev/linediff.vim'
@@ -242,12 +243,14 @@
   hi SpecialKey guifg=gray cterm=none ctermfg=gray
   set number
   set numberwidth=5
-  set cursorline
+  set nocursorcolumn
+  set nocursorline
+  syntax sync minlines=256
   if &t_Co > 2 || has("gui_running")
     syntax on
     set hlsearch
   endif
-  colorscheme mustang
+  colorscheme molokai
   "hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
   "au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
   "au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
@@ -313,6 +316,10 @@
     command! Gc :Gcommit
     command! Gw :Gwrite
     command! Gs :Gstatus
+  " }}}
+
+  " AutoComplPop {{{
+    autocmd FileType * let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i'
   " }}}
 
   " Neocomplcache {{{
@@ -391,7 +398,7 @@
 
   " vdebug {{{
     let g:vdebug_options = {
-      \ 'path_maps': {"/home/buyma/php_apps": "/Volumes/buyma_vbox/bm_sm_search"},
+      \ 'path_maps': {"/home/buyma/php_apps": "/Users/saitoutsuyoshi/work/enigmo/buyma/code/bm_trunk"},
       \ 'server': '192.168.56.101'
     \}
   " }}}
