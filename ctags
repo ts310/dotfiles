@@ -9,6 +9,7 @@
 --exclude=*.sql
 --exclude=*.SQL
 --extra=+q
+--extra=+f
 --tag-relative=yes
 --totals=yes
 --langmap=php:.php
