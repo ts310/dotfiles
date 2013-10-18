@@ -87,6 +87,7 @@
       Bundle 'rizzatti/funcoo.vim'
       Bundle 'rizzatti/dash.vim'
       Bundle 'vim-scripts/Color-Sampler-Pack'
+      Bundle 'tomasr/molokai'
       Bundle 'vim-scripts/CodeReviewer.vim'
     " }}}
   " }}}
