@@ -15,40 +15,48 @@
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
   " Plugins {{{
-    Bundle 'gmarik/vundle'
     Bundle "Valloric/YouCompleteMe"
     Bundle 'AndrewRadev/linediff.vim'
+    Bundle 'AndrewRadev/switch.vim'
     Bundle 'Shougo/unite.vim'
     Bundle 'Shougo/vimfiler.vim'
+    Bundle 'Shougo/vimproc.vim'
+    Bundle 'gmarik/vundle'
     Bundle 'gregsexton/gitv'
     Bundle 'groenewege/vim-less'
+    Bundle 'guillemc/vimref'
     Bundle 'joonty/vdebug'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'kien/ctrlp.vim'
+    Bundle 'majutsushi/tagbar'
+    Bundle 'mrtazz/simplenote.vim'
     Bundle 'msanders/cocoa.vim'
     Bundle 'rizzatti/dash.vim'
     Bundle 'rizzatti/funcoo.vim'
     Bundle 'rking/ag.vim'
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/nerdtree'
+    Bundle 'scrooloose/syntastic'
     Bundle 'tomasr/molokai'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-surround'
+    Bundle 'tsukkee/unite-tag'
     Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/CodeReviewer.vim'
     Bundle 'vim-scripts/Color-Sampler-Pack'
     Bundle 'vim-scripts/YankRing.vim'
     Bundle 'vim-scripts/ZenCoding.vim'
+    Bundle 'vim-scripts/ZoomWin'
     Bundle 'vim-scripts/matchit.zip'
     Bundle 'vim-scripts/php-doc'
     Bundle 'vim-scripts/php.vim'
     Bundle 'vim-scripts/phpcomplete.vim'
     Bundle 'vim-scripts/sudo.vim'
-    Bundle 'vim-scripts/taglist.vim'
     Bundle 'vim-scripts/vcscommand.vim'
+    Bundle 'ujihisa/unite-colorscheme'
   " }}}
   filetype plugin indent on
 " }}}
@@ -94,6 +102,7 @@
   set virtualedit+=block
   set clipboard+=unnamedplus,unnamed
   set tags+=.tags
+  set lazyredraw
 " }}}
 
 " Mappings {{{
@@ -107,6 +116,7 @@
   map <leader><space> :nohlsearch<CR>
 
   nmap <silent> <Leader>ww :w!<CR>
+  nmap <silent> <Leader>up :up<CR>
 
   " insert mode
   imap  <C-e> <END>
@@ -186,8 +196,8 @@
   " Forgot sudo
   cmap w!! w !sudo tee % >/dev/null
 
-  " tagsジャンプの時に複数ある時は一覧表示                                        
-  nnoremap <C-]> g<C-]> 
+  " tagsジャンプの時に複数ある時は一覧表示
+  nnoremap <C-]> g<C-]>
 
   " use quickfix for vimrgrep
   autocmd QuickFixCmdPost *grep* cwindow
@@ -263,14 +273,14 @@
   " }}}
 
   " TagList {{{
-    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-    let Tlist_Use_Right_Window = 1
-    nnoremap <silent> <leader>y :TlistToggle<CR>
-    nnoremap <silent> <F3> :TlistToggle<CR>
+    "let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+    "let Tlist_Use_Right_Window = 1
+    "nnoremap <silent> <leader>y :TlistToggle<CR>
+    "nnoremap <silent> <F3> :TlistToggle<CR>
   " }}}
-  
-  " Ack {{{
-    map <leader>aa :Ack<space>
+
+  " Ag {{{
+    map <leader>ag :Ag<space>
   " }}}
 
   " Fugitive {{{
@@ -308,36 +318,43 @@
   " }}}
 
   " Unite {{{
-    "let g:unite_enable_start_insert=1
-    "let g:unite_source_file_mru_filename_format=''
-    "let g:unite_source_file_mru_limit=50
-    "let g:unite_split_rule = 'botright'
-    "nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
-    "nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-    "nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
-    "nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
-    "nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
-    "nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
-    "nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
-    "nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
-    "nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
-    "map <F2> <leader>ua
-    " For ack.
-    "if executable('ack-grep')
-      "let g:unite_source_grep_command = 'ack-grep'
-      "let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-      "let g:unite_source_grep_recursive_opt = ''
-    "endif
-    "autocmd FileType unite call s:unite_my_settings()
-    "function! s:unite_my_settings()
-      "" 単語単位からパス単位で削除するように変更
-      "imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-      "" ESCキーを2回押すと終了する
-      "nmap <silent><buffer> <ESC><ESC> q
-      "imap <silent><buffer> <ESC><ESC> <ESC>q
-    "endfunction
+    let g:unite_enable_start_insert = 1
+    let g:unite_force_overwrite_statusline = 0
+    let g:unite_source_file_mru_filename_format = ''
+    let g:unite_source_file_mru_limit = 50
+    let g:unite_split_rule = "botright"
+    let g:unite_winheight = 10
+    nnoremap <silent> <leader>ua :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
+    nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
+    nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
+    nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
+    nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+    nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
+    nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
+    nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
+    nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
+    nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
+    call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+          \ 'ignore_pattern', join([
+          \ '\.git/',
+          \ ], '\|'))
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    autocmd FileType unite call s:unite_settings()
+    function! s:unite_settings()
+      let b:SuperTabDisabled=1
+      imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+      nmap <silent><buffer> <ESC><ESC> q
+      imap <silent><buffer> <ESC><ESC> <ESC>q
+      imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+      imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+      imap <silent><buffer><expr> <C-x> unite#do_action('split')
+      imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+      imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+      nmap <buffer> <ESC> <Plug>(unite_exit)
+    endfunction
   " }}}
-  
+
   " Ctrlp {{{
     "let g:loaded_ctrlp = 1
     let g:ctrlp_map = '<D-p>'
@@ -371,22 +388,36 @@
   " }}}
 
   " vimref {{{
-    "let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
+    let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
   " }}}
 
-  " vim-quickrun {{{
-    let g:quickrun_config = {}
-    let g:quickrun_config.markdown = {
-          \ 'outputter' : 'null',
-          \ 'command'   : 'open',
-          \ 'cmdopt'    : '-a',
-          \ 'args'      : 'Marked',
-          \ 'exec'      : '%c %o %a %s',
-          \ }
+ " vim-quickrun {{{
+    "let g:quickrun_config = {}
+    "let g:quickrun_config.markdown = {
+    "      \ 'outputter' : 'null',
+    "      \ 'command'   : 'open',
+    "      \ 'cmdopt'    : '-a',
+    "      \ 'args'      : 'Marked',
+    "      \ 'exec'      : '%c %o %a %s',
+    "      \ }
   " }}}
 
   " Gitv {{{
     let g:Gitv_OpenHorizontal = 1
+    let g:Gitv_WrapLines = 1
+    let g:Gitv_OpenPreviewOnLaunch = 1
+    nmap <leader>gv :Gitv --all<cr>
+    nmap <leader>gV :Gitv! --all<cr>
+    vmap <leader>gV :Gitv! --all<cr>
+    cabbrev git Git
+  " }}}
+
+  " Switch {{{
+    nnoremap - :Switch<cr> 
+  " }}}
+
+  " Simplenote {{{
+    exe 'source ' . $HOME . '/.simplenoterc'
   " }}}
 " }}}
 
