@@ -47,7 +47,6 @@
     Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/CodeReviewer.vim'
     Bundle 'vim-scripts/Color-Sampler-Pack'
-    Bundle 'vim-scripts/YankRing.vim'
     Bundle 'vim-scripts/ZenCoding.vim'
     Bundle 'vim-scripts/ZoomWin'
     Bundle 'vim-scripts/matchit.zip'
@@ -57,6 +56,7 @@
     Bundle 'vim-scripts/sudo.vim'
     Bundle 'vim-scripts/vcscommand.vim'
     Bundle 'ujihisa/unite-colorscheme'
+    Bundle 'h1mesuke/unite-outline'
   " }}}
   filetype plugin indent on
 " }}}
@@ -298,7 +298,7 @@
   " }}}
 
   " AutoComplPop {{{
-    autocmd FileType * let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i'
+    " autocmd FileType * let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i'
   " }}}
 
   " Neocomplcache {{{
@@ -320,7 +320,7 @@
   " }}}
 
   " Zen coding {{{
-    let g:user_zen_leader_key = '<c-e>'
+    let g:user_zen_leader_key = '<C-e>'
     let g:use_zen_complete_tag = 1
   " }}}
 
@@ -331,16 +331,33 @@
     let g:unite_source_file_mru_limit = 50
     let g:unite_split_rule = "botright"
     let g:unite_winheight = 10
-    nnoremap <silent> <leader>ua :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
-    nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
-    nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
-    nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
-    nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-    nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
-    nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
-    nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
-    nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
-    nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
+    let g:unite_source_history_yank_enable = 1
+    let g:unite_enable_ignore_case = 1
+    let g:unite_enable_smart_case = 1
+    "nnoremap <silent> <leader>ua :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
+    "nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
+    "nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
+    "nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
+    "nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+    "nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
+    "nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
+    "nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
+    "nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
+    "nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
+    nnoremap <silent> <leader>t  :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+    nnoremap <silent> <leader>f  :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+    nnoremap <silent> <leader>mr :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+    nnoremap <silent> <leader>o  :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+    nnoremap <silent> <leader>y  :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+    nnoremap <silent> <leader>g  :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR>
+    nnoremap <silent> <leader>cg :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR><C-R><C-W>
+    nnoremap <silent> <leader>r  :<C-u>UniteResume search-buffer<CR>
+    if executable('ag')
+      let g:unite_source_grep_command = 'ag'
+      let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+      let g:unite_source_grep_recursive_opt = ''
+    endif
+    nnoremap <silent><leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
     call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
           \ 'ignore_pattern', join([
           \ '\.git/',
@@ -364,7 +381,7 @@
 
   " Ctrlp {{{
     "let g:loaded_ctrlp = 1
-    let g:ctrlp_map = '<D-p>'
+    let g:ctrlp_map = '<C-p>'
     let g:ctrlp_cmd = 'CtrlP'
     let g:ctrlp_max_height = 16
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -377,9 +394,9 @@
   " }}}
 
   " YankRing {{{
-    let g:yankring_max_history = 400
-    let g:yankring_window_use_separate = 1
-    let g:yankring_history_dir = $HOME . '/.vim/tmp/'
+    "let g:yankring_max_history = 400
+    "let g:yankring_window_use_separate = 1
+    "let g:yankring_history_dir = $HOME . '/.vim/tmp/'
   " }}}
 
   " vdebug {{{
