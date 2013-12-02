@@ -89,6 +89,7 @@
     set guioptions+=a
     set ttymouse=xterm2
   endif
+  set cursorline
   set nobackup
   set noswapfile
   set autoindent
@@ -290,6 +291,12 @@
     command! Gs :Gstatus
   " }}}
 
+  " VCSCommand
+    nnoremap [VCS] <Nop>
+    nmap <Leader>v [VCS]
+    let g:VCSCommandMapPrefix = '[VCS]'
+  " }}}
+
   " AutoComplPop {{{
     autocmd FileType * let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i'
   " }}}
@@ -417,7 +424,9 @@
   " }}}
 
   " Simplenote {{{
-    exe 'source ' . $HOME . '/.simplenoterc'
+    if filereadable($HOME . '/.simplenoterc')
+      exe 'source ' . $HOME . '/.simplenoterc'
+    endif
   " }}}
 " }}}
 
