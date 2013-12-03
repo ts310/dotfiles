@@ -325,15 +325,20 @@
   " }}}
 
   " Unite {{{
+    let g:unite_enable_ignore_case = 1
+    let g:unite_enable_smart_case = 1
     let g:unite_enable_start_insert = 1
     let g:unite_force_overwrite_statusline = 0
     let g:unite_source_file_mru_filename_format = ''
     let g:unite_source_file_mru_limit = 50
+    let g:unite_source_history_yank_enable = 1
     let g:unite_split_rule = "botright"
     let g:unite_winheight = 10
-    let g:unite_source_history_yank_enable = 1
-    let g:unite_enable_ignore_case = 1
-    let g:unite_enable_smart_case = 1
+    if executable('ag')
+      let g:unite_source_grep_command = 'ag'
+      let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+      let g:unite_source_grep_recursive_opt = ''
+    endif
     "nnoremap <silent> <leader>ua :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
     "nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
     "nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
@@ -352,12 +357,6 @@
     nnoremap <silent> <leader>g  :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR>
     nnoremap <silent> <leader>cg :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR><C-R><C-W>
     nnoremap <silent> <leader>r  :<C-u>UniteResume search-buffer<CR>
-    if executable('ag')
-      let g:unite_source_grep_command = 'ag'
-      let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-      let g:unite_source_grep_recursive_opt = ''
-    endif
-    nnoremap <silent><leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
     call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
           \ 'ignore_pattern', join([
           \ '\.git/',
