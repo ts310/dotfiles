@@ -52,5 +52,6 @@ link screenrc .screenrc
 link irbrc .irbrc
 link tmux.conf .tmux.conf
 link ctags .ctags
+link rspec .rspec
 
 echo "Done!"
