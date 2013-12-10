@@ -15,12 +15,12 @@
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
   " Plugins {{{
-    Bundle "Valloric/YouCompleteMe"
     Bundle 'AndrewRadev/linediff.vim'
     Bundle 'AndrewRadev/switch.vim'
     Bundle 'Shougo/unite.vim'
     Bundle 'Shougo/vimfiler.vim'
     Bundle 'Shougo/vimproc.vim'
+    Bundle 'Shougo/neocomplcache.vim'
     Bundle 'gmarik/vundle'
     Bundle 'gregsexton/gitv'
     Bundle 'groenewege/vim-less'
@@ -57,6 +57,7 @@
     Bundle 'vim-scripts/vcscommand.vim'
     Bundle 'ujihisa/unite-colorscheme'
     Bundle 'h1mesuke/unite-outline'
+    Bundle 'hrsh7th/vim-versions'
   " }}}
   filetype plugin indent on
 " }}}
@@ -112,6 +113,11 @@
   " Natural behavior with wordwrap on
   nnoremap j gj
   nnoremap k gk
+
+  " disable keys
+  nmap Q gq
+  nnoremap ZZ <Nop>
+  nnoremap ZQ <Nop>
 
   nmap <ESC><ESC> :nohlsearch<CR><ESC>
   map <leader><space> :nohlsearch<CR>
@@ -297,16 +303,12 @@
     let g:VCSCommandMapPrefix = '[VCS]'
   " }}}
 
-  " AutoComplPop {{{
-    " autocmd FileType * let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i'
-  " }}}
-
   " Neocomplcache {{{
-    "let g:neocomplcache_enable_at_startup = 1
-    "let g:neocomplcache_enable_smart_case = 1
-    "let g:neocomplcache_min_syntax_length = 3
-    "let g:neocomplcache_enable_camel_case_completion = 1
-    "let g:neocomplcache_enable_underbar_completion = 1
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_min_syntax_length = 3
+    let g:neocomplcache_enable_camel_case_completion = 1
+    let g:neocomplcache_enable_underbar_completion = 1
   " }}}
 
   " neosnippet {{{
@@ -325,8 +327,9 @@
   " }}}
 
   " Unite {{{
-    let g:unite_enable_ignore_case = 1
-    let g:unite_enable_smart_case = 1
+    cabbrev unite Unite
+    nnoremap [unite] <Nop>
+    nmap <Leader> [unite]
     let g:unite_enable_start_insert = 1
     let g:unite_force_overwrite_statusline = 0
     let g:unite_source_file_mru_filename_format = ''
@@ -334,35 +337,30 @@
     let g:unite_source_history_yank_enable = 1
     let g:unite_split_rule = "botright"
     let g:unite_winheight = 10
+    let g:unite_source_history_yank_enable = 1
+    let g:unite_enable_ignore_case = 1
+    let g:unite_enable_smart_case = 1
+    nnoremap <silent> [unite]t  :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+    nnoremap <silent> [unite]f  :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+    nnoremap <silent> [unite]mr :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+    nnoremap <silent> [unite]o  :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+    nnoremap <silent> [unite]y  :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+    nnoremap <silent> [unite]g  :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR>
+    nnoremap <silent> [unite]cg :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR><C-R><C-W>
+    nnoremap <silent> [unite]r  :<C-u>UniteResume search-buffer<CR>
     if executable('ag')
       let g:unite_source_grep_command = 'ag'
       let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
       let g:unite_source_grep_recursive_opt = ''
     endif
-    "nnoremap <silent> <leader>ua :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
-    "nnoremap <silent> <leader>ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file -toggle<CR>
-    "nnoremap <silent> <leader>ub :<C-u>Unite buffer -toggle<CR>
-    "nnoremap <silent> <leader>uc :<C-u>Unite colorscheme -toggle<CR>
-    "nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-    "nnoremap <silent> <leader>um :<C-u>Unite file_mru -toggle<CR>
-    "nnoremap <silent> <leader>uo :<C-u>Unite outline -toggle<CR>
-    "nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register -toggle<CR>
-    "nnoremap <silent> <leader>ut :<C-u>Unite tag -toggle<CR>
-    "nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru -toggle<CR>
-    nnoremap <silent> <leader>t  :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-    nnoremap <silent> <leader>f  :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-    nnoremap <silent> <leader>mr :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-    nnoremap <silent> <leader>o  :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-    nnoremap <silent> <leader>y  :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-    nnoremap <silent> <leader>g  :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR>
-    nnoremap <silent> <leader>cg :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR><C-R><C-W>
-    nnoremap <silent> <leader>r  :<C-u>UniteResume search-buffer<CR>
+    nnoremap <silent><leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
     call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
           \ 'ignore_pattern', join([
           \ '\.git/',
+          \ '\.svn/',
+          \ '\.log',
           \ ], '\|'))
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    call unite#filters#sorter_default#use(['sorter_rank'])
     autocmd FileType unite call s:unite_settings()
     function! s:unite_settings()
       let b:SuperTabDisabled=1
