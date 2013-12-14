@@ -434,7 +434,7 @@
   " }}}
 
   " Switch {{{
-    nnoremap - :Switch<cr> 
+    nnoremap - :Switch<cr>
   " }}}
 
   " Simplenote {{{
