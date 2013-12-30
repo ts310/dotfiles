@@ -43,7 +43,6 @@ link bashrc .bashrc
 link inputrc .inputrc
 link zshrc .zshrc
 link vim .vim
-link gvimrc .gvimrc
 link gemrc .gemrc
 link vimrc  .vimrc
 link gitignore .gitignore
