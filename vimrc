@@ -17,15 +17,19 @@
   " Plugins {{{
     Bundle 'AndrewRadev/linediff.vim'
     Bundle 'AndrewRadev/switch.vim'
+    Bundle 'Shougo/neocomplcache.vim'
+    Bundle 'Shougo/neosnippet'
     Bundle 'Shougo/unite.vim'
     Bundle 'Shougo/vimfiler.vim'
     Bundle 'Shougo/vimproc.vim'
-    Bundle 'Shougo/neocomplcache.vim'
+    Bundle 'alpaca-tc/alpaca_tags'
+    Bundle 'basyura/unite-rails'
     Bundle 'gmarik/vundle'
     Bundle 'gregsexton/gitv'
     Bundle 'groenewege/vim-less'
     Bundle 'guillemc/vimref'
-    Bundle 'joonty/vdebug'
+    Bundle 'h1mesuke/unite-outline'
+    Bundle 'hrsh7th/vim-versions'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'kien/ctrlp.vim'
     Bundle 'majutsushi/tagbar'
@@ -37,13 +41,16 @@
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/syntastic'
+    Bundle 'thinca/vim-ref'
     Bundle 'tomasr/molokai'
+    Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-git'
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-surround'
     Bundle 'tsukkee/unite-tag'
+    Bundle 'ujihisa/unite-colorscheme'
     Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/CodeReviewer.vim'
     Bundle 'vim-scripts/Color-Sampler-Pack'
@@ -55,9 +62,6 @@
     Bundle 'vim-scripts/phpcomplete.vim'
     Bundle 'vim-scripts/sudo.vim'
     Bundle 'vim-scripts/vcscommand.vim'
-    Bundle 'ujihisa/unite-colorscheme'
-    Bundle 'h1mesuke/unite-outline'
-    Bundle 'hrsh7th/vim-versions'
   " }}}
   filetype plugin indent on
 " }}}
@@ -395,14 +399,7 @@
     "let g:yankring_window_use_separate = 1
     "let g:yankring_history_dir = $HOME . '/.vim/tmp/'
   " }}}
-
-  " vdebug {{{
-    let g:vdebug_options = {
-      \ 'path_maps': {"/home/buyma/php_apps": "/Users/saitoutsuyoshi/work/enigmo/buyma/code/bm_trunk"},
-      \ 'server': '192.168.56.101'
-    \}
-  " }}}
-  "
+  
   " CodeReviewer {{{
     let g:CodeReviewer_reviewer = "saito"
     let g:CodeReviewer_reviewFile = $HOME . "/Dropbox/vim/review.rev"
