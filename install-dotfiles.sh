@@ -45,6 +45,7 @@ link zshrc .zshrc
 link vim .vim
 link gemrc .gemrc
 link vimrc  .vimrc
+link gvimrc  .gvimrc
 link gitignore .gitignore
 link bin .bin
 link screenrc .screenrc
@@ -52,5 +53,6 @@ link irbrc .irbrc
 link tmux.conf .tmux.conf
 link ctags .ctags
 link rspec .rspec
+link pryrc .pryrc
 
 echo "Done!"
