@@ -17,18 +17,11 @@
   " Plugins {{{
     Bundle 'AndrewRadev/linediff.vim'
     Bundle 'AndrewRadev/switch.vim'
-    Bundle 'Shougo/neocomplcache.vim'
-    Bundle 'Shougo/neosnippet'
-    Bundle 'Shougo/unite.vim'
-    Bundle 'Shougo/vimfiler.vim'
-    Bundle 'Shougo/vimproc.vim'
     Bundle 'alpaca-tc/alpaca_tags'
-    Bundle 'basyura/unite-rails'
     Bundle 'gmarik/vundle'
     Bundle 'gregsexton/gitv'
     Bundle 'groenewege/vim-less'
     Bundle 'guillemc/vimref'
-    Bundle 'h1mesuke/unite-outline'
     Bundle 'hrsh7th/vim-versions'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'kien/ctrlp.vim'
@@ -283,15 +276,9 @@
     let NERDTreeShowBookmarks = 0
   " }}}
 
-  " TagList {{{
-    "let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-    "let Tlist_Use_Right_Window = 1
-    "nnoremap <silent> <leader>y :TlistToggle<CR>
-    "nnoremap <silent> <F3> :TlistToggle<CR>
-  " }}}
-
   " Ag {{{
     map <leader>ag :Ag<space>
+    abbrev ag Ag
   " }}}
 
   " Fugitive {{{
@@ -307,77 +294,9 @@
     let g:VCSCommandMapPrefix = '[VCS]'
   " }}}
 
-  " Neocomplcache {{{
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_smart_case = 1
-    let g:neocomplcache_min_syntax_length = 3
-    let g:neocomplcache_enable_camel_case_completion = 1
-    let g:neocomplcache_enable_underbar_completion = 1
-  " }}}
-
-  " neosnippet {{{
-    "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    "smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    "imap <expr><TAB> neosnippet#expandable_or_jumpable() ? '\<Plug>(neosnippet_expand_or_jump)' : pumvisible() ? '\<C-n>' : '\<TAB>'
-    "smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "'\<Plug>(neosnippet_expand_or_jump) : '\<TAB>'
-    "if has('conceal')
-      "set conceallevel=2 concealcursor=i
-    "endif
-  " }}}
-
   " Zen coding {{{
     let g:user_zen_leader_key = '<C-e>'
     let g:use_zen_complete_tag = 1
-  " }}}
-
-  " Unite {{{
-    cabbrev unite Unite
-    nnoremap [unite] <Nop>
-    nmap <Leader> [unite]
-    let g:unite_enable_start_insert = 1
-    let g:unite_force_overwrite_statusline = 0
-    let g:unite_source_file_mru_filename_format = ''
-    let g:unite_source_file_mru_limit = 50
-    let g:unite_source_history_yank_enable = 1
-    let g:unite_split_rule = "botright"
-    let g:unite_winheight = 10
-    let g:unite_source_history_yank_enable = 1
-    let g:unite_enable_ignore_case = 1
-    let g:unite_enable_smart_case = 1
-    nnoremap <silent> [unite]t  :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-    nnoremap <silent> [unite]f  :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-    nnoremap <silent> [unite]mr :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-    nnoremap <silent> [unite]o  :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-    nnoremap <silent> [unite]y  :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-    nnoremap <silent> [unite]g  :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR>
-    nnoremap <silent> [unite]cg :<C-u>Unite grep:. -no-split -buffer-name=search-buffer<CR><C-R><C-W>
-    nnoremap <silent> [unite]r  :<C-u>UniteResume search-buffer<CR>
-    if executable('ag')
-      let g:unite_source_grep_command = 'ag'
-      let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-      let g:unite_source_grep_recursive_opt = ''
-    endif
-    nnoremap <silent><leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-    call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-          \ 'ignore_pattern', join([
-          \ '\.git/',
-          \ '\.svn/',
-          \ '\.log',
-          \ ], '\|'))
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    autocmd FileType unite call s:unite_settings()
-    function! s:unite_settings()
-      let b:SuperTabDisabled=1
-      imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
-      nmap <silent><buffer> <ESC><ESC> q
-      imap <silent><buffer> <ESC><ESC> <ESC>q
-      imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-      imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-      imap <silent><buffer><expr> <C-x> unite#do_action('split')
-      imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-      imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-      nmap <buffer> <ESC> <Plug>(unite_exit)
-    endfunction
   " }}}
 
   " Ctrlp {{{
@@ -421,8 +340,8 @@
   " }}}
 
   " Gitv {{{
-    let g:Gitv_OpenHorizontal = 1
-    let g:Gitv_WrapLines = 1
+    let g:Gitv_OpenHorizontal = 0
+    let g:Gitv_WrapLines = 0
     let g:Gitv_OpenPreviewOnLaunch = 1
     nmap <leader>gv :Gitv --all<cr>
     nmap <leader>gV :Gitv! --all<cr>
