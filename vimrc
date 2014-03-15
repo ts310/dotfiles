@@ -22,7 +22,6 @@
     Bundle 'gregsexton/gitv'
     Bundle 'groenewege/vim-less'
     Bundle 'guillemc/vimref'
-    Bundle 'hrsh7th/vim-versions'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'kien/ctrlp.vim'
     Bundle 'majutsushi/tagbar'
@@ -34,7 +33,6 @@
     Bundle 'scrooloose/nerdcommenter'
     Bundle 'scrooloose/nerdtree'
     Bundle 'scrooloose/syntastic'
-    Bundle 'thinca/vim-ref'
     Bundle 'tomasr/molokai'
     Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-fugitive'
@@ -42,12 +40,9 @@
     Bundle 'tpope/vim-markdown'
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-surround'
-    Bundle 'tsukkee/unite-tag'
-    Bundle 'ujihisa/unite-colorscheme'
     Bundle 'vim-scripts/Align'
     Bundle 'vim-scripts/CodeReviewer.vim'
     Bundle 'vim-scripts/Color-Sampler-Pack'
-    Bundle 'vim-scripts/ZenCoding.vim'
     Bundle 'vim-scripts/ZoomWin'
     Bundle 'vim-scripts/matchit.zip'
     Bundle 'vim-scripts/php-doc'
@@ -55,6 +50,9 @@
     Bundle 'vim-scripts/phpcomplete.vim'
     Bundle 'vim-scripts/sudo.vim'
     Bundle 'vim-scripts/vcscommand.vim'
+    Bundle 'thoughtbot/vim-rspec'
+    Bundle 'jgdavey/tslime.vim'
+    Bundle 'mattn/emmet-vim'
   " }}}
   filetype plugin indent on
 " }}}
@@ -357,6 +355,10 @@
     if filereadable($HOME . '/.simplenoterc')
       exe 'source ' . $HOME . '/.simplenoterc'
     endif
+  " }}}
+
+  " Vim rspec {{{
+    let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
   " }}}
 " }}}
 
