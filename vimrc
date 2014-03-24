@@ -53,6 +53,7 @@
     Bundle 'thoughtbot/vim-rspec'
     Bundle 'jgdavey/tslime.vim'
     Bundle 'mattn/emmet-vim'
+    Bundle 'bling/vim-airline'
   " }}}
   filetype plugin indent on
 " }}}
@@ -359,6 +360,11 @@
 
   " Vim rspec {{{
     let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+  " }}}
+
+  " Vim airline {{{
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
   " }}}
 " }}}
 
