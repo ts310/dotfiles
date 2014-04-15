@@ -16,6 +16,8 @@ export COPYFILE_DISABLE=true
 # export ANDROID_SDK_ROOT=/usr/local/Cellar/android-sdk/r6
 export NODE_PATH="/usr/local/lib/node"
 
+export RSENSE_HOME=$HOME/dotfiles/lib/rsense
+
 # git configuration
 git config --global color.diff auto
 git config --global color.status auto
