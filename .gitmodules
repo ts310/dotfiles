@@ -10,3 +10,6 @@
 [submodule "themes/iTerm-Color-Schemes"]
 	path = themes/iTerm-Color-Schemes
 	url = git@github.com:mbadolato/iTerm2-Color-Schemes.git
+[submodule "lib/rsense"]
+	path = lib/rsense
+	url = git@github.com:m2ym/rsense.git
