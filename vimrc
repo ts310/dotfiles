@@ -3,8 +3,8 @@
 " Initial settings {{{
   set nocompatible
   set encoding=utf-8
-  let mapleader = ","
-  let g:mapleader = ","
+
+  let g:mapleader = " "
   " Shortcut for edit/source vim runtime configuration in command
   command! Ev edit $MYVIMRC
   command! Rv source $MYVIMRC
@@ -54,6 +54,8 @@
     Bundle 'jgdavey/tslime.vim'
     Bundle 'mattn/emmet-vim'
     Bundle 'bling/vim-airline'
+    Bundle 'juneedahamed/svnj.vim'
+    Bundle 'szw/vim-tags'
   " }}}
   filetype plugin indent on
 " }}}
@@ -101,6 +103,7 @@
   set clipboard+=unnamedplus,unnamed
   set tags+=.tags
   set lazyredraw
+  set list!
 " }}}
 
 " Mappings {{{
@@ -146,8 +149,6 @@
   if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
   endif
-
-  noremap <space> :call ToggleFold()<CR>
 
   " Fast escape insert mode
   "inoremap <Esc> <nop>
@@ -224,9 +225,9 @@
     set hlsearch
   endif
   colorscheme molokai
-  "hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
-  "au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
-  "au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
+  hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
+  au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
+  au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
 " }}}
 
 " Syntax {{{
@@ -276,7 +277,7 @@
   " }}}
 
   " Ag {{{
-    map <leader>ag :Ag<space>
+    map <leader>ag :Ag -i<space>
     abbrev ag Ag
   " }}}
 
@@ -291,11 +292,6 @@
     nnoremap [VCS] <Nop>
     nmap <Leader>v [VCS]
     let g:VCSCommandMapPrefix = '[VCS]'
-  " }}}
-
-  " Zen coding {{{
-    let g:user_zen_leader_key = '<C-e>'
-    let g:use_zen_complete_tag = 1
   " }}}
 
   " Ctrlp {{{
@@ -317,7 +313,7 @@
     "let g:yankring_window_use_separate = 1
     "let g:yankring_history_dir = $HOME . '/.vim/tmp/'
   " }}}
-  
+
   " CodeReviewer {{{
     let g:CodeReviewer_reviewer = "saito"
     let g:CodeReviewer_reviewFile = $HOME . "/Dropbox/vim/review.rev"
@@ -365,6 +361,14 @@
   " Vim airline {{{
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
+  " }}}
+
+  " Vim tags {{{
+    let g:vim_tags_auto_generate = 1
+    let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R {OPTIONS} {DIRECTORY} 2>/dev/null &"
+    let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null &"
+    set tags+=.tags
+    set tags+=.Gemfile.lock.tags
   " }}}
 " }}}
 
