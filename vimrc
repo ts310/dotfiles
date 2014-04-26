@@ -3,7 +3,7 @@
 " Initial settings {{{
   set nocompatible
   set encoding=utf-8
-
+  let mapleader = " "
   let g:mapleader = " "
   " Shortcut for edit/source vim runtime configuration in command
   command! Ev edit $MYVIMRC
