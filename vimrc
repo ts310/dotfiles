@@ -105,6 +105,7 @@
   set tags+=.tags
   set lazyredraw
   set list!
+  set t_ut=
 " }}}
 
 " Mappings {{{
