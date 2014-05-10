@@ -44,5 +44,5 @@ source $HOME/dotfiles/common/env
 source $HOME/dotfiles/common/aliases
 
 #setopt prompt_subst
-PROMPT='%{$fg[yellow]%}[%~] %{$reset_color%}%{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[black]%}[@%m]%{$reset_color%}
-%{$fg[green]%}%n%{$reset_color%} %{$fg[black]%}>%{$reset_color%} '
+PROMPT='%{$fg[yellow]%}[%~] %{$reset_color%}%{$fg[magenta]%}$(vcprompt)%{$reset_color%}%{$fg[green]%}[@%m]%{$reset_color%}
+%{$fg[green]%}%n%{$reset_color%} %{$fg[yellow]%}>%{$reset_color%} '
