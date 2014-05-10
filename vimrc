@@ -56,6 +56,7 @@
     Bundle 'bling/vim-airline'
     Bundle 'juneedahamed/svnj.vim'
     Bundle 'szw/vim-tags'
+    Bundle 'altercation/vim-colors-solarized.git'
   " }}}
   filetype plugin indent on
 " }}}
@@ -224,7 +225,8 @@
     syntax on
     set hlsearch
   endif
-  colorscheme molokai
+  set background=dark
+  colorscheme solarized
   hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
   au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
   au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
