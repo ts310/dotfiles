@@ -13,3 +13,6 @@
 [submodule "lib/rsense"]
 	path = lib/rsense
 	url = git@github.com:m2ym/rsense.git
+[submodule "themes/solarized.git"]
+	path = themes/solarized.git
+	url = https://github.com/tomislav/osx-terminal.app-colors-solarized
