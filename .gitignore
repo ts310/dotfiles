@@ -1,7 +1,5 @@
 .DS_Store
 bin/*
-home/.vim/.*
 home/.vim/tmp/
-bin/appcrush
-home/.vim/bundle/*
+home/.vim/bundle/
 .tags
