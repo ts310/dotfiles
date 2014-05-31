@@ -1,6 +1,6 @@
 # source common files
-. ~/dotfiles/common/env
-. ~/dotfiles/common/aliases
+. ~/.config/common/.env
+. ~/.config/common/.aliases
 
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 NO_COLOR='\e[0m' #disable any colors
@@ -53,12 +53,6 @@ then
   . /usr/local/etc/bash_completion
 fi
 
-if [ -f ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash ]
-then
-  . ~/dotfiles/lib/git-flow-completion/git-flow-completion.bash
-fi
-
-# Local configuration
 if [ -f ~/.bashrc.local ]
 then
   . ~/.bashrc.local

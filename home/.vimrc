@@ -227,7 +227,7 @@
     set hlsearch
   endif
   set background=dark
-  colorscheme solarized
+  colorscheme molokai
   hi statusline cterm=none ctermfg=white ctermbg=darkgreen gui=none guifg=white guibg=darkgreen
   au InsertEnter * hi statusline ctermbg=darkred guibg=darkred
   au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen

@@ -1,14 +1,7 @@
 .DS_Store
 bin/*
-bin/vmrun
-vim/.*
-vim/tmp/
-tags
+home/.vim/.*
+home/.vim/tmp/
 bin/appcrush
-bashrc.local
-zshrc.local
-vim/bundle/*
-script.local/*
-bin/*
-bin.local/*
+home/.vim/bundle/*
 .tags

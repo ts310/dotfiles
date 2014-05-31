@@ -5,7 +5,6 @@ setenv SCREENTITLE auto
 shell -$SHELL
 escape ^Tt
 defscrollback 10000
-#hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 hardstatus alwayslastline '%{gk}[%{G}%H%{g}][%= %{wk}%?%-Lw%?%{=b kR}[%{W}%n%f %t%?(%u)%?%{=b kR}]%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[%m/%d %C%a]%{W}'
 
 bind w windowlist -b

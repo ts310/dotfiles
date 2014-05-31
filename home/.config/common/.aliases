@@ -1,13 +1,8 @@
-alias reload='source ~/dotfiles/common/aliases'
+alias reload='source ~/.config/common/.aliases'
 alias shellrestart='exec $SHELL -l'
 
 alias ssh='TERM=xterm ssh'
 alias ssh256='TERM=xterm-256color ssh'
-
-alias shellrestart='exec $SHELL -l'
-
-alias zshconfig="vim ~/.zshrc"
-alias rzshrc="source ~/.zshrc"
 
 alias a='ls -A' # -A all except literal . ..
 alias c='clear'
