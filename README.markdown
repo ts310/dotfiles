@@ -1,12 +1,10 @@
-# dotfiles for bash/zsh shell #
+# dotfiles for bash or zsh shell #
 
 This is my personal dotfiles.
-
 To get started
 
-	cd ~
-	git clone git@github.com:ts310/dotfiles.git dotfiles
-	cd dotfiles
-	./install-dotfiles.sh
-
-This will symlink all necessary dotfiles like '.bashrc' to your home directory.
+```
+gem install homesick
+homesick clone git@github.com:ts310/dotfiles.git ts310
+homesick link ts310
+```
