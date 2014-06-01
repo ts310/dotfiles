@@ -5,17 +5,6 @@ let g:netrw_altv = 1
 let g:netrw_alto = 1
 " }}}
 
-" NerdTree {{{
-map <leader>n :NERDTreeToggle<CR>
-map <F1> :NERDTreeToggle<CR>
-map <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>nr :NERDTreeFind<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-let NERDTreeWinSize = 27
-let NERDTreeQuitOnOpen = 1
-let NERDTreeShowBookmarks = 0
-" }}}
-
 " Ag {{{
 map <leader>ag :Ag -i<space>
 abbrev ag Ag
@@ -32,20 +21,6 @@ command! Gs :Gstatus
 nnoremap [VCS] <Nop>
 nmap <Leader>v [VCS]
 let g:VCSCommandMapPrefix = '[VCS]'
-" }}}
-
-" Ctrlp {{{
-"let g:loaded_ctrlp = 1
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_height = 16
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_max_files = 0
-let g:ctrlp_working_path_mode = ''
-let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
-let g:ctrlp_max_height = 40
-" 'tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir'
-map <Leader>p :CtrlP<CR>
 " }}}
 
 " YankRing {{{

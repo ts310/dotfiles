@@ -24,10 +24,10 @@ set clipboard+=unnamedplus,unnamed
 set tags+=.tags
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set ruler
-set cursorline
-set nocursorcolumn
 set laststatus=2
 set cmdheight=1
+set lazyredraw
+set cursorline
 
 " Shortcut for edit/source vim runtime configuration in command
 command! Ev edit $MYVIMRC
