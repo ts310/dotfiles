@@ -4,6 +4,6 @@
 [submodule "home/.vim/bundle/Vundle.vim"]
 	path = home/.vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/Vundle.vim
-[submodule "iterm2-Color-Schemes"]
-	path = iterm2-Color-Schemes
+[submodule "iTerm2-Color-Schemes"]
+	path = vendor/iTerm2-Color-Schemes
 	url = https://github.com/mbadolato/iTerm2-Color-Schemes
