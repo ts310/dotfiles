@@ -5,5 +5,5 @@
 	path = home/.config/vendor/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule "home/.vim/bundle/Vundle.vim"]
-	path = home/.vim/bundle/Vundle.vim/Vundle.vim
+	path = home/.vim/bundle/Vundle.vim
 	url = https://github.com/gmarik/vundle.git
