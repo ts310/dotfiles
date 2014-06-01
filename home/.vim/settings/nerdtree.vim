@@ -1,9 +1,9 @@
-map <leader>n :NERDTreeToggle<CR>
-map <F1> :NERDTreeToggle<CR>
-map <leader>d :NERDTreeToggle<CR>
-
 nnoremap <leader>nr :NERDTreeFind<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <F1> :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeToggle<CR>
+
 
 let NERDTreeWinSize = 27
 let NERDTreeQuitOnOpen = 1

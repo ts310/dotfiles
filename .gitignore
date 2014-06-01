@@ -2,4 +2,5 @@
 bin/*
 home/.vim/tmp/
 home/.vim/bundle/
+home/.vim/.netrwhist
 .tags

@@ -9,6 +9,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_max_height = 40
 let g:ctrlp_max_files = 0 " unlimited
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_show_hidden = 1
 
 " ---------------------------------------------------------------
 " available extensions
