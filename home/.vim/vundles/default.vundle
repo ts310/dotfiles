@@ -66,6 +66,7 @@ Plugin 'vim-scripts/Color-Sampler-Pack'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/ZoomWin'
+Plugin 'nanotech/jellybeans.vim'
 
 " ---------------------------------------------------------------------
 " Memo

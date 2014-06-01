@@ -1,5 +1,5 @@
 set background=dark
-colorscheme molokai
+colorscheme jellybeans
 
 "hi NonText guifg=gray cterm=none ctermfg=gray
 "hi SpecialKey guifg=gray cterm=none ctermfg=gray
