@@ -27,7 +27,10 @@ set ruler
 set laststatus=2
 set cmdheight=1
 set lazyredraw
-set cursorline
+"set cursorline
+
+" Fof performance gain
+syntax sync minlines=256
 
 " Shortcut for edit/source vim runtime configuration in command
 command! Ev edit $MYVIMRC
@@ -95,7 +98,9 @@ filetype plugin on
 filetype indent on
 
 " Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+"set list listchars=tab:\ \ ,trail:·
+set list
+set listchars=eol:¬,tab:▸\ 
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
