@@ -27,7 +27,8 @@ set ruler
 set laststatus=2
 set cmdheight=1
 set lazyredraw
-"set cursorline
+set cursorline
+set ttyfast
 
 " Fof performance gain
 syntax sync minlines=256

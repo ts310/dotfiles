@@ -1,6 +1,6 @@
 ZSH=$HOME/.config/vendor/oh-my-zsh
 
-DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="false"
 
 plugins=(git rails ruby brew osx node gem npm vundle svn tmuxinator)
 
