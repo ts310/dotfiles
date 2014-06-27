@@ -2,7 +2,7 @@
 " Rails
 " ---------------------------------------------------------------------
 Plugin 'tpope/vim-rails'
-Plugin 'thoughtbot/vim-rspec'
+"Plugin 'thoughtbot/vim-rspec'
 
 " ---------------------------------------------------------------------
 " Navigation
@@ -10,12 +10,12 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'rizzatti/funcoo.vim'
+"Plugin 'rizzatti/dash.vim'
+"Plugin 'rizzatti/funcoo.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'szw/vim-tags'
-Plugin 'jgdavey/tslime.vim'
+"Plugin 'jgdavey/tslime.vim'
 
 " ---------------------------------------------------------------------
 " Search
@@ -33,7 +33,7 @@ Plugin 'tpope/vim-git'
 " Subversion
 " ---------------------------------------------------------------------
 Plugin 'vim-scripts/vcscommand.vim'
-Plugin 'juneedahamed/svnj.vim'
+"Plugin 'juneedahamed/svnj.vim'
 
 " ---------------------------------------------------------------------
 " Editing
@@ -50,11 +50,11 @@ Plugin 'vim-scripts/matchit.zip'
 " ---------------------------------------------------------------------
 " Syntaxc
 " ---------------------------------------------------------------------
-Plugin 'tpope/vim-markdown'
-Plugin 'groenewege/vim-less'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'msanders/cocoa.vim'
-Plugin 'vim-scripts/php-doc'
+"Plugin 'tpope/vim-markdown'
+"Plugin 'groenewege/vim-less'
+"Plugin 'kchmck/vim-coffee-script'
+"Plugin 'msanders/cocoa.vim'
+"Plugin 'vim-scripts/php-doc'
 Plugin 'vim-scripts/php.vim'
 Plugin 'vim-scripts/phpcomplete.vim'
 Plugin 'mattn/emmet-vim' " zencoding editing
@@ -66,14 +66,14 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/Color-Sampler-Pack'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'tomasr/molokai'
-Plugin 'vim-scripts/ZoomWin'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'vim-scripts/ZoomWin'
 
 " ---------------------------------------------------------------------
 " Memo
 " ---------------------------------------------------------------------
-Plugin 'vim-scripts/CodeReviewer.vim'
-Plugin 'mrtazz/simplenote.vim'
+"Plugin 'vim-scripts/CodeReviewer.vim'
+"Plugin 'mrtazz/simplenote.vim'
 
 " ---------------------------------------------------------------------
 " System
@@ -83,4 +83,4 @@ Plugin 'vim-scripts/sudo.vim'
 " ---------------------------------------------------------------------
 " Documentaion
 " ---------------------------------------------------------------------
-Plugin 'guillemc/vimref'
+"Plugin 'guillemc/vimref'

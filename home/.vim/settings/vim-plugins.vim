@@ -23,32 +23,6 @@ nmap <Leader>v [VCS]
 let g:VCSCommandMapPrefix = '[VCS]'
 " }}}
 
-" YankRing {{{
-"let g:yankring_max_history = 400
-"let g:yankring_window_use_separate = 1
-"let g:yankring_history_dir = $HOME . '/.vim/tmp/'
-" }}}
-
-" CodeReviewer {{{
-let g:CodeReviewer_reviewer = "saito"
-let g:CodeReviewer_reviewFile = $HOME . "/Dropbox/vim/review.rev"
-" }}}
-
-" vimref {{{
-let g:ref_phpmanual_path = $HOME . '/Dropbox/manuals/php'
-" }}}
-
-" vim-quickrun {{{
-"let g:quickrun_config = {}
-"let g:quickrun_config.markdown = {
-"      \ 'outputter' : 'null',
-"      \ 'command'   : 'open',
-"      \ 'cmdopt'    : '-a',
-"      \ 'args'      : 'Marked',
-"      \ 'exec'      : '%c %o %a %s',
-"      \ }
-" }}}
-
 " Gitv {{{
 let g:Gitv_OpenHorizontal = 0
 let g:Gitv_WrapLines = 0
@@ -61,16 +35,6 @@ cabbrev git Git
 
 " Switch {{{
 nnoremap - :Switch<cr>
-" }}}
-
-" Simplenote {{{
-if filereadable($HOME . '/.simplenoterc')
-  exe 'source ' . $HOME . '/.simplenoterc'
-endif
-" }}}
-
-" Vim rspec {{{
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 " }}}
 
 " Vim airline {{{

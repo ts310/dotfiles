@@ -20,14 +20,12 @@ set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set encoding=utf-8
 set virtualedit+=block
-set clipboard+=unnamedplus,unnamed
+set clipboard+=unnamedplus,unnamed,autoselect
 set tags+=.tags
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set ruler
 set laststatus=2
 set cmdheight=1
-set lazyredraw
-set cursorline
 set ttyfast
 
 " Fof performance gain
