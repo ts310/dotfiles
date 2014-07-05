@@ -3,13 +3,16 @@
 " ------------------------------------------------------------
 " Initial settings
 " ------------------------------------------------------------
+"  {{{
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+" }}}
 
 " ------------------------------------------------------------
 "  General settings
 " ------------------------------------------------------------
+"  {{{
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -53,22 +56,27 @@ syntax on
 " The mapleader has to be set before vundle starts loading all 
 " the plugins.
 let mapleader=" "
+" }}}
 
 " ------------------------------------------------------------
 " Vundle initialization
 " ------------------------------------------------------------
+"  {{{
 " This loads all the plugins specified in ~/.vim/vundle.vim
 " Use Vundle plugin to manage all other plugins
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
+" }}}
 
 " ------------------------------------------------------------
 " Turn Off Swap Files
 " ------------------------------------------------------------
+"  {{{
 set noswapfile
 set nobackup
 set nowb
+" }}}
 
 " ------------------------------------------------------------
 " Persistent undo settings
@@ -76,15 +84,18 @@ set nowb
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
 " ------------------------------------------------------------
+"  {{{
 if has('persistent_undo')
   silent !mkdir ~/.vim/tmp/backups > /dev/null 2>&1
   set undodir=~/.vim/tmp/backups
   set undofile
 endif
+" }}}
 
 " ------------------------------------------------------------
 " Indentation settings
 " ------------------------------------------------------------
+"  {{{
 set autoindent
 set smartindent
 set smarttab
@@ -103,19 +114,23 @@ set listchars=eol:¬,tab:▸\
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
+" }}}
 
 " ------------------------------------------------------------
 " Folds settings
 " ------------------------------------------------------------
+"  {{{
 set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 set foldlevel=99
 set foldlevelstart=99
+" }}}
 
 " ------------------------------------------------------------
 " Completion settings
 " ------------------------------------------------------------
+"  {{{
 set wildmode=list:longest
 set wildchar=<Tab>
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
@@ -130,26 +145,32 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+" }}}
 
 " ------------------------------------------------------------
 " Scrolling settings
 " ------------------------------------------------------------
+"  {{{
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+" }}}
 
 " ------------------------------------------------------------
 " Mouse settings
 " ------------------------------------------------------------
+"  {{{
 if has('mouse')
   set mouse=a
   set guioptions+=a
   set ttymouse=xterm2
 endif
+" }}}
 
 " ------------------------------------------------------------
 " Search settings
 " ------------------------------------------------------------
+"  {{{
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Hilight searches by default
 set viminfo='100,f1 " Save up to 100 marks, enable capital marks
@@ -162,6 +183,7 @@ set complete+=k
 set nojoinspaces
 set nrformats=
 set fillchars+=stl:\ ,stlnc:\
+" }}}
 
 " ------------------------------------------------------------
 " Custom settings
