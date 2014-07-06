@@ -1,8 +1,10 @@
+" vim: nowrap fdm=marker
+
 " ---------------------------------------------------------------------
 " Rails
 " ---------------------------------------------------------------------
 Plugin 'tpope/vim-rails'
-"Plugin 'thoughtbot/vim-rspec'
+Plugin 'thoughtbot/vim-rspec'
 
 " ---------------------------------------------------------------------
 " Navigation
@@ -10,12 +12,12 @@ Plugin 'tpope/vim-rails'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'rizzatti/dash.vim'
-"Plugin 'rizzatti/funcoo.vim'
+Plugin 'rizzatti/dash.vim'
+Plugin 'rizzatti/funcoo.vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'szw/vim-tags'
-"Plugin 'jgdavey/tslime.vim'
+Plugin 'jgdavey/tslime.vim'
 
 " ---------------------------------------------------------------------
 " Search
@@ -33,7 +35,7 @@ Plugin 'tpope/vim-git'
 " Subversion
 " ---------------------------------------------------------------------
 Plugin 'vim-scripts/vcscommand.vim'
-"Plugin 'juneedahamed/svnj.vim'
+Plugin 'juneedahamed/svnj.vim'
 
 " ---------------------------------------------------------------------
 " Editing
@@ -48,13 +50,19 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/matchit.zip'
 
 " ---------------------------------------------------------------------
+" Text object
+" ---------------------------------------------------------------------
+Plugin 'kana/vim-textobj-user'
+Plugin 'vim-scripts/textobj-rubyblock'
+
+" ---------------------------------------------------------------------
 " Syntaxc
 " ---------------------------------------------------------------------
-"Plugin 'tpope/vim-markdown'
-"Plugin 'groenewege/vim-less'
-"Plugin 'kchmck/vim-coffee-script'
-"Plugin 'msanders/cocoa.vim'
-"Plugin 'vim-scripts/php-doc'
+Plugin 'tpope/vim-markdown'
+Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'msanders/cocoa.vim'
+Plugin 'vim-scripts/php-doc'
 Plugin 'vim-scripts/php.vim'
 Plugin 'vim-scripts/phpcomplete.vim'
 Plugin 'mattn/emmet-vim' " zencoding editing
@@ -68,6 +76,7 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/ZoomWin'
+Plugin 'mkitt/tabline.vim'
 
 " ---------------------------------------------------------------------
 " Memo
