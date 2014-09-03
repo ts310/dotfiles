@@ -28,6 +28,7 @@
     Plugin 'tomasr/molokai'
     Plugin 'nanotech/jellybeans.vim'
     Plugin 'mkitt/tabline.vim'
+    Plugin 'majutsushi/tagbar'
   " }}}
 
   call vundle#end()
@@ -54,7 +55,19 @@
   set ruler
   set laststatus=2
   set cmdheight=1
-  set cursorline
+" }}}
+"
+" ------------------------------------------------------------
+"  Optimization
+" ------------------------------------------------------------
+" {{{
+  set noshowmatch
+  set nocursorline
+  set nocursorcolumn
+  set lazyredraw
+  set scrolljump=8
+  let loaded_matchparen=1
+  let html_no_rendering=1
 " }}}
 
 " ------------------------------------------------------------
@@ -175,7 +188,7 @@
 " ------------------------------------------------------------
 " {{{
   set background=dark
-  colorscheme jellybeans
+  colorscheme molokai
   hi NonText      guifg=gray   cterm=none ctermfg=gray
   hi SpecialKey   guifg=gray   cterm=none ctermfg=gray
   hi statusline   guifg=white  cterm=none ctermfg=white ctermbg=darkgreen gui=none guibg=darkgreen
@@ -306,6 +319,7 @@
   let g:ctrlp_show_hidden = 1
   let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
   let g:ctrlp_clear_cache_on_exit = 0
+  let g:ctrlp_use_migemo = 1
 " }}}
 
 
