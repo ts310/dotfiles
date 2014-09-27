@@ -11,10 +11,13 @@
   " {{{
     Plugin 'gmarik/Vundle.vim'
     Plugin 'tpope/vim-sensible'
+    Plugin 'Shougo/unite.vim'
+    Plugin 'Shougo/vimproc.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'kien/ctrlp.vim'
     Plugin 'gregsexton/gitv'
     Plugin 'tpope/vim-fugitive'
+    Plugin 'airblade/vim-gitgutter'
     Plugin 'rking/ag.vim'
     Plugin 'bling/vim-airline'
     Plugin 'szw/vim-tags'
@@ -55,6 +58,7 @@
   set ruler
   set laststatus=2
   set cmdheight=1
+  set cursorline
 " }}}
 "
 " ------------------------------------------------------------
@@ -62,8 +66,6 @@
 " ------------------------------------------------------------
 " {{{
   set noshowmatch
-  set nocursorline
-  set nocursorcolumn
   set lazyredraw
   set scrolljump=8
   let loaded_matchparen=1
@@ -188,7 +190,7 @@
 " ------------------------------------------------------------
 " {{{
   set background=dark
-  colorscheme molokai
+  colorscheme jellybeans
   hi NonText      guifg=gray   cterm=none ctermfg=gray
   hi SpecialKey   guifg=gray   cterm=none ctermfg=gray
   hi statusline   guifg=white  cterm=none ctermfg=white ctermbg=darkgreen gui=none guibg=darkgreen
@@ -328,7 +330,6 @@
 " ------------------------------------------------------------
 " {{{
   nnoremap <leader>nr :NERDTreeFind<CR>
-  nnoremap <leader>f :NERDTreeFind<CR>
   nnoremap <leader>n :NERDTreeToggle<CR>
   nnoremap <F1> :NERDTreeToggle<CR>
   nnoremap <leader>d :NERDTreeToggle<CR>
@@ -418,4 +419,30 @@
   map <silent> [Tag]x :tabclose<CR>
   map <silent> [Tag]n :tabnext<CR>
   map <silent> [Tag]p :tabprevious<CR>
+" }}}
+
+" ------------------------------------------------------------
+" Unite
+" ------------------------------------------------------------
+" {{{
+  cabbrev unite Unite
+  let g:unite_enable_start_insert=1
+  let g:unite_source_history_yank_enable =1
+  let g:unite_source_file_mru_limit = 200
+  let g:unite_enable_ignore_case = 1
+  let g:unite_enable_smart_case = 1
+  if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+    let g:unite_source_grep_recursive_opt = ''
+  endif
+  nnoremap <silent> <leader>ud :<C-u>Unite file_rec/async:!<CR>
+  nnoremap <silent> <leader>uy :<C-u>Unite history/yank<CR>
+  nnoremap <silent> <leader>ub :<C-u>Unite buffer<CR>
+  nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+  nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
+  nnoremap <silent> <leader>uu :<C-u>Unite file_mru buffer<CR>
+  nnoremap <silent> <leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+  nnoremap <silent> <leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+  nnoremap <silent> <leader>r  :<C-u>UniteResume search-buffer<CR>
 " }}}
