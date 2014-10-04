@@ -32,6 +32,7 @@
     Plugin 'nanotech/jellybeans.vim'
     Plugin 'mkitt/tabline.vim'
     Plugin 'majutsushi/tagbar'
+    Plugin 'toyamarinyon/vim-swift'
   " }}}
 
   call vundle#end()
