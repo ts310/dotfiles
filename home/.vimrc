@@ -25,6 +25,7 @@
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'vim-scripts/Align'
     Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-repeat'
     Plugin 'scrooloose/syntastic'
     Plugin 'vim-scripts/matchit.zip'
     Plugin 'mattn/emmet-vim'
@@ -35,7 +36,13 @@
     Plugin 'toyamarinyon/vim-swift'
     Plugin 'vim-scripts/ZoomWin'
     Plugin 'ekalinin/Dockerfile.vim'
-  " }}}
+    Plugin 'Shougo/unite.vim'
+    Plugin 'Shougo/vimproc.vim'
+    Plugin 'tsukkee/unite-tag'
+    Plugin 'kmnk/vim-unite-svn'
+    Plugin 'Keithbsmiley/swift.vim'
+    Plugin 'tpope/vim-unimpaired'
+ " }}}
 
   call vundle#end()
   filetype plugin indent on
@@ -73,6 +80,7 @@
   set scrolljump=8
   let loaded_matchparen=1
   let html_no_rendering=1
+  set re=1
 " }}}
 
 " ------------------------------------------------------------
@@ -278,6 +286,7 @@
 
   " tagsジャンプの時に複数ある時は一覧表示
   nnoremap <C-]> g<C-]>
+  nmap <C-Enter> <C-w><C-]><C-w>T
 
   " use quickfix for vimrgrep
   autocmd QuickFixCmdPost *grep* cwindow
@@ -383,13 +392,14 @@
 " Gitv
 " ------------------------------------------------------------
 " {{{
-  let g:Gitv_OpenHorizontal = 0
+  cabbrev git Git
+  cabbrev gitv Gitv
+  let g:Gitv_OpenHorizontal = 1
   let g:Gitv_WrapLines = 0
   let g:Gitv_OpenPreviewOnLaunch = 1
-  nmap <leader>gv :Gitv --all<cr>
-  nmap <leader>gV :Gitv! --all<cr>
-  vmap <leader>gV :Gitv! --all<cr>
-  cabbrev git Git
+  "nmap <leader>gv :Gitv --all<cr>
+  "nmap <leader>gV :Gitv! --all<cr>
+  "vmap <leader>gV :Gitv! --all<cr>
 " }}}
 
 " ------------------------------------------------------------
@@ -411,7 +421,7 @@
 " Tab
 " ------------------------------------------------------------
 " {{{
-  set showtabline=2
+  "set showtabline=2
   nnoremap [Tag] <Nop>
   nmap     t [Tag]
   " Tab jump  t1 , t2, ... quick jump
@@ -448,4 +458,17 @@
   nnoremap <silent> <leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
   nnoremap <silent> <leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
   nnoremap <silent> <leader>r  :<C-u>UniteResume search-buffer<CR>
+  "nnoremap [Unite] <Nop>
+  "nmap     <leader>u [Unite]
+  "let g:unite_enable_start_insert = 1 " insert mode
+  "let g:unite_enable_ignore_case = 1
+  "let g:unite_enable_smart_case = 1
+  "nnoremap <silent> [Unite]g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+  "nnoremap <silent> [Unite]cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+  "nnoremap <silent> [Unite]r  :<C-u>UniteResume search-buffer<CR>
+  "if executable('ag')
+    "let g:unite_source_grep_command = 'ag'
+    "let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+    "let g:unite_source_grep_recursive_opt = ''
+  "endif
 " }}}

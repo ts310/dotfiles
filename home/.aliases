@@ -260,6 +260,10 @@ alias cot='open -a /Applications/CotEditor.app'
 alias vbs='VboxVRDP -s'
 alias vbc='VboxManage controlvm'
 
+function brewup {
+  brew update && for i in $(brew outdated | awk '{print $1}'); do brew upgrade $i; done && brew cleanup
+}
+
 # Load local configuration
 if [ -f ~/.alias.local ]
 then
