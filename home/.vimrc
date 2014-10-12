@@ -33,6 +33,8 @@
     Plugin 'mkitt/tabline.vim'
     Plugin 'majutsushi/tagbar'
     Plugin 'toyamarinyon/vim-swift'
+    Plugin 'vim-scripts/ZoomWin'
+    Plugin 'ekalinin/Dockerfile.vim'
   " }}}
 
   call vundle#end()
