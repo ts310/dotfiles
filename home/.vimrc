@@ -36,8 +36,6 @@
     Plugin 'toyamarinyon/vim-swift'
     Plugin 'vim-scripts/ZoomWin'
     Plugin 'ekalinin/Dockerfile.vim'
-    Plugin 'Shougo/unite.vim'
-    Plugin 'Shougo/vimproc.vim'
     Plugin 'tsukkee/unite-tag'
     Plugin 'kmnk/vim-unite-svn'
     Plugin 'Keithbsmiley/swift.vim'
