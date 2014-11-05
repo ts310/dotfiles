@@ -11,8 +11,6 @@
   " {{{
     Plugin 'gmarik/Vundle.vim'
     Plugin 'tpope/vim-sensible'
-    Plugin 'Shougo/unite.vim'
-    Plugin 'Shougo/vimproc.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'kien/ctrlp.vim'
     Plugin 'gregsexton/gitv'
@@ -36,10 +34,9 @@
     Plugin 'toyamarinyon/vim-swift'
     Plugin 'vim-scripts/ZoomWin'
     Plugin 'ekalinin/Dockerfile.vim'
-    Plugin 'tsukkee/unite-tag'
-    Plugin 'kmnk/vim-unite-svn'
     Plugin 'Keithbsmiley/swift.vim'
     Plugin 'tpope/vim-unimpaired'
+    Plugin 'AndrewRadev/linediff.vim'
  " }}}
 
   call vundle#end()
@@ -260,6 +257,7 @@
 
   " Strip all trading whitespace in current while
   nmap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+  nmap <leader>ss :write <CR>
 
   " Disable help key
   map <F1> <nop>
