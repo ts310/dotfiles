@@ -332,7 +332,6 @@
   let g:ctrlp_use_migemo = 1
 " }}}
 
-
 " ------------------------------------------------------------
 " Nerdtree
 " ------------------------------------------------------------
@@ -431,40 +430,13 @@
 " }}}
 
 " ------------------------------------------------------------
-" Unite
+" VCSCommnad
 " ------------------------------------------------------------
 " {{{
-  cabbrev unite Unite
-  let g:unite_enable_start_insert=1
-  let g:unite_source_history_yank_enable =1
-  let g:unite_source_file_mru_limit = 200
-  let g:unite_enable_ignore_case = 1
-  let g:unite_enable_smart_case = 1
-  if executable('ag')
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-    let g:unite_source_grep_recursive_opt = ''
-  endif
-  nnoremap <silent> <leader>ud :<C-u>Unite file_rec/async:!<CR>
-  nnoremap <silent> <leader>uy :<C-u>Unite history/yank<CR>
-  nnoremap <silent> <leader>ub :<C-u>Unite buffer<CR>
-  nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register<CR>
-  nnoremap <silent> <leader>uu :<C-u>Unite file_mru buffer<CR>
-  nnoremap <silent> <leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-  nnoremap <silent> <leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-  nnoremap <silent> <leader>r  :<C-u>UniteResume search-buffer<CR>
-  "nnoremap [Unite] <Nop>
-  "nmap     <leader>u [Unite]
-  "let g:unite_enable_start_insert = 1 " insert mode
-  "let g:unite_enable_ignore_case = 1
-  "let g:unite_enable_smart_case = 1
-  "nnoremap <silent> [Unite]g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-  "nnoremap <silent> [Unite]cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-  "nnoremap <silent> [Unite]r  :<C-u>UniteResume search-buffer<CR>
-  "if executable('ag')
-    "let g:unite_source_grep_command = 'ag'
-    "let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-    "let g:unite_source_grep_recursive_opt = ''
-  "endif
+  cabbrev vcsgotooriginal VCSGotoOriginal
+  cabbrev vcslog VCSLog
+  cabbrev vcsreview VCSReview
+  cabbrev vcsstatus VCSStatus
+  cabbrev vcsupdate VCSUpdate
+  cabbrev vcsvimdiff VCSVimDiff
 " }}}
