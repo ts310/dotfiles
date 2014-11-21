@@ -37,6 +37,7 @@
     Plugin 'Keithbsmiley/swift.vim'
     Plugin 'tpope/vim-unimpaired'
     Plugin 'AndrewRadev/linediff.vim'
+    Plugin 'altercation/vim-colors-solarized'
  " }}}
 
   call vundle#end()
@@ -72,10 +73,12 @@
 " {{{
   set noshowmatch
   set lazyredraw
-  set scrolljump=8
+  "set scrolljump=8
   let loaded_matchparen=1
   let html_no_rendering=1
-  set re=1
+  if has("regexpengine")
+    set regexpengine=1
+  endif
 " }}}
 
 " ------------------------------------------------------------
@@ -196,15 +199,15 @@
 " ------------------------------------------------------------
 " {{{
   set background=dark
-  colorscheme jellybeans
-  hi NonText      guifg=gray   cterm=none ctermfg=gray
-  hi SpecialKey   guifg=gray   cterm=none ctermfg=gray
-  hi statusline   guifg=white  cterm=none ctermfg=white ctermbg=darkgreen gui=none guibg=darkgreen
-  hi TabLine      ctermfg=black  ctermbg=green     cterm=none
-  hi TabLineFill  ctermfg=black  ctermbg=green     cterm=none
-  hi TabLineSel   ctermfg=white  ctermbg=darkblue  cterm=none
-  au InsertEnter * hi statusline ctermbg=darkred   guibg=darkred
-  au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
+  colorscheme solarized
+  "hi NonText      guifg=gray   cterm=none ctermfg=gray
+  "hi SpecialKey   guifg=gray   cterm=none ctermfg=gray
+  "hi statusline   guifg=white  cterm=none ctermfg=white ctermbg=darkgreen gui=none guibg=darkgreen
+  "hi TabLine      ctermfg=black  ctermbg=green     cterm=none
+  "hi TabLineFill  ctermfg=black  ctermbg=green     cterm=none
+  "hi TabLineSel   ctermfg=white  ctermbg=darkblue  cterm=none
+  "au InsertEnter * hi statusline ctermbg=darkred   guibg=darkred
+  "au InsertLeave * hi statusline ctermbg=darkgreen guibg=darkgreen
 " }}}
 
 " ------------------------------------------------------------
@@ -221,6 +224,8 @@
 " ------------------------------------------------------------
 " {{{
   let mapleader=" "
+
+  nmap ; :
 
   " Natural behavior with wordwrap on
   nnoremap j gj
