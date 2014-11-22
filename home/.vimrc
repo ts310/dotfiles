@@ -37,8 +37,10 @@
     Plugin 'Keithbsmiley/swift.vim'
     Plugin 'tpope/vim-unimpaired'
     Plugin 'AndrewRadev/linediff.vim'
+    Plugin 'elzr/vim-json'
+    Plugin 'b4winckler/vim-objc'
     Plugin 'altercation/vim-colors-solarized'
- " }}}
+  " }}}
 
   call vundle#end()
   filetype plugin indent on
@@ -73,7 +75,7 @@
 " {{{
   set noshowmatch
   set lazyredraw
-  "set scrolljump=8
+  set scrolljump=8
   let loaded_matchparen=1
   let html_no_rendering=1
   if has("regexpengine")
@@ -199,6 +201,9 @@
 " ------------------------------------------------------------
 " {{{
   set background=dark
+  if has("gui_running")
+    set background=dark
+  endif
   colorscheme solarized
   "hi NonText      guifg=gray   cterm=none ctermfg=gray
   "hi SpecialKey   guifg=gray   cterm=none ctermfg=gray
