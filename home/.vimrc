@@ -40,6 +40,7 @@
     Plugin 'elzr/vim-json'
     Plugin 'b4winckler/vim-objc'
     Plugin 'altercation/vim-colors-solarized'
+    Plugin 'konfekt/FastFold'
   " }}}
 
   call vundle#end()
@@ -76,11 +77,10 @@
   set noshowmatch
   set lazyredraw
   set scrolljump=8
+  set ttyfast
+  set ttyscroll=3
   let loaded_matchparen=1
   let html_no_rendering=1
-  if has("regexpengine")
-    set regexpengine=1
-  endif
 " }}}
 
 " ------------------------------------------------------------
