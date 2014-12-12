@@ -79,6 +79,9 @@
   set scrolljump=8
   set ttyfast
   set ttyscroll=3
+  if has("regexpengine")
+    set regexpengine=1
+  endif
   let loaded_matchparen=1
   let html_no_rendering=1
 " }}}
@@ -140,7 +143,7 @@
 " Folds settings
 " ------------------------------------------------------------
 " {{{
-  set foldmethod=indent
+  set foldmethod=syntax
   set foldnestmax=3
   set foldenable
   set foldlevel=99
@@ -336,10 +339,11 @@
   let g:ctrlp_max_height = 40
   let g:ctrlp_max_files = 0 " unlimited
   let g:ctrlp_working_path_mode = ''
-  let g:ctrlp_show_hidden = 1
-  let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
+  let g:ctrlp_show_hidden = 0
+  let g:ctrlp_extensions = ['buffertag', 'dir', 'tag']
   let g:ctrlp_clear_cache_on_exit = 0
   let g:ctrlp_use_migemo = 1
+  let g:ctrlp_lazy_update = 1
 " }}}
 
 " ------------------------------------------------------------
