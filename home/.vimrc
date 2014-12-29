@@ -37,7 +37,6 @@
     Plugin 'Keithbsmiley/swift.vim'
     Plugin 'tpope/vim-unimpaired'
     Plugin 'AndrewRadev/linediff.vim'
-    Plugin 'elzr/vim-json'
     Plugin 'b4winckler/vim-objc'
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'konfekt/FastFold'
