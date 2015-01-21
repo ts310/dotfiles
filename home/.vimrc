@@ -10,11 +10,9 @@
 
   " {{{
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'tpope/vim-sensible'
     Plugin 'scrooloose/nerdtree'
     Plugin 'kien/ctrlp.vim'
     Plugin 'gregsexton/gitv'
-    Plugin 'tpope/vim-fugitive'
     Plugin 'airblade/vim-gitgutter'
     Plugin 'rking/ag.vim'
     Plugin 'bling/vim-airline'
@@ -22,8 +20,13 @@
     Plugin 'vim-scripts/vcscommand.vim'
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'vim-scripts/Align'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'tpope/vim-sensible'
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-rails'
+    Plugin 'tpope/vim-markdown'
+    Plugin 'tpope/vim-unimpaired'
     Plugin 'scrooloose/syntastic'
     Plugin 'vim-scripts/matchit.zip'
     Plugin 'mattn/emmet-vim'
@@ -35,11 +38,13 @@
     Plugin 'vim-scripts/ZoomWin'
     Plugin 'ekalinin/Dockerfile.vim'
     Plugin 'Keithbsmiley/swift.vim'
-    Plugin 'tpope/vim-unimpaired'
     Plugin 'AndrewRadev/linediff.vim'
     Plugin 'b4winckler/vim-objc'
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'konfekt/FastFold'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'garbas/vim-snipmate'
   " }}}
 
   call vundle#end()
@@ -66,31 +71,30 @@
   set ruler
   set laststatus=2
   set cmdheight=1
-  set cursorline
+  set nocursorline
 " }}}
 "
 " ------------------------------------------------------------
 "  Optimization
 " ------------------------------------------------------------
 " {{{
-  set noshowmatch
-  set lazyredraw
-  set scrolljump=8
-  set ttyfast
-  set ttyscroll=3
-  if has("regexpengine")
-    set regexpengine=1
-  endif
-  let loaded_matchparen=1
-  let html_no_rendering=1
+  "set noshowmatch
+  "set lazyredraw
+  "set scrolljump=8
+  "set ttyfast
+  "set ttyscroll=3
+  "if has("regexpengine")
+    "set regexpengine=1
+  "endif
+  "let loaded_matchparen=1
+  "let html_no_rendering=1
+  "syntax sync minlines=256 " Fof performance gain
 " }}}
 
 " ------------------------------------------------------------
 " Basic settings
 " ------------------------------------------------------------
 " {{{
-  syntax sync minlines=256 " Fof performance gain
-
   " Shortcut for edit/source vim runtime configuration in command
   command! Ev edit $MYVIMRC
   command! Rv source $MYVIMRC
@@ -452,4 +456,13 @@
   cabbrev vcsstatus VCSStatus
   cabbrev vcsupdate VCSUpdate
   cabbrev vcsvimdiff VCSVimDiff
+" }}}
+
+" ------------------------------------------------------------
+" Snipmate
+" ------------------------------------------------------------
+" {{{
+  let g:snipMate = {}
+  let g:snipMate.scope_aliases = {}
+  let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'
 " }}}
