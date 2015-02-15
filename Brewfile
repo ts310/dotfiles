@@ -1,102 +1,81 @@
-tap 'homebrew/versions'
-tap 'homebrew/bianry'
-tap 'phinze/homebrew-cask'
-brew 'apple-gcc42'
-brew 'appledoc'
-brew 'asciidoc'
-brew 'autoconf'
-brew 'automake'
-brew 'boost'
-brew 'chruby'
-brew 'cloc'
-brew 'cloog018'
-brew 'cmake'
-brew 'colorsvn'
-brew 'cscope'
-brew 'ctags'
-brew 'docbook'
-brew 'docbook-xsl'
-brew 'freetds'
-brew 'freetype'
-brew 'gcc43'
-brew 'gcc49'
-brew 'gdbm'
-brew 'gettext'
-brew 'git'
-brew 'git-extras'
-brew 'git-flow'
-brew 'glib'
-brew 'global'
-brew 'gmp'
-brew 'gmp4'
-brew 'gnu-getopt'
-brew 'gnu-typist'
-brew 'gnupg'
-brew 'go'
-brew 'graphviz'
-brew 'htop-osx'
-brew 'httperf'
-brew 'icu4c'
-brew 'imagemagick'
-brew 'irssi'
-brew 'isl011'
-brew 'jasmin'
-brew 'jetty'
-brew 'jpeg'
-brew 'libevent'
-brew 'libffi'
-brew 'libgcrypt'
-brew 'libgpg-error'
-brew 'libmpc08'
-brew 'libpng'
-brew 'libtasn1'
-brew 'libtool'
-brew 'libxml2'
-brew 'libyaml'
-brew 'macvim'
-brew 'maven'
-brew 'memcached'
-brew 'mobile-shell'
-brew 'mongodb'
-brew 'mpfr2'
-brew 'multitail'
-brew 'mysql'
-brew 'neon'
-brew 'nettle'
-brew 'nginx'
-brew 'node'
-brew 'openssl'
-brew 'ossp-uuid'
-brew 'packer'
-brew 'pcre'
-brew 'phantomjs'
-brew 'pkg-config'
-brew 'protobuf'
-brew 'python'
-brew 'python3'
-brew 'qt'
-brew 'readline'
-brew 'reattach-to-user-namespace'
-brew 'redis'
-brew 'ruby-install'
-brew 'scons'
-brew 'serf'
-brew 'siege'
-brew 'source-highlight'
-brew 'sqlite'
-brew 'subversion16'
-brew 'the_silver_searcher'
-brew 'tig'
-brew 'tmux'
-brew 'tomcat'
-brew 'tree'
-brew 'typespeed'
-brew 'vcprompt'
-brew 'vim'
-brew 'watch'
-brew 'wget'
-brew 'xctool'
-brew 'xmlto'
-brew 'xz'
-brew 'zlib'
-brew 'zsh'
+autoconf
+automake
+bdw-gc
+bison
+boot2docker
+brew-cask
+chruby
+cmake
+cmigemo
+colordiff
+coreutils
+cscope
+ctags
+docker
+elinks
+fish
+fontconfig
+freetds
+freetype
+gawk
+gdbm
+gettext
+git
+global
+gnu-sed
+gnu-typist
+go
+helios
+hub
+icu4c
+jpeg
+jq
+kindlegen
+libevent
+libffi
+libiconv
+libpng
+libtiff
+libtool
+libxml2
+libxslt
+libyaml
+lynx
+macvim
+makedepend
+maven2
+md5sha1sum
+mercurial
+mongodb
+monit
+mpg123
+neon
+nkf
+node
+openssl
+pcre
+pkg-config
+portaudio
+pow
+python
+readline
+reattach-to-user-namespace
+rlwrap
+ruby-build
+ruby-install
+scons
+siege
+sqlite
+subversion17
+the_silver_searcher
+tig
+tmux
+tomcat6
+tree
+typespeed
+vcprompt
+vim
+w3m
+wget
+xz
+zsh
