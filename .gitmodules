@@ -7,3 +7,6 @@
 [submodule "home/.prezto"]
 	path = home/.prezto
 	url = https://github.com/sorin-ionescu/prezto
+[submodule "home/.tmux/plugins/tpm"]
+	path = home/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
