@@ -45,6 +45,7 @@
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
+    Plugin 'kchmck/vim-coffee-script'
   " }}}
 
   call vundle#end()
@@ -72,6 +73,7 @@
   set laststatus=2
   set cmdheight=1
   set nocursorline
+  set imdisable
 " }}}
 "
 " ------------------------------------------------------------
