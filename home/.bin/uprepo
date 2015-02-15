@@ -1,0 +1,20 @@
+#!/bin/bash
+
+repolistfile="$HOME/.repolist"
+
+if [ -f "$repolistfile" ]; then
+  echo "Repofile found"
+else
+  echo "Please create a $repolistfile"
+  exit
+fi
+
+for dir in $(cat $repolistfile); do
+  cd $dir && pwd
+  if [ -d .git ]; then
+    git fetch
+    git gc
+  elif [ -d .svn ]; then
+    svn up .
+  fi
+done
