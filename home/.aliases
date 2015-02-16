@@ -1,8 +1,15 @@
-alias reload='source ~/.config/common/.aliases'
+# -------------------------------------------------------
+# Aliases
+# -------------------------------------------------------
+
 alias shellrestart='exec $SHELL -l'
 
 alias ssh='TERM=xterm ssh'
 alias ssh256='TERM=xterm-256color ssh'
+
+# use yellow for directories
+export CLICOLOR=1
+export LSCOLORS=dxfxcxdxbxegedabagacad
 
 alias a='ls -A' # -A all except literal . ..
 alias c='clear'
@@ -119,13 +126,14 @@ function untr() {
 }
 
 alias me='whoami'
-alias a2restart='sudo /etc/init.d/apache2 restart'
 alias ehosts='sudo vim /etc/hosts'
 alias newpass='openssl rand -base64 6'
 
+# -------------------------------------------------------
 # Git
+# -------------------------------------------------------
 
-#alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias g='git status'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
@@ -148,11 +156,6 @@ alias gdm='git diff master'
 alias gl='git pull'
 alias gnp="git-notpushed"
 alias gp='git push'
-alias gst='git status'
-alias gt='git status'
-alias g='git status'
-alias eg='mate .git/config'
-alias gha='gh --all'
 
 # Git clone from GitHub
 function gch() {
@@ -162,12 +165,6 @@ function gch() {
 # Setup a tracking branch from [remote] [branch_name]
 function gbt() { 
   git branch --track $2 $1/$2 && git checkout $2 
-}
-
-# Quickly clobber a file and checkout
-function grf() { 
-  rm $1
-  git checkout $1 
 }
 
 # Call from inside an initialized Git repo, with the name of the repo.
@@ -188,80 +185,34 @@ function gitrmdeleted() {
 	git status | grep "deleted:" | awk '{ print $3 }' | while read f; do git rm "$f"; done
 }
 
-alias gitbox="open -a Gitbox ."
-
-function oa {
-  open -a $1
-}
-
-alias o='open .'
-alias chrome='open -a Google\ Chrome.app --args -enable-apps'
-alias xcode='open /Applications/Xcode.app'
-
-# use yellow for directories
-export CLICOLOR=1
-export LSCOLORS=dxfxcxdxbxegedabagacad
-
-# Rails
-alias mr='mongrel_rails start'
-alias ms='mongrel_rails stop'
-alias rp='touch tmp/restart.txt'
-alias sc='./script/console'
-alias sg='./script/generate'
-alias sp='./script/plugin'
-alias ss='./script/server'
-alias tl='tail -f log/*.log'
-alias ts='thin start'
-
-# TDD / BDD
-alias aa='autotest'
-alias aaf='autotest -f' # Don't run all at start
-alias aas="./script/autospec" # Various server
-
-# Xcode
-
-# Analyze release build
-alias sx="xcodebuild clean && ~/src/checker/scan-build -k -V xcodebuild"
-
-# Analyze test build
-alias sxt="xcodebuild -target Test clean && ~/src/checker/scan-build -k -V xcodebuild -target Test"
-
-# Call with -target Foo
-function sxx() { 
-  xcodebuild $* clean && ~/src/checker/scan-build -k -V xcodebuild $* 
-}
-
-alias ox="open *.xcodeproj"
-
-# Nginx
-function nginx_stop() {
-  ps ax | grep nginx | cut -d " " -f 1 | xargs sudo kill -9
-}
-
-function nginx_start() {
-  sudo /usr/local/sbin/nginx
-}
-
-# Run virtual machine headless
-function vmng() {
-  vmrun start ~/Documents/Virtual\ Machines/$1.vmwarevm nogui
-}
-
-function vm() {
-  vmrun start ~/Documents/Virtual\ Machines/$1.vmwarevm
-}
-
-# ksdiff
-alias skdiff='svn diff --diff-cmd=ksdiff-svnwrapper .'
-
-alias cot='open -a /Applications/CotEditor.app'
-
-# VirtualBox
-alias vbs='VboxVRDP -s'
-alias vbc='VboxManage controlvm'
+# -------------------------------------------------------
+# homebrew
+# -------------------------------------------------------
 
 function brewup {
   brew update && for i in $(brew outdated | awk '{print $1}'); do brew upgrade $i; done && brew cleanup
+}
+
+# -------------------------------------------------------
+# Redmine
+# -------------------------------------------------------
+
+# $ revsbyrefs ticket-number  -> このチケットに紐づくリビジョン一覧
+# $ filesbyrefs ticket-number -> このチケットで変更されたファイル一覧
+
+function revsbyrefs() {
+  refs=$1
+  svn log -l 1000 | sed '/^$/d' | grep -B1 -o "refs #$refs" | grep -E -o '^r(\d+)' | tr -d 'r' | sort | tr '\n' ' ' | sed 's/[[:space:]]*$//' 
+}
+
+function filesbyrefs() {
+  files=()
+  for i in $(revsbyrefs $1); do
+    while read f; do
+      files+=("$f\n")
+    done < <(svn diff -c $i --summarize)
+  done
+  echo $files | awk '{print $NF}' | sort | uniq
 }
 
 # Load local configuration
