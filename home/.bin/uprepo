@@ -9,12 +9,20 @@ else
   exit
 fi
 
-for dir in $(cat $repolistfile); do
-  cd $dir && pwd
-  if [ -d .git ]; then
-    git fetch
-    git gc
-  elif [ -d .svn ]; then
-    svn up .
+for dir in $(cat $repolistfile | sort | uniq); do
+  echo '------------------------------------------------------------------'
+  echo $dir
+  echo '------------------------------------------------------------------'
+  if [ -d $dir ]; then
+    cd $dir
+    if [ -d .git ]; then
+      git fetch
+      git gc
+    elif [ -d .svn ]; then
+      svn up .
+    fi
+  else
+    echo "Directory:$dir does not exists....."
   fi
+  echo ' '
 done
