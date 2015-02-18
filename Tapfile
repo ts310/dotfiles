@@ -6,5 +6,5 @@ homebrew/dupes
 homebrew/php
 homebrew/versions
 neovim/neovim
-peco/peco
+phinze/cask
 spotify/public
