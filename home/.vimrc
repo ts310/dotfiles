@@ -257,11 +257,12 @@
 
   imap  <C-e> <END>
   imap  <C-a> <HOME>
+  imap  <C-h> <Bs>
 
-  imap <C-j> <Down>
-  imap <C-k> <Up>
-  imap <C-h> <Left>
-  imap <C-l> <Right>
+  "imap <C-j> <Down>
+  "imap <C-k> <Up>
+  "imap <C-h> <Left>
+  "imap <C-l> <Right>
 
   nnoremap <C-h> <C-w>h
   nnoremap <C-j> <C-w>j
