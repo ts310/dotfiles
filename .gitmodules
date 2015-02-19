@@ -10,3 +10,6 @@
 [submodule "home/.zprezto"]
 	path = home/.zprezto
 	url = git@github.com:sorin-ionescu/prezto.git
+[submodule "vendor/solarized"]
+	path = vendor/solarized
+	url = https://github.com/altercation/solarized.git
