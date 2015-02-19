@@ -46,6 +46,9 @@
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
     Plugin 'kchmck/vim-coffee-script'
+    Plugin 'ngmy/vim-rubocop'
+    Plugin 'rizzatti/dash.vim'
+    Plugin 'tyru/open-browser.vim'
   " }}}
 
   call vundle#end()
@@ -468,4 +471,28 @@
   let g:snipMate = {}
   let g:snipMate.scope_aliases = {}
   let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'
+" }}}
+
+" ------------------------------------------------------------
+" Rubocop
+" ------------------------------------------------------------
+" {{{
+  let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+  let g:syntastic_ruby_checkers = ['rubocop']
+" }}}
+
+" ------------------------------------------------------------
+" Open-browser
+" ------------------------------------------------------------
+" {{{
+  let g:netrw_nogx = 1 " disable netrw's gx mapping.
+  nmap gx <Plug>(openbrowser-smart-search)
+  vmap gx <Plug>(openbrowser-smart-search)
+" }}}
+
+" ------------------------------------------------------------
+" Dash
+" ------------------------------------------------------------
+" {{{
+  nmap <silent> <leader>d <Plug>DashGlobalSearch
 " }}}
