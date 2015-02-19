@@ -10,45 +10,63 @@
 
   " {{{
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'scrooloose/nerdtree'
+
+    " Basic settings
+    Plugin 'tpope/vim-sensible'
+
+    " Basic configuration
+    Plugin 'bling/vim-airline'
+
+    " Navigation
     Plugin 'kien/ctrlp.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'szw/vim-tags'
+
+    " VCS
+    Plugin 'tpope/vim-fugitive'
     Plugin 'gregsexton/gitv'
     Plugin 'airblade/vim-gitgutter'
-    Plugin 'rking/ag.vim'
-    Plugin 'bling/vim-airline'
-    Plugin 'szw/vim-tags'
     Plugin 'vim-scripts/vcscommand.vim'
+
+    " Search
+    Plugin 'rking/ag.vim'
+
+    " Diff
+    Plugin 'AndrewRadev/linediff.vim'
+
+    " Editing
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'vim-scripts/Align'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'tpope/vim-sensible'
+    Plugin 'vim-scripts/matchit.zip'
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-repeat'
-    Plugin 'tpope/vim-rails'
-    Plugin 'tpope/vim-markdown'
     Plugin 'tpope/vim-unimpaired'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'vim-scripts/matchit.zip'
-    Plugin 'mattn/emmet-vim'
-    Plugin 'tomasr/molokai'
-    Plugin 'nanotech/jellybeans.vim'
     Plugin 'mkitt/tabline.vim'
-    Plugin 'majutsushi/tagbar'
-    Plugin 'toyamarinyon/vim-swift'
     Plugin 'vim-scripts/ZoomWin'
-    Plugin 'ekalinin/Dockerfile.vim'
-    Plugin 'Keithbsmiley/swift.vim'
-    Plugin 'AndrewRadev/linediff.vim'
-    Plugin 'b4winckler/vim-objc'
-    Plugin 'altercation/vim-colors-solarized'
     Plugin 'konfekt/FastFold'
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
-    Plugin 'kchmck/vim-coffee-script'
     Plugin 'ngmy/vim-rubocop'
     Plugin 'rizzatti/dash.vim'
     Plugin 'tyru/open-browser.vim'
+    Plugin 'scrooloose/syntastic'
+
+    " Languages
+    Plugin 'tpope/vim-rails'
+    Plugin 'tpope/vim-markdown'
+    Plugin 'mattn/emmet-vim'
+    Plugin 'kchmck/vim-coffee-script'
+    Plugin 'b4winckler/vim-objc'
+    Plugin 'ekalinin/Dockerfile.vim'
+    "Plugin 'Keithbsmiley/swift.vim'
+    "Plugin 'toyamarinyon/vim-swift'
+
+    " Colorschemes
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'tomasr/molokai'
+    Plugin 'nanotech/jellybeans.vim'
   " }}}
 
   call vundle#end()
