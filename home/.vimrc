@@ -512,5 +512,5 @@
 " Dash
 " ------------------------------------------------------------
 " {{{
-  nmap <silent> <leader>d <Plug>DashGlobalSearch
+  "nmap <silent> <leader>d <Plug>DashGlobalSearch
 " }}}
