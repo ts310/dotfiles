@@ -48,7 +48,7 @@
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
-    Plugin 'ngmy/vim-rubocop'
+    "Plugin 'ngmy/vim-rubocop'
     Plugin 'rizzatti/dash.vim'
     Plugin 'tyru/open-browser.vim'
     Plugin 'scrooloose/syntastic'
