@@ -14,7 +14,7 @@
     " Basic settings
     Plugin 'tpope/vim-sensible'
 
-    " Basic configuration
+    " UI
     Plugin 'bling/vim-airline'
 
     " Navigation
@@ -48,25 +48,34 @@
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
+    Plugin 'tpope/vim-endwise'
+
+    " Integration
     "Plugin 'ngmy/vim-rubocop'
-    Plugin 'rizzatti/dash.vim'
+    "Plugin 'rizzatti/dash.vim'
     Plugin 'tyru/open-browser.vim'
     Plugin 'scrooloose/syntastic'
 
-    " Languages
+    " Rails/Ruby
     Plugin 'tpope/vim-rails'
+    Plugin 'tpope/vim-bundler'
+
+    " Languages
     Plugin 'tpope/vim-markdown'
     Plugin 'mattn/emmet-vim'
     Plugin 'kchmck/vim-coffee-script'
     Plugin 'b4winckler/vim-objc'
     Plugin 'ekalinin/Dockerfile.vim'
-    "Plugin 'Keithbsmiley/swift.vim'
-    "Plugin 'toyamarinyon/vim-swift'
+    Plugin 'Keithbsmiley/swift.vim'
+    Plugin 'toyamarinyon/vim-swift'
 
     " Colorschemes
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'tomasr/molokai'
     Plugin 'nanotech/jellybeans.vim'
+
+    " Vim codereview
+    Plugin 'junkblocker/patchreview-vim'
   " }}}
 
   call vundle#end()
@@ -432,7 +441,9 @@
   cabbrev gitv Gitv
   let g:Gitv_OpenHorizontal = 1
   let g:Gitv_WrapLines = 0
+  let g:Gitv_TruncateCommitSubjects = 1
   let g:Gitv_OpenPreviewOnLaunch = 1
+  let g:Gitv_DoNotMapCtrlKey = 1
   "nmap <leader>gv :Gitv --all<cr>
   "nmap <leader>gV :Gitv! --all<cr>
   "vmap <leader>gV :Gitv! --all<cr>
@@ -492,7 +503,7 @@
 " }}}
 
 " ------------------------------------------------------------
-" Rubocop
+" Syntastic
 " ------------------------------------------------------------
 " {{{
   let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }

@@ -1,6 +1,6 @@
 # source common files
-. ~/.config/common/.env
-. ~/.config/common/.aliases
+. ~/.env
+. ~/.aliases
 
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 NO_COLOR='\e[0m' #disable any colors
