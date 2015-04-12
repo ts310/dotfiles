@@ -19,6 +19,8 @@
 
     " Navigation
     Plugin 'kien/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
+    Plugin 'd11wtq/ctrlp_bdelete.vim'
     Plugin 'scrooloose/nerdtree'
     Plugin 'majutsushi/tagbar'
     Plugin 'szw/vim-tags'
@@ -110,11 +112,11 @@
 "  Optimization
 " ------------------------------------------------------------
 " {{{
-  "set noshowmatch
-  "set lazyredraw
-  "set scrolljump=8
-  "set ttyfast
-  "set ttyscroll=3
+  set noshowmatch
+  set lazyredraw
+  set scrolljump=8
+  set ttyfast
+  set ttyscroll=3
   "if has("regexpengine")
     "set regexpengine=1
   "endif
@@ -371,15 +373,26 @@
   let g:ctrlp_map = '<C-p>'
   let g:ctrlp_cmd = 'CtrlP'
   map <Leader>p :CtrlP<CR>
-  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
   let g:ctrlp_max_height = 40
   let g:ctrlp_max_files = 0 " unlimited
   let g:ctrlp_working_path_mode = ''
   let g:ctrlp_show_hidden = 1
-  let g:ctrlp_extensions = ['buffertag', 'dir', 'tag']
+  let g:ctrlp_extensions = ['funky']
   let g:ctrlp_clear_cache_on_exit = 0
   let g:ctrlp_use_migemo = 1
-  let g:ctrlp_lazy_update = 1
+  let g:ctrlp_lazy_update = 0
+  hi def link CtrlPMatch CursorLine
+  let g:ctrlp_clear_cache_on_exit = 0
+  let g:ctrlp_switch_buffer = 'Et'
+  let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git\|node_modules\|bin\|\.hg\|\.svn\|build\|log\|resources\|coverage\|doc\|tmp\|public/assets\|vendor\|Android',
+    \ 'file': '\.jpg$\|\.exe$\|\.so$\|tags$\|\.dll$'
+    \ }
+  nnoremap <C-b> :CtrlPBuffer<cr>
+  " CtrlP Delete
+  call ctrlp_bdelete#init()
+  " CtrlP Funky
+  let g:ctrlp_funky_multi_buffers = 1
 " }}}
 
 " ------------------------------------------------------------
