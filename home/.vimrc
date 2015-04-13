@@ -100,7 +100,7 @@
   set virtualedit+=block
   set clipboard+=unnamedplus,unnamed,autoselect
   set tags+=.tags
-  set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+  "set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
   set ruler
   set laststatus=2
   set cmdheight=1
@@ -114,9 +114,9 @@
 " {{{
   set noshowmatch
   set lazyredraw
-  set scrolljump=8
   set ttyfast
   set ttyscroll=3
+  "set scrolljump=8
   "if has("regexpengine")
     "set regexpengine=1
   "endif
@@ -519,8 +519,18 @@
 " Syntastic
 " ------------------------------------------------------------
 " {{{
-  let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_always_populate_loc_list = 0
+  let g:syntastic_check_on_open = 0
+  let g:syntastic_check_on_wq = 1
+  let g:syntastic_loc_list_height = 6
   let g:syntastic_ruby_checkers = ['rubocop']
+  let g:syntastic_javascript_checkers = ['jshint']
+  let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': ['ruby', 'javascript'],
+    \ 'passive_filetypes': []
+    \ }
 " }}}
 
 " ------------------------------------------------------------
