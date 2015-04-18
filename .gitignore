@@ -1,7 +1,7 @@
 .DS_Store
 bin/*
 home/.vim/tmp/
-home/.vim/bundle/
+archived/.vim/bundle/
 home/.vim/.netrwhist
 home/.tmux/*
 .tags
