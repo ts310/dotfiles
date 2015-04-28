@@ -25,6 +25,7 @@ alias mcd='mount /mnt/cdrom'
 alias nt='newtab' # new terminal tab
 alias search=grep
 alias ucd='umount /mnt/cdrom'
+alias vag='vagrant'
 
 function cdc() {
   cd $1; ls
