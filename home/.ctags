@@ -1,5 +1,5 @@
--R 
--f .tags 
+-R
+-f .tags
 --links=no
 --exclude=.svn
 --exclude=.git
@@ -13,7 +13,7 @@
 --tag-relative=yes
 --totals=yes
 --langmap=php:.php
---php-kinds=cdfi 
+--php-kinds=cdfi
 --regex-php=/^[ \t]*const[ \t]+([a-z0-9_]+)/\1/d/i
 --langdef=js
 --langmap=js:.js
