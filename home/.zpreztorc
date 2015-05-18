@@ -157,3 +157,9 @@ zstyle ':prezto:module:prompt' theme 'steeef'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+
+# Autojump
+alias j="autojump"
+if [ -f `brew --prefix`/etc/autojump ]; then
+. `brew --prefix`/etc/autojump
+fi
