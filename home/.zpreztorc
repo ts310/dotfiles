@@ -34,7 +34,11 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt'
+  'prompt' \
+  'ruby' \
+  'rails' \
+  'osx' \
+  'fasd'
 
 #
 # Editor
