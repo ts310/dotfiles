@@ -66,8 +66,8 @@ function brewup {
 # }}}
 
 # redmine {{{
-# $ revsbyrefs ticket-number  -> このチケットに紐づくリビジョン一覧
-# $ filesbyrefs ticket-number -> このチケットで変更されたファイル一覧
+# $ revsbyrefs ticket-number  -> revisions related to the ticket id
+# $ filesbyrefs ticket-number -> changed files related to the ticket id
 function revsbyrefs() {
   refs=$1
   svn log -l 1000 | sed '/^$/d' | grep -B1 -o "refs #$refs" | grep -E -o '^r(\d+)' | tr -d 'r' | sort | tr '\n' ' ' | sed 's/[[:space:]]*$//' 
