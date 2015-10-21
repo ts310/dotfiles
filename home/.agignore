@@ -4,6 +4,7 @@
 *.old
 .vim/bundle
 .vim/dict
+zsh-completions
 .git
 .svn
 node_modules

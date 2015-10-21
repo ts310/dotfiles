@@ -6,10 +6,6 @@
   path = home/.tmux/plugins/tpm
   url = https://github.com/tmux-plugins/tpm
   ignore = dirty
-[submodule "home/.zprezto"]
-  path = home/.zprezto
-  url = git@github.com:sorin-ionescu/prezto.git
-  ignore = dirty
 [submodule "vendor/solarized"]
   path = vendor/solarized
   url = https://github.com/altercation/solarized.git
