@@ -26,6 +26,7 @@ function isreg {
 }
 alias ehosts='sudo vim /etc/hosts'
 alias newpass='openssl rand -base64 6'
+alias less='less -R'
 # }}}
 
 # git {{{
