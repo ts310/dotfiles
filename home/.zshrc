@@ -16,3 +16,5 @@ if ! zgen saved; then
 fi
 
 setopt share_history
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

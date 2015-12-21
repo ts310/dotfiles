@@ -53,8 +53,9 @@ then
   . /usr/local/etc/bash_completion
 fi
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 if [ -f ~/.bashrc.local ]
 then
   . ~/.bashrc.local
 fi
-
