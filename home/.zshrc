@@ -11,6 +11,7 @@ if ! zgen saved; then
   zgen prezto syntax-highlighting
   zgen prezto git
   zgen prezto history
+  zgen prezto autosuggestions
   zgen load zsh-users/zsh-completions src
   zgen save
 fi

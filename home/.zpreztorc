@@ -10,3 +10,5 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'pattern' \
   'cursor' \
   'root'
+
+zstyle ':prezto:module:autosuggestions' color 'yes'
