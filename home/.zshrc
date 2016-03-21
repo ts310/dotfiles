@@ -1,3 +1,5 @@
+#zmodload zsh/zprof && zprof
+
 source $HOME/.env
 source $HOME/.aliases
 
@@ -19,3 +21,7 @@ fi
 setopt share_history
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if (which zprof > /dev/null) ;then
+  zprof | less
+fi
