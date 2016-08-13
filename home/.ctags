@@ -31,3 +31,6 @@
 --regex-objc=/^[[:space:]]*\@property[[:space:]]+.*[[:space:]]+\*?(.*);$/\1/p,property/
 --regex-objc=/^[[:space:]]*\@implementation[[:space:]]+(.*)$/\1/c,class/
 --regex-objc=/^[[:space:]]*\@interface[[:space:]]+(.*)[[:space:]]+:.*{/\1/i,interface/
+--langdef=JSX
+--langmap=JSX:.jsx
+--regex-JSX=/^[ \t]*([a-z]+[ \t]+)*class[ \t]+([A-Za-z0-9_]+)[ \t]*([^)])/\2/c,class,classes/
