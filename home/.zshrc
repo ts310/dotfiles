@@ -17,6 +17,7 @@ if ! zgen saved; then
   zgen prezto fasd
   zgen load zsh-users/zsh-completions src
   zgen load nojhan/liquidprompt
+  zgen load knu/zsh-git-escape-magic
   zgen save
 fi
 
