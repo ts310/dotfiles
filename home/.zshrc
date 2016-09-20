@@ -5,6 +5,7 @@ source $HOME/.aliases
 source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
+  zgen load seletskiy/zsh-zgen-compinit-tweak
   zgen prezto editor key-bindings 'emacs'
   zgen prezto
   zgen prezto command-not-found
@@ -14,7 +15,6 @@ if ! zgen saved; then
   zgen prezto history-substring-search
   zgen prezto autosuggestions
   zgen prezto fasd
-  zgen load zsh-users/zsh-completions src
   zgen load nojhan/liquidprompt
   zgen load knu/zsh-git-escape-magic
   zgen save
@@ -25,5 +25,5 @@ setopt share_history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if (which zprof > /dev/null) ;then
-  zprof | less
+  zprof
 fi
