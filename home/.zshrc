@@ -2,8 +2,7 @@
 
 source $HOME/.env
 source $HOME/.aliases
-
-source $HOME/.zgen_source/zgen.zsh
+source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
   zgen prezto editor key-bindings 'emacs'
