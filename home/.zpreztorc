@@ -8,8 +8,6 @@ zstyle ':prezto:load' zmodule 'attr' 'stat'
 # Set the Zsh functions to load (man zshcontrib).
 zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
-zstyle ':prezto:module:prompt' theme 'steeef'
-
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
