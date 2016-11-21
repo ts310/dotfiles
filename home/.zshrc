@@ -1,8 +1,4 @@
-#zmodload zsh/zprof && zprof
-
 source $HOME/.zgen/zgen.zsh
-source $HOME/.env
-source $HOME/.aliases
 
 if ! zgen saved; then
   zgen load seletskiy/zsh-zgen-compinit-tweak
@@ -23,7 +19,3 @@ fi
 setopt share_history
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if (which zprof > /dev/null) ;then
-  zprof | less
-fi
