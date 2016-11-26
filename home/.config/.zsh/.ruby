@@ -21,6 +21,11 @@ ruby() {
   command ruby "$@"
 }
 
+gem() {
+  __rbenv_init
+  command gem "$@"
+}
+
 rake() {
   __rbenv_init
   command rake "$@"

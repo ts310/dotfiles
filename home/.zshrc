@@ -1,7 +1,7 @@
 source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
-  zgen load seletskiy/zsh-zgen-compinit-tweak
+  zgen load zsh-users/zsh-completions src
 
   zgen prezto editor key-bindings 'emacs'
   zgen prezto tmux:auto-start local 'yes'
@@ -17,6 +17,7 @@ if ! zgen saved; then
   zgen prezto history-substring-search
   zgen prezto autosuggestions
   zgen prezto fasd
+  zgen prezto ruby
 
   zgen load nojhan/liquidprompt
   zgen load knu/zsh-git-escape-magic
@@ -28,6 +29,6 @@ fi
 
 setopt share_history
 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
