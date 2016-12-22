@@ -34,3 +34,9 @@
 --langdef=JSX
 --langmap=JSX:.jsx
 --regex-JSX=/^[ \t]*([a-z]+[ \t]+)*class[ \t]+([A-Za-z0-9_]+)[ \t]*([^)])/\2/c,class,classes/
+--langdef=Swift
+--langmap=Swift:+.swift
+--regex-swift=/(var|let)[ \t]+([^:=]+).*$/\2/,variable/
+--regex-swift=/func[ \t]+([^\(\)]+)\([^\(\)]*\)/\1/,function/
+--regex-swift=/class[ \t]+([^:\{]+).*$/\1/,class/
+--regex-swift=/protocol[ \t]+([^:\{]+).*$/\1/,protocol/
