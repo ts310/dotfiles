@@ -5,3 +5,4 @@ archived/.vim/bundle/
 home/.vim/.netrwhist
 home/.tmux/*
 .tags
+*.log

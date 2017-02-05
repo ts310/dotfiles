@@ -4,8 +4,8 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-completions src
 
   zgen prezto editor key-bindings 'emacs'
-  zgen prezto tmux:auto-start local 'yes'
   zgen prezto '*:*' color 'yes'
+  # zgen prezto tmux:auto-start local 'yes'
 
   zgen prezto
 
@@ -29,6 +29,6 @@ fi
 
 setopt share_history
 
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
