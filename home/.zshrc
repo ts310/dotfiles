@@ -32,3 +32,5 @@ setopt share_history
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
