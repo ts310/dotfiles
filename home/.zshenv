@@ -1,6 +1,5 @@
 #zmodload zsh/zprof && zprof
 
-source $HOME/.env
-source $HOME/.aliases
+source $HOME/.config/.zsh/.env
 
 autoload -Uz compinit; compinit

@@ -1,3 +1,5 @@
+# vim:set ft=sh :
+
 # {{{
 alias shellrestart='exec $SHELL -l'
 alias ssh='TERM=xterm ssh'
@@ -62,7 +64,4 @@ function filesbyrefs() {
 }
 # }}}
 
-if [ -f ~/.alias.local ]
-then
-  . ~/.alias.local
-fi
+[ -f ~/.alias.local ] && source ~/.alias.local
