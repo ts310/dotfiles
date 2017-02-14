@@ -1,6 +1,5 @@
 # source common files
-. ~/.env
-. ~/.aliases
+source $HOME/.config/.zsh/.env
 
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 NO_COLOR='\e[0m' #disable any colors
@@ -47,15 +46,6 @@ BWHITE='\e[47m'
 
 PS1="\n\[$NO_COLOR\]\u@\h:\[$NO_COLOR\]\w \[$MAGENTA\]\$(vcprompt) \[$MAGENTA\]\n✻ \[$NO_COLOR\]"
 
-# Bash completion
-if [ -f /usr/local/etc/bash_completion ]
-then
-  . /usr/local/etc/bash_completion
-fi
-
+[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-if [ -f ~/.bashrc.local ]
-then
-  . ~/.bashrc.local
-fi
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
