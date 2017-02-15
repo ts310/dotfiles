@@ -1,4 +1,3 @@
-# source common files
 source $HOME/.config/.zsh/.env
 
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
