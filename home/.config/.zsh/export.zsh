@@ -1,5 +1,7 @@
 # vim:set ft=sh :
 
+export LANG=ja_JP.UTF-8
+
 # {{{
 export EDITOR='vim'
 export VISUAL='vim'
@@ -19,11 +21,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # Prevent double file (._) file on OSX
 export COPYFILE_DISABLE=true
-
-source $HOME/.config/.zsh/.aliases
-source $HOME/.config/.zsh/.fzf
-source $HOME/.config/.zsh/.gitconfig
-source $HOME/.config/.zsh/.ruby
 
 # {{{
 if which fasd >/dev/null 2>&1; then
@@ -49,4 +46,17 @@ if [ -d $HOME/Library/Android/sdk/platform-tools ]; then
 fi
 # }}}
 
-[ -f ~/.env.local ] && source ~/.env.local
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+
+# Enable color in grep
+export GREP_OPTIONS='--color=auto'
+export GREP_COLOR='3;33'
+
+export LESS='--ignore-case --raw-control-chars'
+export PAGER='less'
+
+export LC_COLLATE=C

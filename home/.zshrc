@@ -1,43 +1,18 @@
-source $HOME/.zgen/zgen.zsh
-
-if ! zgen saved; then
-  zgen load seletskiy/zsh-zgen-compinit-tweak
-  zgen load zsh-users/zsh-completions src
-
-  zgen prezto editor key-bindings 'emacs'
-  zgen prezto '*:*' color 'yes'
-  zgen prezto tmux:auto-start local 'yes'
-
-  zgen prezto
-
-  zgen prezto command-not-found
-  zgen prezto syntax-highlighting
-  zgen prezto tmux
-  zgen prezto git
-  zgen prezto history
-  zgen prezto history-substring-search
-  zgen prezto autosuggestions
-  zgen prezto fasd
-  zgen prezto ruby
-
-  zgen load nojhan/liquidprompt
-  zgen load knu/zsh-git-escape-magic
-  zgen load TBSliver/zsh-plugin-colored-man
-  zgen load mafredri/zsh-async
-  zgen load srijanshetty/docker-zsh
-  zgen load supercrabtree/k
-  zgen load andrewferrier/fzf-z
-
-  zgen save >/dev/null
-fi
-
-export LANG=ja_JP.UTF-8
-
-setopt share_history
-setopt print_eight_bit
-setopt no_flow_control
-
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+source $HOME/.config/.zsh/checks.zsh
+source $HOME/.config/.zsh/aliases.zsh
+source $HOME/.config/.zsh/setopt.zsh
+source $HOME/.config/.zsh/export.zsh
+source $HOME/.config/.zsh/prompt.zsh
+source $HOME/.config/.zsh/colors.zsh
+source $HOME/.config/.zsh/bindkeys.zsh
+source $HOME/.config/.zsh/completion.zsh
+source $HOME/.config/.zsh/functions.zsh
+source $HOME/.config/.zsh/fzf.zsh
+source $HOME/.config/.zsh/git.zsh
+source $HOME/.config/.zsh/history.zsh
+source $HOME/.config/.zsh/ruby.zsh
+source $HOME/.config/.zsh/zsh_hooks.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.env.local ] && source ~/.env.local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
