@@ -6,4 +6,3 @@ then
 else
   ssh-keygen -t rsa
 fi
-
