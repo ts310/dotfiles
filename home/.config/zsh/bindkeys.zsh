@@ -2,6 +2,7 @@
 # cat > /dev/null
 # And press it
 
+bindkey -e
 bindkey "^K"  kill-whole-line                      # ctrl-k
 bindkey "^R"  history-incremental-search-backward  # ctrl-r
 bindkey "^A"  beginning-of-line                    # ctrl-a
@@ -12,4 +13,3 @@ bindkey "^D"  delete-char                          # ctrl-d
 bindkey "^F"  forward-char                         # ctrl-f
 bindkey "^B"  backward-char                        # ctrl-b
 bindkey "^P"  history-search-backward              # ctrl-p
-bindkey -v    # Default to standard vi bindings, regardless of editor string

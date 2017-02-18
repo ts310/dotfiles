@@ -1,0 +1,24 @@
+# vim:set ft=sh :
+
+alias shellrestart='exec $SHELL -l'
+alias c='clear'
+alias cdd='cd -' # goto last dir cd'ed from
+alias cl='clear; l'
+alias la="ls -A -l -G -h"
+alias lat="la -t"
+alias lf='ls -F'
+alias ll='ls -l'
+alias ls="ls -FG"
+alias l.='ls -d .[^.]*'
+alias l='ls -lhGt' # -l long listing, most recent first
+alias lh="ls -lh"
+alias ll='ls -lhG' # -l long listing, human readable, no group info
+alias lt='ls -lt' # sort with recently modified first
+alias md='mkdir -p'
+alias k9="killall -9"
+alias tu='top -o cpu' # cpu
+alias tm='top -o vsize' # memory
+alias ehosts='sudo vim /etc/hosts'
+alias newpass='openssl rand -base64 6'
+alias less='less -R'
+alias vag='vagrant'

@@ -1,7 +1,37 @@
-# -------------------------------------------------------------------
-# compressed file expander
-# (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
-# -------------------------------------------------------------------
+isreg() {
+  whois $1 | grep -q 'No match' && echo "No" || echo "Yes"
+}
+
+glg() {
+  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %f %Cgreen(%cr)%Creset by %Cblue%cn' --abbrev-commit --date=relative
+}
+
+gitrmdeleted() {
+  git status | grep "deleted:" | awk '{ print $3 }' | while read f; do git rm "$f"; done
+}
+
+brewup() {
+  brew update && for i in $(brew outdated | awk '{print $1}'); do brew upgrade $i; done && brew cleanup
+}
+
+# redmine {{{
+# $ revsbyrefs ticket-number  -> revisions related to the ticket id
+# $ filesbyrefs ticket-number -> changed files related to the ticket id
+revsbyrefs() {
+  refs=$1
+  svn log -l 1000 | sed '/^$/d' | grep -B1 -o "refs #$refs" | grep -E -o '^r(\d+)' | tr -d 'r' | sort | tr '\n' ' ' | sed 's/[[:space:]]*$//'
+}
+
+filesbyrefs() {
+  files=()
+  for i in $(revsbyrefs $1); do
+    while read f; do
+      files+=("$f\n")
+    done < <(svn diff -c $i --summarize)
+  done
+  echo $files | awk '{print $NF}' | sort | uniq
+}
+
 ex() {
   if [[ -f $1 ]]; then
     case $1 in
@@ -26,10 +56,6 @@ ex() {
   fi
 }
 
-# -------------------------------------------------------------------
-# any function from http://onethingwell.org/post/14669173541/any
-# search for running processes
-# -------------------------------------------------------------------
 any() {
   emulate -L zsh
   unsetopt KSH_ARRAYS
@@ -41,9 +67,6 @@ any() {
   fi
 }
 
-# -------------------------------------------------------------------
-# display a neatly formatted path
-# -------------------------------------------------------------------
 path() {
   echo $PATH | tr ":" "\n" | \
     awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
@@ -54,9 +77,6 @@ path() {
            print }"
 }
 
-# -------------------------------------------------------------------
-# Mac specific functions
-# -------------------------------------------------------------------
 if [[ $IS_MAC -eq 1 ]]; then
   # view man pages in Preview
   pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
@@ -68,15 +88,6 @@ if [[ $IS_MAC -eq 1 ]]; then
   notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow }
 fi
 
-# -------------------------------------------------------------------
-# nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
-# displays mounted drive information in a nicely formatted manner
-# -------------------------------------------------------------------
-function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
-
-# -------------------------------------------------------------------
-# myIP address
-# -------------------------------------------------------------------
 function myip() {
   ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
   ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
@@ -85,15 +96,6 @@ function myip() {
   ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
 }
 
-# -------------------------------------------------------------------
-# (s)ave or (i)nsert a directory.
-# -------------------------------------------------------------------
-s() { pwd > ~/.save_dir ; }
-i() { cd "$(cat ~/.save_dir)" ; }
-
-# -------------------------------------------------------------------
-# console function
-# -------------------------------------------------------------------
 function console () {
   if [[ $# > 0 ]]; then
     query=$(echo "$*"|tr -s ' ' '|')
@@ -103,10 +105,6 @@ function console () {
   fi
 }
 
-# -------------------------------------------------------------------
-# shell function to define words
-# http://vikros.tumblr.com/post/23750050330/cute-little-function-time
-# -------------------------------------------------------------------
 givedef() {
   if [[ $# -ge 2 ]] then
     echo "givedef: too many arguments" >&2

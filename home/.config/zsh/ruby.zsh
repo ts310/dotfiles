@@ -1,4 +1,4 @@
-#!/bin/sh
+# vim:set ft=sh :
 
 export PATH="$PATH:$HOME/.rbenv/bin"
 
@@ -35,5 +35,3 @@ bundle() {
   __rbenv_init
   command bundle "$@"
 }
-
-# vim:set ft=sh :
