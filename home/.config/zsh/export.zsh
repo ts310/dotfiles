@@ -7,6 +7,17 @@ export VISUAL='vim'
 export GIT_EDITOR='vim'
 export SVN_EDITOR='vim'
 
+if [[ $IS_MAC -eq 1 ]]; then
+  # Prevent double file (._) file on OSX
+  export COPYFILE_DISABLE=true
+
+  # Mac OS X uses path_helper and /etc/paths.d to preload PATH, clear it out first
+  if [ -x /usr/libexec/path_helper ]; then
+    PATH=''
+    eval `/usr/libexec/path_helper -s`
+  fi
+fi
+
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
@@ -22,11 +33,6 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='3;33'
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
-
-if [[ $IS_MAC -eq 1 ]]; then
-  # Prevent double file (._) file on OSX
-  export COPYFILE_DISABLE=true
-fi
 
 if which fasd >/dev/null 2>&1; then
   eval "$(fasd --init auto)"
