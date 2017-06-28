@@ -1,9 +1,10 @@
 -R
--f .tags
+-f .git/tags
 --links=no
 --exclude=.svn
 --exclude=.git
 --exclude=cache
+--exclude=*.html
 --exclude=*.log
 --exclude=*.LOG
 --exclude=*.sql
