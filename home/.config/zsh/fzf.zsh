@@ -1,7 +1,7 @@
 # vim:set ft=sh :
 
 if which fzf > /dev/null 2>&1; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --no-messages --hidden --follow --glob "!.git/*"'
   export FZF_DEFAULT_OPTS='
     --bind ctrl-f:page-down,ctrl-b:page-up
     --color light
@@ -13,7 +13,7 @@ fi
 # bind-key 0 run "tmux split-window -l 12 'bash -ci ftpane'"
 ftpane() {
   local panes current_window current_pane target target_window target_pane
-  panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
+  panes=$(tmux list-panes -s -F '#I:#P:#W:#{pane_current_path}:#{pane_current_command}')
   current_pane=$(tmux display-message -p '#I:#P')
   current_window=$(tmux display-message -p '#I')
 
