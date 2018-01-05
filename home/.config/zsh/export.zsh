@@ -12,19 +12,18 @@ if [[ $IS_MAC -eq 1 ]]; then
   export COPYFILE_DISABLE=true
 
   # Mac OS X uses path_helper and /etc/paths.d to preload PATH, clear it out first
-  if [ -x /usr/libexec/path_helper ]; then
-    PATH=''
-    eval `/usr/libexec/path_helper -s`
-  fi
+  # if [ -x /usr/libexec/path_helper ]; then
+  #   PATH=''
+  #   eval `/usr/libexec/path_helper -s`
+  # fi
 fi
 
 export GOPATH=$HOME/.go
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
-export PATH=$HOME/pear:$PATH
-export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$PATH:$HOME/.bin
-export PATH=$PATH:$GOPATH/bin
+# export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+# export PATH=$HOME/pear:$PATH
+# export PATH=$PATH:$HOME/.bin
+# export PATH=$PATH:$GOPATH/bin
 
 export TERM=xterm-256color
 export CLICOLOR=1
@@ -43,15 +42,13 @@ if [ -d "$HOME/.nodebrew/current/bin" ]; then
 fi
 
 if which direnv > /dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
+  #eval "$(direnv hook zsh)"
 fi
 
 if which pyenv > /dev/null 2>&1; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
+  #eval "$(pyenv init -)"
 fi
 
 if [ -d $HOME/Library/Android/sdk/platform-tools ]; then
-  export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+  #export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 fi

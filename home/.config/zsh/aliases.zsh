@@ -22,3 +22,4 @@ alias ehosts='sudo vim /etc/hosts'
 alias newpass='openssl rand -base64 6'
 alias less='less -R'
 alias vag='vagrant'
+alias ctags="$(brew --prefix)/bin/ctags"
