@@ -4,7 +4,10 @@ if which fzf > /dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --no-messages --hidden --follow --glob "!.git/*"'
   export FZF_DEFAULT_OPTS='
     --bind ctrl-f:page-down,ctrl-b:page-up
+    --height 40%
     --color light
+    --reverse
+    --border
   '
 fi
 
@@ -58,10 +61,9 @@ fkill() {
 # fbr - checkout git branch (including remote branches)
 fbr() {
   local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+  branches=$(git branch -avv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
 # fshow - git commit browser
