@@ -6,6 +6,7 @@ source $HOME/.config/zsh/colors.zsh
 source $HOME/.config/zsh/bindkeys.zsh
 source $HOME/.config/zsh/completion.zsh
 source $HOME/.config/zsh/functions.zsh
+source $HOME/.config/zsh/ruby.zsh
 source $HOME/.config/zsh/fzf.zsh
 source $HOME/.config/zsh/git.zsh
 source $HOME/.config/zsh/history.zsh
