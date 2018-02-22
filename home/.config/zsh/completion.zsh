@@ -22,6 +22,9 @@ zstyle ':completion:*' menu select=1 _complete _ignored _approximate
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
 zstyle ':completion:*' verbose yes
