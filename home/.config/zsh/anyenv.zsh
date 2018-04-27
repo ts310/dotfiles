@@ -1,8 +1,11 @@
-# anyenv
 ANYENV_ROOT="$HOME/.anyenv"
+
 if [ -d $ANYENV_ROOT ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
+
+  # lazy load anyenv init script
   # eval "$(anyenv init - --no-rehash)"
+
   for D in `ls $HOME/.anyenv/envs`
   do
     export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"

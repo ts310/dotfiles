@@ -10,7 +10,6 @@ source $HOME/.config/zsh/fzf.zsh
 source $HOME/.config/zsh/git.zsh
 source $HOME/.config/zsh/history.zsh
 source $HOME/.config/zsh/zsh_hooks.zsh
-#source $HOME/.config/zsh/anyenv.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
