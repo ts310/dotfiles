@@ -1,6 +1,8 @@
+# vim:set ft=sh :
+
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:*'  enable git svn
+zstyle ':vcs_info:*' enable git svn cvs
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
