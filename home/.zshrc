@@ -13,3 +13,7 @@ source $HOME/.config/zsh/prompt.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile ~/.zshrc
+fi

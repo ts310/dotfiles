@@ -5,6 +5,7 @@ precmd() {
   # Put the parentdir/currentdir in the tab
   echo -ne "\e]1;$PWD:h:t/$PWD:t\a"
 
+  # vcs_info svn requirs english locale
   LANG="en_US.UTF-8" vcs_info
 }
 
