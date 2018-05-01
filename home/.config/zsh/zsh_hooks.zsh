@@ -5,6 +5,8 @@ precmd() {
 
   # Put the parentdir/currentdir in the tab
   echo -ne "\e]1;$PWD:h:t/$PWD:t\a"
+
+  LANG="en_US.UTF-8" vcs_info
 }
 
 set_running_app() {
