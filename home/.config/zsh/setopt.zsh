@@ -18,9 +18,8 @@ setopt always_to_end
 setopt auto_menu
 setopt auto_name_dirs
 setopt complete_in_word
-setopt correct
-setopt correctall
 setopt prompt_subst
 setopt transient_rprompt
 setopt multios
 unsetopt menu_complete
+unsetopt correct_all

@@ -1,6 +1,6 @@
 # vim:set ft=sh :
 
-alias shellrestart='exec $SHELL -l'
+alias zclear=`rm -f ~/.zshrc.zwc`
 alias c='clear'
 alias cdd='cd -' # goto last dir cd'ed from
 alias cl='clear; l'
@@ -23,3 +23,4 @@ alias newpass='openssl rand -base64 6'
 alias less='less -R'
 alias vag='vagrant'
 alias ctags="$(brew --prefix)/bin/ctags"
+alias sha256sum="shasum -a 256"

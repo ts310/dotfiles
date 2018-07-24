@@ -14,6 +14,14 @@ brewup() {
   brew update && for i in $(brew outdated | awk '{print $1}'); do brew upgrade $i; done && brew cleanup
 }
 
+shellrestart() {
+  rm -f ~/.zshrc.zwc && zcompile ~/.zshrc && exec $SHELL -l
+}
+
+updatetags() {
+  ctags .
+}
+
 # redmine {{{
 # $ revsbyrefs ticket-number  -> revisions related to the ticket id
 # $ filesbyrefs ticket-number -> changed files related to the ticket id
