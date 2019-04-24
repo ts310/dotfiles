@@ -24,6 +24,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 export PATH=$PATH:$GOPATH/bin
+export PATH=~/.local/bin:$PATH
 
 if which fasd >/dev/null 2>&1; then
   eval "$(fasd --init auto)"
