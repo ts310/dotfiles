@@ -62,7 +62,53 @@
                         ]
                     },
                     {
-                        "description": "Emacs key bindings [control+keys] (rev 10)",
+                        "description": "escキーを押したときに、英数キーも送信する(vim用)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "escape"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    },
+                                    {
+                                        "key_code": "japanese_eisuu"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Ctrl+[を押したときに、英数キーも送信する(vim用)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "japanese_eisuu"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Emacs key bindings [control+keys] (rev 9)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -100,14 +146,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -168,14 +212,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -236,14 +278,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -380,14 +420,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -449,14 +487,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -518,14 +554,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -587,14 +621,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
@@ -656,14 +688,12 @@
                                             "^com\\.parallels\\.vm$",
                                             "^com\\.parallels\\.desktop\\.console$",
                                             "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
-                                            "^com\\.citrix\\.XenAppViewer$",
                                             "^com\\.vmware\\.proxyApp\\.",
                                             "^com\\.parallels\\.winapp\\.",
                                             "^org\\.x\\.X11$",
                                             "^com\\.apple\\.x11$",
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
-                                            "^com\\.sublimetext\\.",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_unless"
