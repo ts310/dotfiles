@@ -25,3 +25,4 @@ alias vag='vagrant'
 alias ctags="$(brew --prefix)/bin/ctags"
 alias sha256sum="shasum -a 256"
 alias historyall="history -E 1"
+alias dps="docker-compose ps"
