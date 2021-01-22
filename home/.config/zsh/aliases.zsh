@@ -25,9 +25,13 @@ alias vag='vagrant'
 alias ctags="$(brew --prefix)/bin/ctags"
 alias sha256sum="shasum -a 256"
 alias historyall="history -E 1"
-alias dps="docker-compose ps"
 alias dk="docker-compose"
+alias kb="kubectl"
 alias j="just"
 alias da="direnv allow"
-alias kb="kubectl"
 alias g="git"
+alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+alias psql="docker run --rm -it --net=host postgres psql"
+if [[ -x `which colordiff` ]]; then
+  alias diff="colordiff"
+fi
